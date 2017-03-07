@@ -5,7 +5,6 @@
         .panel-body
           %h2= @user.name
           %h2= @user.email
-          = image_tag @user.image.url
         - if right_user
           = link_to edit_user_path(current_user) do
             %i.fa.fa-edit

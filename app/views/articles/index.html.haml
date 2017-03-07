@@ -1,18 +1,23 @@
 .main
   .container
     .row
-      .col-md-8.col-md-offset-2
+      .col-md-9
         .panel
           .panel-heading
-            All article
+            %h2= t('.All article')
+            = search_form_for @q do |f|
+              = f.search_field :title
+              = f.submit t('.search'), class: "btn btn-primary"
           .panel-body
+            %ul.list-group
           - if @articles.present?
             - @articles.each do |article|
               #index
                 %h2= link_to article.title, article
-                %h2= article.user.name
-                = image_tag article.user.image.url
+                %p= article.user.name
+                =image_tag article.user.image.url
                 %h2
                 = article.comments.count
                 = t('.Comments')
-                %p= time_ago_in_words(article.created_at)
+                %span= time_ago_in_words(article.created_at)
+          =paginate @articles

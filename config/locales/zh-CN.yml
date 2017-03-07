@@ -5,6 +5,15 @@ zh-CN:
         name: "姓名"
         password: "密码"
         password_confirmation: "密码确认"
+
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "末页 &raquo;"
+      previous: "&lsaquo; 上一页"
+      next: "下一页 &rsaquo;"
+      truncate: "...;"
+
   users:
     form:
       sign up: "注册"
@@ -39,3 +48,34 @@ zh-CN:
       Comments: "评论"
     index:
       Comments: "评论"
+
+  layouts:
+    application:
+      Home: "主页"
+      All User: "用户"
+      New Article: "新文章"
+      All Article: "文章"
+      Setting: "设置"
+      Log Out: "登出"
+      Sign Up: "注册"
+      Sign In: "登录"
+      New Article: "新建文章"
+      All Articles: "所有分类"
+
+  comments:
+    edit:
+      edit comment: "修改"
+
+  articles:
+    show:
+      create comment: "评论"
+      content: "评论内容"
+      Comments: "评论"
+    form:
+      publish: "发布"
+    index:
+      Comments: "评论"
+      All article: "全部文章"
+      search: "搜索"
+
+    

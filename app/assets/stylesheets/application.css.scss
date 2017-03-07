@@ -26,7 +26,6 @@ body{
 .panel{
   margin: 70px auto;
   padding-left: 8px;
-  width: 60%;
   border: none;
   h2{
      font-size: 1em; 
@@ -36,8 +35,8 @@ body{
 .navbar-nav{
   li{
     img{
-      width: 20%;
-      border-radius: 6%;
+      width: 10%;
+      border-radius: 10%;
     }
   }
 }
@@ -46,15 +45,20 @@ body{
   border-bottom: 1px solid #ccc;
   margin-left: 10px;
   p{
+    float: left;
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+  span{
     float: right;
+    margin-right: 8px;
   }
   h2{
     font-size: 1em;
-   
   }
   img{
-    width: 20%;
-    border-radius: 30%;
+    width: 8%;
+    border-radius: 40%;
     }
 }
 

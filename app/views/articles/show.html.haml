@@ -8,9 +8,6 @@
           %h2= @article.category.name
           %h2= @article.title
           %p= @article.content
-          %h2
-          =@article.comments.count
-          = t('.Comments')
           - @article.comments.each do |comment|
             #index
               %h2= comment&.user&.name
@@ -20,12 +17,14 @@
                   %i.fa.fa-edit
                 = link_to [comment.article, comment], method: :delete, data: { confirm: "Are you sure" } do
                   %i.fa.fa-trash
-
+              %h2
+                =@article.comments.count
+                = t('.Comments')
           = simple_form_for([@article, @article.comments.build]) do |f|
             .form-group
               = f.label :content, class: "control-label"
-              = f.text_area :content, class: "form-control"
-            = f.submit "create comment", class: "btn btn-primary"  
+              = f.text_area :content, placeholder: t('.content'), class: "form-control"
+            = f.submit t('.create comment'), class: "btn btn-primary"  
           
           #article
             - if correct_user
