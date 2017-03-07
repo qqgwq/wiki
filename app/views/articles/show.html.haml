@@ -1,0 +1,38 @@
+.main
+  .container
+    .row
+      .panel
+        .panel-body
+          %h2= @article.user.name 
+          = image_tag @article.user.image.url
+          %h2= @article.category.name
+          %h2= @article.title
+          %p= @article.content
+          %h2
+          =@article.comments.count
+          = t('.Comments')
+          - @article.comments.each do |comment|
+            #index
+              %h2= comment&.user&.name
+              %h2= comment&.content
+              - if comment.user == current_user
+                = link_to edit_article_comment_path(comment.article, comment) do
+                  %i.fa.fa-edit
+                = link_to [comment.article, comment], method: :delete, data: { confirm: "Are you sure" } do
+                  %i.fa.fa-trash
+
+          = simple_form_for([@article, @article.comments.build]) do |f|
+            .form-group
+              = f.label :content, class: "control-label"
+              = f.text_area :content, class: "form-control"
+            = f.submit "create comment", class: "btn btn-primary"  
+          
+          #article
+            - if correct_user
+              = link_to edit_article_path(@article) do
+                %i.fa.fa-edit
+            
+              = link_to article_path(@article), method: :delete, data: { confirm: "Are you sure" } do
+                %i.fa.fa-trash
+
+        

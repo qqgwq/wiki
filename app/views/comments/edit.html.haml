@@ -1,0 +1,5 @@
+= simple_form_for([@article, @comment]) do |f|
+  .form-group
+    = f.label :content, class: "control-label"
+    = f.text_area :content, class: "form-control"
+  = f.submit "edit comment", class: "btn btn-primary"
