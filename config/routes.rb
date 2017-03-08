@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => 'sidekiq'
   get 'sessions/new'
 
-  resources :articles do
+  concern :likeable do
+    resource :like, only: [:create, :destroy]
+  end
+
+  resources :articles, concerns: [:likeable] do
   	resources :comments
 	end
   resources :users

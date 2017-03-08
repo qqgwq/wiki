@@ -12,7 +12,7 @@
             %ul.list-group
           - if @articles.present?
             - @articles.each do |article|
-              #index
+              #index1
                 %h2= link_to article.title, article
                 %p= article.user.name
                 =image_tag article.user.image.url

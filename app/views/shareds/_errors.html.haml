@@ -1,0 +1,9 @@
+- if @user.errors.any?
+  #errors
+    %p
+      %h2
+      = @user.errors.count
+      =t('.this user from being saved')
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg

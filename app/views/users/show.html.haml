@@ -1,13 +1,14 @@
 .main
   .container
     .row
-      .panel
-        .panel-body
-          %h2= @user.name
-          %h2= @user.email
-        - if right_user
-          = link_to edit_user_path(current_user) do
-            %i.fa.fa-edit
+      .col-md-6.col-md-offset-3
+        .panel
+          .panel-body
+            %h2= @user.name
+            %h2= @user.email
+          - if right_user
+            = link_to edit_user_path(current_user) do
+              %i.fa.fa-edit
 
-          = link_to user_path(current_user), method: :delete, data: { confirm: "Are you sure" } do
-            %i.fa.fa-trash
+            = link_to user_path(current_user), method: :delete, data: { confirm: "Are you sure" } do
+              %i.fa.fa-trash

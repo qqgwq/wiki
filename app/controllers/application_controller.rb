@@ -52,6 +52,9 @@ class ApplicationController < ActionController::Base
     user == current_user
   end
 
+  def set_search
+    @q = Article.search(params[:q])
+  end
   
   def require_is_admin
     if !current_user.admin?

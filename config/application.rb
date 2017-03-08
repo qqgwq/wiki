@@ -12,5 +12,7 @@ module Wiki
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = "zh-CN"
+    config.active_job.queue_adapter = :sidekiq
+    CONFIG = Rails.application.secrets
   end
 end

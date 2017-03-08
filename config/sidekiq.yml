@@ -1,0 +1,14 @@
+:concurrency: 5
+:pidfile: tmp/pids/sidekiq.pid
+
+# 队列分类
+
+:queues:
+  - default
+  - [register, 2]
+development:
+  :concurrency: 5
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 20

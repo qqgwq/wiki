@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :require_login, except: [:index, :show]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :destroy]
+  before_action :set_search
   def index
     #binding.pry
     if params[:category].blank?
@@ -9,7 +10,7 @@ class ArticlesController < ApplicationController
        @articles = @q.result.includes(:user, :comments).order(created_at: :desc).page(params[:page]).per(2)
     else
        @category_id = Category.find_by(name: params[:category]).id
-       @articles = Article.where(category_id: @category_id).order(created_at: :desc)
+       @articles = Article.where(category_id: @category_id).order(created_at: :desc).page(params[:page]).per(2)
     end
   end
 
@@ -45,6 +46,8 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
+  def likes
+  end
   private
 
   def article_params

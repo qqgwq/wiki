@@ -5,7 +5,7 @@ zh-CN:
         name: "姓名"
         password: "密码"
         password_confirmation: "密码确认"
-
+      
   views:
     pagination:
       first: "&laquo; 首页"
@@ -71,11 +71,20 @@ zh-CN:
       create comment: "评论"
       content: "评论内容"
       Comments: "评论"
+      category_name: "类名"
     form:
       publish: "发布"
+      
     index:
       Comments: "评论"
       All article: "全部文章"
       search: "搜索"
+
+  shareds:
+    errors:
+      this user from being saved: "个错误数量"
+
+
+
 
     

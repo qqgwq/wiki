@@ -36,7 +36,21 @@ gem 'pry-nav'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
 gem 'better_errors'
+
+#上传图片
 gem 'paperclip'
 gem 'paperclip-i18n'
+
+#分页
 gem 'kaminari'
+
+#搜索
 gem 'ransack'
+
+#短信
+gem 'china_sms'
+
+#队列
+gem 'sidekiq'
+gem 'redis'
+gem 'redis-namespace'

@@ -4,7 +4,7 @@
       .col-md-6.col-md-offset-3
         .panel
           .panel-heading
-            publish
+            %h2= t('.publish')
           .panel-body
             = simple_form_for(@article) do |f|
               .form-group
@@ -19,4 +19,4 @@
                 = f.label :content, class: "control-label"
                 = f.text_area :content, class: "form-control"
 
-              = f.submit "publish", class: "btn btn-primary"
+              = f.submit t('.publish'), class: "btn btn-primary"

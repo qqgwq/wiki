@@ -6,7 +6,9 @@
           .panel-heading
             %h2= t('.sign up')
           .panel-body
-            = simple_form_for(@user) do |f|
+            = simple_form_for @user, html: { multipart: true } do |f|
+              = render 'shareds/errors'
+              = render 'shareds/flash'
               .form-group
                 = f.label :name, class: "control-label"
                 = f.text_field :name, class: "form-control"

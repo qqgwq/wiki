@@ -1,0 +1,2 @@
+@wiki.Likes.updateLike('<%= @likeable.class.name.downcase %>', <%= @likeable.id %>, false);
+$('#like-for-<%= @likeable.class.name.downcase %>-<%= @likeable.id %> .count').text('<%= @likeable.likes.count > 0 ? @likeable.likes.count : nil %>');
