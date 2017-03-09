@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      SmsJob.set(wait: 1.minute).perform_later("Nothing is difficult if you put your heart into it!")
+      SmsJob.set(wait: 1.minute).perform_later(@user.phone, @user.name)
       login_as @user
-      redirect_to @user, notice: "Successfully created"
+      redirect_to @user
     else
       render :new
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation, :image)
+    params.require(:user).permit(:phone, :name, :password, :password_confirmation, :image)
   end
 
 end

@@ -5,6 +5,7 @@ zh-CN:
         name: "姓名"
         password: "密码"
         password_confirmation: "密码确认"
+        phone: "电话号码"
       
   views:
     pagination:
