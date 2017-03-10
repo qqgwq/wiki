@@ -8,15 +8,15 @@
           .panel-body
             = simple_form_for(@article) do |f|
               .form-group
-                = f.label :category_id, class: "control-label"
+                = f.label :分类, class: "control-label"
                 = f.collection_select :category_id, Category.all, :id, :name, class: "form-control"
 
               .form-group
-                = f.label :title, class: "control-label"
+                = f.label :标题, class: "control-label"
                 = f.text_field :title, class: "form-control"
 
               .form-group
-                = f.label :content, class: "control-label"
+                = f.label :内容, class: "control-label"
                 = f.text_area :content, class: "form-control"
 
               = f.submit t('.publish'), class: "btn btn-primary"

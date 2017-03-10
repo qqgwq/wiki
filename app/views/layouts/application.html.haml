@@ -12,7 +12,7 @@
       .navbar-header
         .navbar-brand= link_to t('.Home'), root_path
       %ul.nav.navbar-nav.navbar-right
-        - if login?
+        - if login? 
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
               = image_tag current_user.image.url

@@ -19,10 +19,18 @@
  @import "font-awesome";
 
 body{
-  background: #304352; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #304352 , #d7d2cc); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #304352 , #d7d2cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+  background-image: url(image_path("welcome_banner_image.jpg"));
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+	width: 100%;
+	min-height: 500px;
+	display: table;
 } 
+
+#bg{
+  background-image: url("callout_background.jpg");
+}
 .panel{
   margin: 70px auto;
   padding-left: 8px;
@@ -51,7 +59,7 @@ body{
   }
   span{
     float: right;
-    margin-right: 8px;
+    margin-right: 3em;
   }
   h2{
     font-size: 1em;
@@ -118,5 +126,30 @@ ul{
   text-align: center;
   .alert{
     font-size: 3rem;
+  }
+}
+
+.span-count{
+  position:relative;
+  top: -36px;
+  left:19px;
+}
+.span-count1{
+  position: relative;
+  float: right;
+  top: -1.6em;
+  left: 1.5em;
+}
+
+#user_image{
+  margin-top: 8px;
+}
+
+.navbar-brand{
+  :hover{
+    font-size: 1em;
+    font-weight: 1em;
+    background-color: white;
+    text-decoration: none
   }
 }

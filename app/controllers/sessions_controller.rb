@@ -19,9 +19,6 @@ class SessionsController < ApplicationController
   end
 
 
-
-
-
   private
 
   def login_params

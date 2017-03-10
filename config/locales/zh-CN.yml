@@ -6,6 +6,15 @@ zh-CN:
         password: "密码"
         password_confirmation: "密码确认"
         phone: "电话号码"
+
+  # helpers:
+  #   label:
+  #     article:
+  #       category_id: "类别"
+  #       title: "标题"
+  #       content: "内容"
+
+
       
   views:
     pagination:
@@ -24,6 +33,9 @@ zh-CN:
     messages:
       in_between: "文件大小必须介于 %{min} 到 %{max} 之间"
       spoofed_media_type: "扩展名与内容类型不符"
+    edit:
+      Edit: "编辑"
+      Back: "返回"
 
   number:
     human:
@@ -73,6 +85,8 @@ zh-CN:
       content: "评论内容"
       Comments: "评论"
       category_name: "类名"
+    edit: 
+      publish: "发布"
     form:
       publish: "发布"
       
@@ -84,6 +98,8 @@ zh-CN:
   shareds:
     errors:
       this user from being saved: "个错误数量"
+
+  
 
 
 

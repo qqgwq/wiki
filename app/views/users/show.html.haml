@@ -10,5 +10,5 @@
             = link_to edit_user_path(current_user) do
               %i.fa.fa-edit
 
-            = link_to user_path(current_user), method: :delete, data: { confirm: "Are you sure" } do
+            = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
               %i.fa.fa-trash

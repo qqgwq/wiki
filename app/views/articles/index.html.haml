@@ -1,7 +1,7 @@
 .main
   .container
     .row
-      .col-md-9
+      .col-md-10
         .panel
           .panel-heading
             %h2= t('.All article')
@@ -9,15 +9,21 @@
               = f.search_field :title
               = f.submit t('.search'), class: "btn btn-primary"
           .panel-body
-            %ul.list-group
+
           - if @articles.present?
             - @articles.each do |article|
               #index1
                 %h2= link_to article.title, article
                 %p= article.user.name
                 =image_tag article.user.image.url
+
                 %h2
                 = article.comments.count
                 = t('.Comments')
                 %span= time_ago_in_words(article.created_at)
+              .pull-right
+                = link_to article_like_path(article), method: :post, remote: true do
+                  %i.fa.fa-heart
+              .span-count1
+                = article.likes_count
           =paginate @articles
