@@ -8,33 +8,39 @@
             %h2= @article.category.name
             %h2= @article.title
             %p= @article.content
-            .pull-right
-              = link_to article_like_path(@article), method: :post, remote: true do
-                %i.fa.fa-heart
-              .span-count
-                = @article.likes_count
-            - @article.comments.each do |comment|
-              #index
-                %p= comment&.user&.name
-                %h2= comment&.content
-                - if comment.user == current_user
-                  = link_to edit_article_comment_path(comment.article, comment) do
-                    %i.fa.fa-edit
-                  = link_to [comment.article, comment], method: :delete, data: { confirm: "确定删除?" } do
-                    %i.fa.fa-trash
-                %h2
-                  =@article.comments.count
-                  = t('.Comments')
-            = simple_form_for([@article, @article.comments.build]) do |f|
-              .form-group
-                = f.label :content, class: "control-label"
-                = f.text_area :content, placeholder: t('.content'), class: "form-control"
-              = f.submit t('.create comment'), class: "btn btn-primary"  
-            
-            #article
-              - if correct_user
-                = link_to edit_article_path(@article) do
-                  %i.fa.fa-edit
+            .pull-right 
+              - if @article.is_user_like?(current_user)
+                = link_to article_like_path(@article), method: :delete do
+                  %i.fa.fa-heart
+                .span-count
+                  = @article.likes.count
+              - else
+                = link_to article_like_path(@article), method: :post do
+                  %i.fa.fa-heart
+                .span-count
+                  = @article.likes.count
+              - @article.comments.each do |comment|
+                #index
+                  %p= comment&.user&.name
+                  %h2= comment&.content
+                  - if comment.user == current_user
+                    = link_to edit_article_comment_path(comment.article, comment) do
+                      %i.fa.fa-edit
+                    = link_to [comment.article, comment], method: :delete, data: { confirm: "确定删除?" } do
+                      %i.fa.fa-trash
+                  %h2
+                    =@article.comments.count
+                    = t('.Comments')
+              = simple_form_for([@article, @article.comments.build]) do |f|
+                .form-group
+                  = f.label :content, class: "control-label"
+                  = f.text_area :content, placeholder: t('.content'), class: "form-control"
+                = f.submit t('.create comment'), class: "btn btn-primary"  
               
-                = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
-                  %i.fa.fa-trash
+              #article
+                - if correct_user
+                  = link_to edit_article_path(@article) do
+                    %i.fa.fa-edit
+                
+                  = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
+                    %i.fa.fa-trash

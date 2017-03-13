@@ -3,16 +3,12 @@ class LikesController < ApplicationController
   def create
     #binding.pry     
     @likeable.likes.find_or_create_by user: current_user
-    respond_to do |format|
-      format.js
-    end
+    redirect_to :back
   end
 
   def destroy
     @likeable.likes.where(user: current_user).delete_all
-    respond_to do |format|
-      format.js
-    end
+    redirect_to :back
   end
 
 

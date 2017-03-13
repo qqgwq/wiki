@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
     def require_login
      unless login?
+       store_location
        flash[:danger] = "请登录"
        redirect_to login_path
     end
@@ -38,6 +39,19 @@ class ApplicationController < ActionController::Base
         session[:user_id] = nil
       end
     end
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_path if request.get?
+  end
+
+  def redirect_back_to(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def method_name
+    
   end
 
   def correct_user
