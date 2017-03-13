@@ -46,6 +46,7 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
+
   def likes
   end
   private

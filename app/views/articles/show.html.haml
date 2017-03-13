@@ -10,19 +10,20 @@
             %p= @article.content
             .pull-right 
               - if @article.is_user_like?(current_user)
-                = link_to article_like_path(@article), method: :delete do
+                = link_to article_like_path(@article), method: :delete, "class" => "like", remote: true do
                   %i.fa.fa-heart
                 .span-count
                   = @article.likes.count
               - else
-                = link_to article_like_path(@article), method: :post do
+                = link_to article_like_path(@article), method: :post, "class" => "like", remote: true do
                   %i.fa.fa-heart
                 .span-count
                   = @article.likes.count
+
               - @article.comments.each do |comment|
                 #index
                   %p= comment&.user&.name
-                  %h2= comment&.content
+                  %h4= comment&.content
                   - if comment.user == current_user
                     = link_to edit_article_comment_path(comment.article, comment) do
                       %i.fa.fa-edit
@@ -35,7 +36,8 @@
                 .form-group
                   = f.label :content, class: "control-label"
                   = f.text_area :content, placeholder: t('.content'), class: "form-control"
-                = f.submit t('.create comment'), class: "btn btn-primary"  
+                = f.submit t('.create comment'), class: "btn btn-primary"
+                = link_to t('.B'), root_path, class: "btn btn-danger"
               
               #article
                 - if correct_user

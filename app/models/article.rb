@@ -10,5 +10,4 @@ class Article < ApplicationRecord
     likes.map(&:user_id).include? user.id
   end
 end
-
-
+#用户的文章

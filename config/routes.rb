@@ -6,11 +6,16 @@ Rails.application.routes.draw do
   concern :likeable do
     resource :like, only: [:create, :destroy]
   end
+	
+  concern :commentable do
+    resources :comments, concerns: [:likeable]
+  end 
 
-  resources :articles, concerns: [:likeable] do
-  	resources :comments
-	end
-  resources :users
+  resources :articles, concerns: [:likeable, :commentable]
+
+  resources :users do
+    resources :articles
+  end
   root "articles#index"
 
   get "signup", to: "users#new", as: "signup"

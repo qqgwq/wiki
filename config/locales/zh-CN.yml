@@ -56,11 +56,7 @@ zh-CN:
       sign in: "登录"
       password: "密码"
       New User: "新用户?"
-  articles:
-    show:
-      Comments: "评论"
-    index:
-      Comments: "评论"
+  
 
   layouts:
     application:
@@ -85,6 +81,11 @@ zh-CN:
       content: "评论内容"
       Comments: "评论"
       category_name: "类名"
+      Comments: "评论"
+      B: "返回首页"
+      
+    index:
+      Comments: "评论"
     edit: 
       publish: "发布"
     form:
