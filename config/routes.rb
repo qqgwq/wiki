@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   require 'sidekiq/web'
   mount Sidekiq::Web => 'sidekiq'
   get 'sessions/new'
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
       get :person
     end
   end
+  #resources :password_resets, only: [:new, :create, :edit, :update]
    
   root "articles#index"
 

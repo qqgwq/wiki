@@ -56,6 +56,7 @@ zh-CN:
       sign in: "登录"
       password: "密码"
       New User: "新用户?"
+      password_resets: "忘记密码?"
   
 
   layouts:
@@ -100,8 +101,6 @@ zh-CN:
   shareds:
     errors:
       this user from being saved: "个错误数量"
-
-  
 
 
 
