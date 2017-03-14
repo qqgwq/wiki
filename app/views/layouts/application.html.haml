@@ -10,7 +10,9 @@
   %nav.navbar.navbar-static-top
     .container
       .navbar-header
-        .navbar-brand= link_to t('.Home'), root_path
+        .navbar-brand
+          = link_to root_path do
+            %i.fa.fa-home
       %ul.nav.navbar-nav.navbar-right
         - if login? 
           %li.dropdown
