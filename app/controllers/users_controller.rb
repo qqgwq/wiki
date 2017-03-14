@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :destroy, :person]
   before_action :right_user, only: [:edit, :destroy]
   before_action :require_is_admin, only: [:destroy]
 
@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   def edit
   end
 
-  
+  def person
+  end  
 
   def update
     if @user.update(user_params)
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def user_params

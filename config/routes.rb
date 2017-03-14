@@ -9,13 +9,16 @@ Rails.application.routes.draw do
 	
   concern :commentable do
     resources :comments, concerns: [:likeable]
-  end 
+  end
 
   resources :articles, concerns: [:likeable, :commentable]
 
   resources :users do
-    resources :articles
+    member do
+      get :person
+    end
   end
+   
   root "articles#index"
 
   get "signup", to: "users#new", as: "signup"

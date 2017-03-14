@@ -15,13 +15,14 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = current_user.articles.new
+    @article = current_user.articles.build
   end
 
   def show
   end
 
   def create
+    #binding.pry
     @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to @article
@@ -47,8 +48,6 @@ class ArticlesController < ApplicationController
   end
 
 
-  def likes
-  end
   private
 
   def article_params
@@ -56,6 +55,6 @@ class ArticlesController < ApplicationController
   end
 
   def find_article
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 end

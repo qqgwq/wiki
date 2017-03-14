@@ -28,12 +28,16 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'listen', '~> 3.0.5'
+#常用
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'bcrypt'
 gem 'pry-nav'
+
+#图标
 gem 'font-awesome-sass'
+
 gem 'rails-i18n'
 gem 'better_errors'
 
@@ -46,6 +50,9 @@ gem 'kaminari'
 
 #搜索
 gem 'ransack'
+
+#友好
+gem 'friendly_id'
 
 #短信
 gem 'china_sms'
