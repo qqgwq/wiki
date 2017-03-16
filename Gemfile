@@ -34,6 +34,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'bcrypt'
 gem 'pry-nav'
+gem 'rename'
 
 #图标
 gem 'font-awesome-sass'
