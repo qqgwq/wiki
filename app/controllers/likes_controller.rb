@@ -19,6 +19,7 @@ class LikesController < ApplicationController
   private
 
   def find_likeable
+    #binding.pry
     resource, id = request.path.split('/')[1, 2] #article/id
     @likeable = resource.singularize.classify.constantize.find(id)
   end

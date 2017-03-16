@@ -62,6 +62,7 @@ gem 'china_sms'
 gem 'sidekiq'
 gem 'redis'
 gem 'redis-namespace'
+gem 'concurrent-ruby'
 
 #定时任务
 gem 'whenever', require: false

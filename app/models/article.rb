@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   include Likeable
-  extend FriendlyId
-  friendly_id :title
+  # extend FriendlyId
+  # friendly_id :title
   belongs_to :user
   belongs_to :category
   has_many :comments

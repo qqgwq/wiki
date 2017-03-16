@@ -6,6 +6,7 @@
 :queues:
   - default
   - [register, 2]
+  - [person, 2]
 development:
   :concurrency: 5
 staging:

@@ -216,6 +216,7 @@ DEPENDENCIES
   bootstrap-sass
   china_sms
   coffee-rails (~> 4.2)
+  concurrent-ruby
   font-awesome-sass
   friendly_id
   haml
