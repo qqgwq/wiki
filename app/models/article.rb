@@ -9,10 +9,8 @@ class Article < ApplicationRecord
   validates :content, presence: true
 
 
-
-
   def is_user_like?(user)
-    likes.map(&:user_id).include? user.id
+    likes.map(&:user_id).include? user&.id
   end
 end
 

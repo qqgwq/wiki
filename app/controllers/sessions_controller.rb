@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(phone: login_params[:phone])
     if @user && @user.authenticate(login_params[:password])
       login_as @user
+      remember_me
       redirect_back_to @user
       #redirect_to @user, notice: "登录成功"
     else

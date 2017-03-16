@@ -57,7 +57,6 @@ zh-CN:
       password: "密码"
       New User: "新用户?"
       password_resets: "忘记密码?"
-  
 
   layouts:
     application:

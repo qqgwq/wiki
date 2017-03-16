@@ -7,7 +7,7 @@
           .panel-heading
             %h2= t('.sign in')
           .panel-body
-            = simple_form_for(:session, url: login_path) do |f|
+            = form_for(:session, url: login_path) do |f|
               .form-group
                 = f.label :电话号码, class: "control-label"
                 = f.text_field :phone, class: "form-control"
@@ -15,7 +15,11 @@
               .form-group
                 = f.label :密码, class: "control-label"
                 = f.password_field :password, class: "form-control"
-             
+
+              .form-group
+                = f.label :记住我, class: "remember"
+                = f.check_box :remember_me
+            
               = f.submit t('.signin'), class: "btn btn-primary"
 
               .form-group

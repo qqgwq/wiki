@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
    class AccessDenied < Exception; end
 
     def current_user
-      @current_user || login_from_session unless defined?(@current_user)
+      @current_user ||= login_from_session || login_from_cookies
     end
 
     def require_login
@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
   def logout
     session.delete(:user_id)
     @current_user = nil
+    forget_me
   end
 
   def login?
@@ -41,6 +42,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def login_from_cookies
+    if cookies[:remember_token].present?
+      if user = User.find_by_remember_token(cookies[:remember_token])
+        session[:user_id] = user.id
+        user
+      else
+        forget_me
+        nil
+      end
+    end
+  end
+
   def store_location
     session[:forwarding_url] = request.original_path if request.get?
   end
@@ -48,10 +61,6 @@ class ApplicationController < ActionController::Base
   def redirect_back_to(default)
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)
-  end
-
-  def method_name
-    
   end
 
   def correct_user
@@ -75,5 +84,17 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "你不是管理员"
       redirect_to root_path
     end
+  end
+
+  def remember_me
+    cookies[:remember_token] = {
+      value: current_user.remember_token,
+      expires_after: 60.minutes,
+      httponly: true
+    }
+  end
+
+  def forget_me
+    cookies.delete(:remember_token)
   end
 end

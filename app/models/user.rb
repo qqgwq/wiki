@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ApplicationRecord 
   extend FriendlyId
   friendly_id :name
   has_secure_password
@@ -13,5 +13,14 @@ class User < ApplicationRecord
 
   def admin?
     is_admin
+  end
+
+   def remember_token
+    [id, Digest::SHA512.hexdigest(password_digest)].join('$')
+  end
+
+  def self.find_by_remember_token(token)
+    user = find_by_id(token.split('$').first)
+    (user && Rack::Utils.secure_compare(user.remember_token, token)) ? user : nil
   end
 end
