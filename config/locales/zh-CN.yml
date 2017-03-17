@@ -85,8 +85,7 @@ zh-CN:
       Comments: "评论"
       B: "返回首页"
       
-    index:
-      Comments: "评论"
+     
     edit: 
       publish: "发布"
     form:
@@ -96,6 +95,7 @@ zh-CN:
       Comments: "评论"
       All article: "全部文章"
       search: "搜索"
+      search_body: "搜索内容"
 
   shareds:
     errors:
