@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'bcrypt'
 gem 'pry-nav'
 gem 'rename'
+gem 'execjs' 
 
 #图标
 gem 'font-awesome-sass'
@@ -55,6 +56,7 @@ gem 'ransack'
 #友好
 gem 'friendly_id'
 
+
 #短信
 gem 'china_sms'
 
@@ -66,3 +68,7 @@ gem 'concurrent-ruby'
 
 #定时任务
 gem 'whenever', require: false
+
+#后台
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
