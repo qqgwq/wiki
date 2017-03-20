@@ -1,4 +1,5 @@
 ActiveAdmin.setup do |config|
+  require 'activeadmin' 
   # == Site Title
   #
   # Set the title that is displayed on the main layout
