@@ -76,11 +76,12 @@ gem 'devise'
 
 group :development do
   gem 'capistrano', '~> 3.7'
-  gem 'capistrano-rbenv', require: false
-  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-sidekiq'
+  #gem 'capistrano-redis'
+  gem 'puma', '~>3.0'
 end
 
-gem 'puma', '~>3.0'
 gem 'net-ssh', '~>4.1.0'

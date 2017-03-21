@@ -5,7 +5,7 @@ set :application, "wiki"
 set :repo_url, "git@github.com:qqgwq/wiki.git"
 set :deploy_to, 'home/deploy/wiki'
 set :rbenv_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl)
-set :rbenv_ruby, '1.1.0'
+set :rbenv_ruby, '2.3.3'
 #set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
