@@ -71,7 +71,7 @@ gem 'concurrent-ruby'
 gem 'whenever', require: false
 
 #后台
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
 gem 'devise'
 
 group :development do
