@@ -73,3 +73,14 @@ gem 'whenever', require: false
 #后台
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+
+group :development do
+  gem 'capistrano', '~> 3.7'
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails'
+  gem 'capistrano-sidekiq'
+end
+
+gem 'puma', '~>3.0'
+gem 'net-ssh', '~>4.1.0'
