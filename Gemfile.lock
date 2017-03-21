@@ -90,8 +90,6 @@ GEM
     capistrano-bundler (1.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-puma (0.2.3)
-      capistrano (>= 3.0)
     capistrano-rails (1.2.3)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -101,6 +99,10 @@ GEM
     capistrano-sidekiq (0.10.0)
       capistrano
       sidekiq (>= 3.4)
+    capistrano3-puma (3.0.1)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     china_sms (0.0.7)
     chronic (0.10.2)
     climate_control (0.1.0)
@@ -310,10 +312,10 @@ DEPENDENCIES
   bootstrap-sass
   capistrano (~> 3.7)
   capistrano-bundler
-  capistrano-puma
   capistrano-rails
   capistrano-rbenv
   capistrano-sidekiq
+  capistrano3-puma
   china_sms
   coffee-rails (~> 4.2)
   concurrent-ruby

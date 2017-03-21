@@ -81,7 +81,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-sidekiq'
   #gem 'capistrano-redis'
-  gem 'capistrano-puma'
+  gem 'capistrano3-puma'
 end
 
 gem 'net-ssh', '~>4.1.0'
