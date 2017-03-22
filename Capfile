@@ -33,7 +33,7 @@ install_plugin Capistrano::SCM::Git
  require "capistrano/sidekiq"
  require "capistrano/puma"
  require "capistrano/puma/nginx"
- require "capistrano/whenever"
+ require "whenever/capistrano"
 
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
