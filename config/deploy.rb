@@ -8,6 +8,8 @@ set :deploy_to, '/home/deploy/wiki'
 set :rbenv_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl)
 set :rails_env, 'production'
 set :rbenv_ruby, '2.3.3'
+set :rbenv_type, :user
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBEVN_VERSION=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :user, 'deploy'
 set :pty, false
 set :use_sudo, false
