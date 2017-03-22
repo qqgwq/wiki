@@ -64,4 +64,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #config.action_controller.action_on_unpermitted_parameters = :raise
+  Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
 end
