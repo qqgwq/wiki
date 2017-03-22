@@ -32,6 +32,8 @@ install_plugin Capistrano::SCM::Git
  require "capistrano/rails/migrations"
  require "capistrano/sidekiq"
  require "capistrano/puma"
+ require "capistrano/puma/nginx"
+ require "capistrano/whenever"
 
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
