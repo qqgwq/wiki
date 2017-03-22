@@ -9,6 +9,7 @@ set :rbenv_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl)
 set :rails_env, 'production'
 set :rbenv_ruby, '2.3.3'
 set :user, 'deploy'
+
 #set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
 
 append :linked_files, "config/database.yml", "config/secrets.yml"

@@ -77,7 +77,7 @@ gem 'devise'
 group :development do
   gem 'capistrano', '~> 3.7'
   gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
+  gem 'capistrano-bundler', require: false
   gem 'capistrano-rails'
   gem 'capistrano-sidekiq'
   #gem 'capistrano-redis'
