@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :comments
-  validates :title, presence: true, length: { in: 3..10 }
+  validates :title, presence: true, length: { in: 3..11 }
   validates :content, presence: true
 
 
