@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
     def require_login
      unless login?
        store_location
-       flash[:danger] = "请登录"
        redirect_to login_path
     end
    end
