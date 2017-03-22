@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    session[:forwarding_url] = request.original_path if request.get?
+    session[:forwarding_url] = request.original_fullpath if request.get?
   end
 
   def redirect_back_to(default)
