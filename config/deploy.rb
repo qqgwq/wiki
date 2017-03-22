@@ -10,8 +10,7 @@ set :rails_env, 'production'
 set :rbenv_ruby, '2.3.3'
 set :rbenv_type, :user
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl)
-set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
+set :rbenv_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl puma pumactl)
 
 set :user, 'deploy'
 set :pty, false
