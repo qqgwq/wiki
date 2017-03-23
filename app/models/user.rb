@@ -1,5 +1,5 @@
 class User < ApplicationRecord 
-  before_destroy :no_referenced_comments
+  #before_destroy :no_referenced_comments
   extend FriendlyId
   friendly_id :name
   has_secure_password
@@ -24,10 +24,10 @@ class User < ApplicationRecord
     (user && Rack::Utils.secure_compare(user.remember_token, token)) ? user : nil
   end
 
-  private
-   def no_referenced_comments
-     return if comments.empty?
-    #errors.add_to_base("This user is referenced by comment(s): #{comments.map(&:id).to_sentence}")
-    false 
-   end
+  # private
+  #  def no_referenced_comments
+  #    return if comments.empty?
+  #   #errors.add_to_base("This user is referenced by comment(s): #{comments.map(&:id).to_sentence}")
+  #   false 
+  #  end
 end
