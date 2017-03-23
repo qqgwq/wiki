@@ -4,7 +4,7 @@ class User < ApplicationRecord
   friendly_id :name
   has_secure_password
   has_many :articles
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :likes
   has_many :like_articles, through: :likes, source: :likeable, source_type: "Article"
   validates :name, :phone, presence: true, uniqueness: true
