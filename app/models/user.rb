@@ -25,9 +25,10 @@ class User < ApplicationRecord
   end
 
   private
+  binding.pry
    def no_referenced_comments
      return if comments.empty?
-    errors.add_to_base("This user is referenced by comment(s): #{comments.map(&:number).to_sentence}")
+    errors.add_to_base("This user is referenced by comment(s): #{comments.map(&:id).to_sentence}")
     false 
    end
 end
