@@ -2,7 +2,7 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   has_secure_password
-  has_many :articles, dependent::destroy
+  has_many :articles, dependent: :destroy
   has_many :comments
   has_many :likes
   has_many :like_articles, through: :likes, source: :likeable, source_type: "Article"
