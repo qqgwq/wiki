@@ -11,10 +11,6 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
-li{
-  float: right;
-  list-style: none;
-}
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:

@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "注册数量" do
           ul do
-            li User.count
+             User.count
           end
         end
       end
