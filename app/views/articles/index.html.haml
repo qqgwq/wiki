@@ -15,7 +15,7 @@
               #index1
                 %h2= link_to article.title, article
                 %p= article.user&.name
-                =image_tag article.user&.image&.url unless article.user.image.blank?
+                =image_tag article.user.image.url unless article.user.image.url.blank?
 
                 %h2
                 = article.comments.count
