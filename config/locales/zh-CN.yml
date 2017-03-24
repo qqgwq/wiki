@@ -36,6 +36,8 @@ zh-CN:
     edit:
       Edit: "编辑"
       Back: "返回"
+    index:
+      signup_count: "注册量:"
 
   number:
     human:

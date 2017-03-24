@@ -24,6 +24,7 @@ class User < ApplicationRecord
     (user && Rack::Utils.secure_compare(user.remember_token, token)) ? user : nil
   end
 
+
   # private
   #  def no_referenced_comments
   #    return if comments.empty?

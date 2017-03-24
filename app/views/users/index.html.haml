@@ -5,6 +5,9 @@
         .panel
           .panel-body
             - if current_user.try(:is_admin)
+              %h2
+                = t('.signup_count')
+                %li1= User.count
               - @users.each do |user|
                 %h2= link_to user.name, user
                 = link_to user_path(user), method: :delete, data: { confirm: "Are you sure" } do
