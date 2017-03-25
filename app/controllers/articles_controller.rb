@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
     else
        @category_id = Category.find_by(name: params[:category]).id
        @articles = Article.where(category_id: @category_id).order(created_at: :desc).page(params[:page]).per(2)
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
