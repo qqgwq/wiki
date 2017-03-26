@@ -37,6 +37,7 @@ gem 'pry-nav'
 gem 'rename'
 gem 'execjs' 
 gem 'acts_as_commentable_with_threading'
+
 #图标
 gem 'font-awesome-sass'
 
