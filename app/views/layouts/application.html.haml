@@ -44,5 +44,5 @@
           %ul.list-group
             %li= link_to t('.All Articles'), root_path, class: "list-group-item", remote: true
             - Category.all.each do |category|
-              %li= link_to category.name, articles_path(category: category.name), class: "list-group-item", remote: true
+              %li= link_to category.name, articles_path(category: category.name), class: "list-group-item"
   

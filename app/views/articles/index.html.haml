@@ -6,7 +6,7 @@
           .panel-heading
             %h2= t('.All article')
             = search_form_for @q do |f|
-              = f.search_field :title, placeholder: t('.search_body')
+              = f.search_field :title_or_user_name_or_comments_content_cont, placeholder: t('.search_body')
               = f.submit t('.search'), class: "btn btn-primary"
           .panel-body
 
