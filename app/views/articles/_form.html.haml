@@ -8,7 +8,7 @@
           .panel-body
             = simple_form_for(@article) do |f|
               .form-group
-                = f.label :分类, class: "control-label"
+                = f.label :类型, class: "control-label"
                 = f.collection_select :category_id, Category.all, :id, :name, class: "form-control"
 
               .form-group
