@@ -16,7 +16,7 @@
       %ul.nav.navbar-nav.navbar-right
         - if login? 
           %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#", remote: true}
               = image_tag current_user.image.url
               = current_user.name
               %b.caret
