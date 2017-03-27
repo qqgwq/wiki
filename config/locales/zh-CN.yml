@@ -94,10 +94,11 @@ zh-CN:
       publish: "发布"
       
     index:
-      Comments: "评论"
       All article: "全部文章"
       search: "搜索"
       search_body: "搜索内容"
+    article:
+      Comments: "评论"
 
   shareds:
     errors:

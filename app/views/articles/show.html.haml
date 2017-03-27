@@ -5,7 +5,7 @@
         .panel
           .panel-body
             %h2= @article.user.name 
-            %h2= @article.category.name
+            %h2= @article.category.try(:name)
             %h2= @article.title
             %p= @article.content
             .pull-right 

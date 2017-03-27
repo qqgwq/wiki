@@ -16,5 +16,6 @@ module Jenkin
     CONFIG = Rails.application.secrets
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
+    ActiveSupport::Deprecation.debug = true
   end
 end
