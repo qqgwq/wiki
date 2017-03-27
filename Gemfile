@@ -57,6 +57,8 @@ gem 'ransack'
 #友好
 gem 'friendly_id'
 
+#
+gem 'rack-mini-profiler', require: false
 
 #短信
 gem 'china_sms'

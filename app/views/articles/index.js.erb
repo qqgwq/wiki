@@ -1,9 +1,10 @@
 $(".list-group-item").css("background", "white");
+
 <% if params[:category] %>
  $("a:contains(<%= params[:category] %>)").css("background", "red");
 <% else %>
  $("a").css("background", "white");
 <% end %>
+
 $("#tbody").html('<%= escape_javascript render(@articles)%>');
 $("#paginator").html('<%= escape_javascript(paginate @articles, remote: true) %>');
-
