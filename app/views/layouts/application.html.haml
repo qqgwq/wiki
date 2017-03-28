@@ -41,6 +41,7 @@
         .col-md-10
           = yield
         .col-md-2
+        - if login?
           %ul.list-group#categories
             %li= link_to t('.All Articles'), root_path, class: "list-group-item"
             - Category.all.each do |category|
