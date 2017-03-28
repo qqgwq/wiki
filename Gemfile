@@ -29,7 +29,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'listen', '~> 3.0.5'
 #常用
-gem 'haml', '~> 5.0.0.beta.2'
+gem 'haml', '4.0.5'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'bcrypt'
