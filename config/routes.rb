@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   require 'sidekiq/web'
   mount Sidekiq::Web => 'sidekiq'
-  get 'sessions/new'
 
   concern :likeable do
     resource :like, only: [:create, :destroy]
@@ -25,7 +24,6 @@ Rails.application.routes.draw do
       get :person
     end
   end
-  #resources :password_resets, only: [:new, :create, :edit, :update]
    
   root "articles#index"
 
