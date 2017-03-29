@@ -1,0 +1,9 @@
+I"ž(function() {
+  jQuery(function() {
+    return $('#article_category_name').autocomplete({
+      source: ['foo', 'food', 'four']
+    });
+  });
+
+}).call(this);
+:ET
