@@ -1,0 +1,11 @@
+.main
+  .container
+    .row
+      .col-md-6
+        .panel
+          .panel-body
+            %h2= @user.name
+          - @user.articles.each do |article|
+            #person
+              %h2= link_to article.title, article
+              %h2= article.content

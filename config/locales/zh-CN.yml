@@ -1,0 +1,110 @@
+zh-CN:
+  activerecord:
+    attributes:
+      user:
+        name: "姓名"
+        password: "密码"
+        password_confirmation: "密码确认"
+        phone: "电话号码"
+
+  # helpers:
+  #   label:
+  #     article:
+  #       category_id: "类别"
+  #       title: "标题"
+  #       content: "内容"
+
+
+      
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "末页 &raquo;"
+      previous: "&lsaquo; 上一页"
+      next: "下一页 &rsaquo;"
+      truncate: "...;"
+
+  users:
+    form:
+      sign up: "注册"
+      Back: "返回"
+      signup: "注册"
+      errors:
+    messages:
+      in_between: "文件大小必须介于 %{min} 到 %{max} 之间"
+      spoofed_media_type: "扩展名与内容类型不符"
+    edit:
+      Edit: "编辑"
+      Back: "返回"
+    index:
+      signup_count: "注册量:"
+
+  number:
+    human:
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      
+  sessions:
+    new:
+      signin: "登录"
+      sign in: "登录"
+      password: "密码"
+      New User: "新用户?"
+      password_resets: "忘记密码?"
+
+  layouts:
+    application:
+      Home: "主页"
+      All User: "用户"
+      New Article: "新文章"
+      All Article: "文章"
+      Setting: "设置"
+      Log Out: "登出"
+      Sign Up: "注册"
+      Sign In: "登录"
+      New Article: "新建文章"
+      All Articles: "所有分类"
+      my article: "我的文章"
+
+  comments:
+    edit:
+      edit comment: "修改"
+
+  articles:
+    show:
+      create comment: "评论"
+      content: "评论内容"
+      Comments: "评论"
+      category_name: "类名"
+      Comments: "评论"
+      B: "返回首页"
+      
+     
+    edit: 
+      publish: "发布"
+    form:
+      publish: "发布"
+      
+    index:
+      All article: "全部文章"
+      search: "搜索"
+      search_body: "搜索内容"
+    article:
+      Comments: "评论"
+
+  shareds:
+    errors:
+      this user from being saved: "个错误数量"
+
+
+
+
+  

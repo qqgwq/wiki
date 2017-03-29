@@ -1,0 +1,14 @@
+.main
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        .panel
+          .panel-body
+            %h2= @user.name
+            %h2= @user.phone
+          - if right_user
+            = link_to edit_user_path(current_user) do
+              %i.fa.fa-edit
+
+            = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
+              %i.fa.fa-trash
