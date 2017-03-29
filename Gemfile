@@ -7,7 +7,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '5.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
@@ -33,8 +33,6 @@ gem 'haml', '4.0.5'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'bcrypt'
-gem 'pry-nav'
-gem 'rename'
 gem 'execjs' 
 gem 'acts_as_commentable_with_threading'
 
@@ -56,9 +54,6 @@ gem 'ransack'
 
 #友好
 gem 'friendly_id'
-
-#
-gem 'rack-mini-profiler', require: false
 
 #短信
 gem 'china_sms'
@@ -84,6 +79,8 @@ group :development do
   gem 'capistrano-sidekiq'
   #gem 'capistrano-redis'
   gem 'capistrano3-puma'
+  gem 'rack-mini-profiler', require: false
+  gem 'pry-nav'
 end
 
 gem 'net-ssh', '~>4.1.0'
