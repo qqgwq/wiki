@@ -3,7 +3,7 @@ $(".list-group-item").css("background", "white");
 <% if params[:category] %>
  $("#categories a:contains(<%= params[:category] %>)").css("background", "red");
 <% else %>
- $("a").css("background", "white");
+ $("#categories a").css("background", "white");
 <% end %>
 
 $("#tbody").html('<%= escape_javascript render(@articles)%>');

@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       login_as @user
       remember_me
       redirect_back_to @user
+      flash.now[:danger] = "请登录"
     else
       render :new
     end
