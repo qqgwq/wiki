@@ -17,6 +17,5 @@ module Jenkin
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
     ActiveSupport::Deprecation.debug = true
-    Bundler.require(:default, Rails.env) if defined?(Bundler)
   end
 end
