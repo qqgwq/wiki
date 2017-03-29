@@ -77,8 +77,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails'
   gem 'capistrano-sidekiq'
-  #gem 'capistrano-redis'
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', '~> 1.2.1'
   gem 'rack-mini-profiler', require: false
   gem 'pry-nav'
 end
