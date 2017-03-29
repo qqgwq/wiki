@@ -1,9 +1,0 @@
-I"œ(function() {
-  jQuery(function() {
-    return $('#article_category_name').autocomplete({
-      source: ['foo', 'bar', 'baz']
-    });
-  });
-
-}).call(this);
-:ET

@@ -1,9 +1,0 @@
-I"ˆ(function() {
-  jQuery(function() {
-    return $("#q_title").autocomplete({
-      source: ['foo', 'food']
-    });
-  });
-
-}).call(this);
-:ET
