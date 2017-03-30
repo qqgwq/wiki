@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'bcrypt'
 gem 'execjs' 
 gem 'acts_as_commentable_with_threading'
+gem 'bootstrap-modal-rails'
 
 #图标
 gem 'font-awesome-sass'

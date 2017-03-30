@@ -46,4 +46,6 @@
             %li= link_to t('.All Articles'), root_path, class: "list-group-item"
             - Category.all.each do |category|
               %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
-  
+      
+      .modal 
+        style="display:none;
