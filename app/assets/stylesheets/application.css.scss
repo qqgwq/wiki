@@ -11,8 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap-modal-bs3patch
- *= require bootstrap-modal
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -25,9 +23,16 @@ body{
 	background-repeat: no-repeat; 
 } 
 
-#bk{
-  background-image: image-url("callout_background.jpg");
+// #bk{
+//   background-image: image-url("callout_background.jpg");
+// }
+
+#signin {
+  z-index: 3000;
 }
+
+.modal-backdrop { z-index: 0 !important;}
+
 .panel{
   margin: 70px auto;
   padding-left: 8px;
@@ -187,4 +192,15 @@ li1{
   ul{
     color: red;
   }
+}
+
+.input{
+  margin-bottom: 8px;
+}
+
+.boolean{
+  margin-left: 9px;
+}
+#session_记住我{
+  margin-top:0;
 }

@@ -52,13 +52,13 @@ zh-CN:
           gb: "GB"
           tb: "TB"
       
-  sessions:
-    new:
-      sign in: "登录"
-      password: "密码"
-      password_resets: "忘记密码?"
-      New User: "新用户?"
-      signin: "登录"
+  # sessions:
+  #   new:
+  #     sign in: "登录"
+  #     password: "密码"
+  #     password_resets: "忘记密码?"
+  #     New User: "新用户?"
+  #     signin: "登录"
 
   layouts:
     application:

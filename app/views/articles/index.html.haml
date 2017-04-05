@@ -1,3 +1,15 @@
+.modal.fade.bs-example-modal-sm{ id: "signin", tabindex: "-1", role: "dialog", 'aria-labelledby' => "mySmallModalLabel" }
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        %button{class: "close", 'data-dismiss' => "modal", 'aria-label' => "Close", 'aria-hidden' => "true"} &times
+        %h4.modal-title 用户登录
+      .modal-body.modal-login
+        = simple_form_for(:session, url: login_path, remote: true) do |f|
+          = f.input :phone, label: false, placeholder: '手机号码'
+          = f.input :password, label: false, placeholder: '密码'
+          = f.input :记住我, :as => :boolean
+          = f.submit '登录'
 .main
   .container
     .row
