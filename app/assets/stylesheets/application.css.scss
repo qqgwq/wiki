@@ -152,7 +152,6 @@ ul{
   :hover{
     font-size: 1em;
     font-weight: 1em;
-    background-color: white;
     text-decoration: none
   }
 }
@@ -200,4 +199,63 @@ li1{
 
 .boolean{
   margin-left: 9px;
+}
+
+#header{
+  img{
+    height: 134px;
+    width: 271px;
+  }
+}
+#avatar{
+  img{
+    width: 80px;
+    border-radius: 50%;
+    border: 5px solid rgb(23, 255, 255);
+    position: relative;
+    margin-top: -40px;
+    left: 85px;
+  }
+}
+#width{
+  width: 271px;
+  padding:0px;
+  height: 80%;
+  margin-top: 0px;
+  background: rgb(247, 249, 249);
+}
+#info{
+  text-align: center;
+  font-size: 2em;
+  color: #428bca;
+}
+#title{
+ text-align: center;
+ font-size: 1em;
+ color: red;
+}
+
+#footer{
+  width: 26%;
+  margin: 30px auto;
+#icon{
+  width: 35px;
+  height: 30px;
+  font-size: 2em;
+ }
+}
+.li2{
+  position: relative;
+  top: -30px;
+}
+.navbar-default {
+   background-color:transparent;
+   border-color:transparent;
+}
+.navbar-default .navbar-nav > li > a{
+  color: #337ab7;
+}
+
+.nav li:hover{
+  background: white;
 }

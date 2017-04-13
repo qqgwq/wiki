@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       login_as @user
       remember_me
       redirect_back_to @user
-      flash.now[:danger] = "请登录"
     else
+      flash.now[:warning] = "账号或密码错误"
       render :new
     end
   end
