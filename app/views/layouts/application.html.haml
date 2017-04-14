@@ -13,22 +13,37 @@
             = link_to root_path do
               %i.fa.fa-home
         %ul.nav.navbar-nav.navbar-right
-          - if login? 
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                = image_tag current_user.image.url
-                = current_user.name
-                %b.caret
-              %ul.dropdown-menu
-                %li= link_to t('.All User'), users_path
-                %li.divider
-                %li= link_to t('.New Article'), new_article_path
-                %li= link_to t('.All Article'), articles_path
-                %li= link_to t('.my article'), person_user_path(current_user)
-                %li.divider
-                %li= link_to t('.Setting'), edit_user_path(current_user)
-                %li.divider
-                %li= link_to t('.Log Out'), logout_path, method: :delete
+          - if login?
+            - if current_user.is_admin
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  = image_tag current_user.image.url
+                  = current_user.name
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to t('.All User'), users_path
+                  %li.divider
+                  %li= link_to t('.New Article'), new_article_path
+                  %li= link_to t('.All Article'), articles_path
+                  %li= link_to t('.my article'), person_user_path(current_user)
+                  %li.divider
+                  %li= link_to t('.Setting'), edit_user_path(current_user)
+                  %li.divider
+                  %li= link_to t('.Log Out'), logout_path, method: :delete
+            - else
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  = image_tag current_user.image.url
+                  = current_user.name
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to t('.New Article'), new_article_path
+                  %li= link_to t('.All Article'), articles_path
+                  %li= link_to t('.my article'), person_user_path(current_user)
+                  %li.divider
+                  %li= link_to t('.Setting'), edit_user_path(current_user)
+                  %li.divider
+                  %li= link_to t('.Log Out'), logout_path, method: :delete
           - else
             %ul.nav.navbar-nav
               -#%li= link_to t('.Sign Up'), signup_path
