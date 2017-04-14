@@ -12,6 +12,8 @@
                 %h2= link_to user.name, user
                 = link_to user_path(user), method: :delete, data: { confirm: "Are you sure" } do
                   %i.fa.fa-trash
+            - else
+            = render 'shareds/flash'
 
 
     

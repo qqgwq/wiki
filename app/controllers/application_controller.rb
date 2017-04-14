@@ -80,8 +80,9 @@ class ApplicationController < ActionController::Base
   
   def require_is_admin
     if !current_user.admin?
-      flash[:danger] = "你不是管理员"
+      flash[:error] = "你不是管理员"
       redirect_to root_path
+      false
     end
   end
 
