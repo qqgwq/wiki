@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :login?, :current_user, :right_user, :correct_user
+  helper_method :login?, :current_user, :right_user, :correct_user, :require_is_admin
 
   private
    class AccessDenied < Exception; end
