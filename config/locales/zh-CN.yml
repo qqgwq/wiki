@@ -75,6 +75,11 @@ zh-CN:
       my article: "我的文章"
 
   comments:
+    comment:
+      #create comment: "评论"
+      #B: "返回首页"
+      #content: "评论内容"
+      Comments: "评论"
     edit:
       edit comment: "修改"
 
@@ -82,7 +87,7 @@ zh-CN:
     show:
       create comment: "评论"
       content: "评论内容"
-      Comments: "评论"
+      #Comments: "评论"
       category_name: "类名"
       Comments: "评论"
       B: "返回首页"

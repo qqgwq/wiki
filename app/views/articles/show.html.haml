@@ -28,27 +28,16 @@
                   %i.fa.fa-heart
                 .span-count
                   = @article.likes.count
-             
-              - @article.comments.each do |comment|
-                #index
-                  %p= comment&.user&.name
-                  #div4
-                    = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
-                  %h4= comment&.content
-                  - if comment.user == current_user
-                    = link_to edit_article_comment_path(comment.article, comment) do
-                      %i.fa.fa-edit
-                    = link_to [comment.article, comment], method: :delete, data: { confirm: "确定删除?" } do
-                      %i.fa.fa-trash
-                  %h2
-                    =@article.comments.count
-                    = t('.Comments')
+
+                = render 'comments/comment'
+
               = simple_form_for([@article, @article.comments.build], remote: true) do |f|
                 .form-group
                   = f.label :content, class: "control-label"
                   = f.text_area :content, placeholder: t('.content'), class: "form-control"
-                = f.submit t('.create comment'), class: "btn btn-primary", :id => "comment"
+                = f.submit t('.create comment'), class: "btn btn-primary"
                 = link_to t('.B'), root_path, class: "btn btn-danger"
+                
               #article
                 - if correct_user
                   = link_to edit_article_path(@article) do
