@@ -33,7 +33,7 @@
                 #index
                   %p= comment&.user&.name
                   #div4
-                    = comment.created_at.strftime("%d-%m-%Y %H:%M:%S")
+                    = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
                   %h4= comment&.content
                   - if comment.user == current_user
                     = link_to edit_article_comment_path(comment.article, comment) do
