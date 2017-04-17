@@ -4,6 +4,7 @@
       .col-md-6
         .panel
           .panel-body
+            = render 'shareds/flash'
             %h2= @article.user.name 
             %h2= @article.category.try(:name)
             %h2= @article.title
@@ -19,7 +20,7 @@
                   %i.fa.fa-heart
                 .span-count
                   = @article.likes.count
-
+             
               - @article.comments.each do |comment|
                 #index
                   %p= comment&.user&.name

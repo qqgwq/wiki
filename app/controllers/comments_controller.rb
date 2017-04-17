@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create params.require(:comment).permit(:content).merge(user: current_user)
     if @comment.save
+      flash[:success] = "成功添加评论"
       redirect_to article_path(@article)
     else
       render 'new'
