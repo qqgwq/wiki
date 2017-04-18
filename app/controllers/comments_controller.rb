@@ -7,9 +7,8 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create params.require(:comment).permit(:content).merge(user: current_user)
     respond_to do |format|
     if @comment.save
-      flash[:success] = "成功添加评论"
       format.html {redirect_to article_path(@article)}
-      format.js
+      format.js { flash[:success] = "成功添加评论" }
     else
       format.html {render 'new'}
       format.js
@@ -33,9 +32,10 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
+   
     respond_to do |format|
       format.html {redirect_to article_path(@article)}
-      format.js
+      format.js { flash[:success] = "删除成功" }
     end
   end
 

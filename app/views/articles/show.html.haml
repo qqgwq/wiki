@@ -4,7 +4,6 @@
       .col-md-6
         .panel
           .panel-body
-            = render 'shareds/flash'
             %h2
               = t('.username')
               = @article.user.name
@@ -17,7 +16,7 @@
             %p
               = t('.content')
               = @article.content
-            .pull-right 
+            .pull-right
               - if @article.is_user_like?(current_user)
                 = link_to article_like_path(@article), method: :delete, "class" => "like", remote: true do
                   %i.fa.fa-heart
@@ -28,8 +27,13 @@
                   %i.fa.fa-heart
                 .span-count
                   = @article.likes.count
+              = render 'shareds/flash'
+              %h2#counts
+                =@article.comments.count
+                = t('.Comments')
 
-                = render 'comments/comment'
+              #div
+                = render partial: 'comments/comment', collection: @article.comments, :as => :comment
 
               = simple_form_for([@article, @article.comments.build], remote: true) do |f|
                 .form-group
@@ -37,7 +41,7 @@
                   = f.text_area :content, placeholder: t('.content'), class: "form-control"
                 = f.submit t('.create comment'), class: "btn btn-primary"
                 = link_to t('.B'), root_path, class: "btn btn-danger"
-                
+
               #article
                 - if correct_user
                   = link_to edit_article_path(@article) do

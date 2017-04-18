@@ -1,2 +1,4 @@
-$("#comment").html('<%=j render @article.comments, remote: true %>').empty();
+$("#comment").html('<%=j render @article.comments %>').empty();
 $("#index").empty();
+$("#counts").html('<%= @article.comments.count %>评论');
+$(".container1").html('<%=j render 'shareds/flash' %>');
