@@ -6,7 +6,7 @@ module Likeable
     #validates :user, uniqueness: { scope: :articles }
   end
 
-  def liked_by?(user)
-    likes.where(user: user).exists?
-  end
+  # def liked_by?(user)
+  #   likes.where(user: user).exists?
+  # end
 end

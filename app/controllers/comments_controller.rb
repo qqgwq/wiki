@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create params.require(:comment).permit(:content).merge(user: current_user)
+    @comment = @article.comments&.create params.require(:comment).permit(:content).merge(user: current_user)
     respond_to do |format|
     if @comment.save
       format.html {redirect_to article_path(@article)}
@@ -32,7 +32,6 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-   
     respond_to do |format|
       format.html {redirect_to article_path(@article)}
       format.js { flash[:success] = "删除成功" }

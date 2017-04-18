@@ -27,7 +27,9 @@
                   %i.fa.fa-heart
                 .span-count
                   = @article.likes.count
+
               = render 'shareds/flash'
+              
               %h2#counts
                 =@article.comments.count
                 = t('.Comments')
