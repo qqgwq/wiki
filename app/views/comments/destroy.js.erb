@@ -1,4 +1,3 @@
-$("#comment").html('<%=j render @article.comments %>').empty();
-$("#index").empty();
+$("#comment_<%= @comment.id %>").remove();
 $("#counts").html('<%= @article.comments.count %>评论');
 $(".container1").html('<%=j render 'shareds/flash' %>');

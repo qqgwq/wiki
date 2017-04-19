@@ -6,12 +6,12 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments&.create params.require(:comment).permit(:content).merge(user: current_user)
     respond_to do |format|
-    if @comment.save
-      format.html {redirect_to article_path(@article)}
-      format.js { flash[:success] = "成功添加评论" }
-    else
-      format.html {render 'new'}
-      format.js
+      if @comment.save
+        format.html {redirect_to article_path(@article)}
+        format.js { flash[:success] = "添加评论成功" }
+      else
+        format.html {render 'new'}
+        format.js
       end
     end
   end

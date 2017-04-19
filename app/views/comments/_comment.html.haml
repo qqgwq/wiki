@@ -1,8 +1,8 @@
-#index
+%div{:id => "comment_#{comment.id}"}
   %p= comment&.user&.name
-  #div4
+  #xyz
     = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
-  %h4#comment= comment&.content
+  %h4#comment=comment&.content
   - if comment.user == current_user
     = link_to edit_article_comment_path(comment.article, comment) do
       %i.fa.fa-edit
