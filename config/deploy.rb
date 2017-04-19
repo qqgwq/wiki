@@ -3,7 +3,7 @@ lock "3.8.0"
 
 set :application, "wiki"
 set :repo_url, "git@github.com:qqgwq/wiki.git"
-set :deploy_to, '/home/deploy/wiki'
+set :deploy_to, '/home/gwq/wiki'
 
 
 set :rails_env, 'production'
@@ -12,7 +12,7 @@ set :rbenv_type, :user
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl)
 
-set :user, 'deploy'
+set :user, 'gwq'
 set :pty, false
 set :use_sudo, false
 
