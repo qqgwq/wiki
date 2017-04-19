@@ -101,6 +101,7 @@ GEM
     capistrano-sidekiq (0.10.0)
       capistrano
       sidekiq (>= 3.4)
+    capistrano3-postgres (0.2.2)
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
@@ -315,6 +316,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-sidekiq
+  capistrano3-postgres
   capistrano3-puma (~> 1.2.1)
   china_sms
   coffee-rails (~> 4.2)

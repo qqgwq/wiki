@@ -80,6 +80,7 @@ group :development do
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', '~> 1.2.1'
   gem 'rack-mini-profiler', require: false
+  gem 'capistrano3-postgres', require: false
   gem 'pry-nav'
 end
 
