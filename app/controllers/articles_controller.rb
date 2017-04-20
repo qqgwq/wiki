@@ -31,8 +31,10 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to @article
+      flash[:success] = "创建成功"
     else
       render :new
+      flash[:danger] = "标题至少3位以上"
     end
   end
 
