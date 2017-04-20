@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(phone: login_params[:phone])
     if @user && @user.authenticate(login_params[:password])
       login_as @user
+      flash[:success] = "欢迎您#{@user.name}!"
       remember_me
       redirect_back_to @user
     else
@@ -18,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_url
-    #flash[:success] = "退出成功"
+    flash[:success] = "退出成功"
   end
 
 
