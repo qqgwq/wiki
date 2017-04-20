@@ -8,8 +8,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
+
 # Use sqlite3 as the database for Active Record
-gem 'pg', '~> 0.18.2'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -80,8 +81,12 @@ group :development do
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', '~> 1.2.1'
   gem 'rack-mini-profiler', require: false
-  gem 'capistrano3-postgres', require: false
   gem 'pry-nav'
+  gem 'mysql2'
+  gem 'net-ssh', '~>4.1.0'
 end
 
-gem 'net-ssh', '~>4.1.0'
+group :production do
+  gem 'pg', '~> 0.18.2'
+end
+
