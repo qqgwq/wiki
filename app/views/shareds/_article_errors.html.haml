@@ -1,0 +1,6 @@
+- if @article.errors.any?
+  #errors
+    %h2= pluralize(@article.errors.count, "错误")
+    %ul
+      - @article.errors.full_messages.each do |msg|
+        %li=msg

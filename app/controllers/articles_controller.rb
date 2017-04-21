@@ -34,7 +34,6 @@ class ArticlesController < ApplicationController
       flash[:success] = "创建成功"
     else
       render :new
-      flash[:danger] = "标题至少3位以上"
     end
   end
 

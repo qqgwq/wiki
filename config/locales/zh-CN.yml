@@ -7,6 +7,9 @@ zh-CN:
         password_confirmation: "密码确认"
         phone: "电话号码"
 
+      article:
+        title: "标题"
+        content: "内容"
   # helpers:
   #   label:
   #     article:
