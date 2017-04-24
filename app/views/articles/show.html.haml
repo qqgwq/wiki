@@ -3,6 +3,7 @@
     .row
       .col-md-6
         .panel
+          = render 'shareds/flash'
           .panel-body
             %h2
               = t('.username')
@@ -28,8 +29,6 @@
                 .span-count
                   = @article.likes.count
 
-              = render 'shareds/flash'
-              
               %h2#counts
                 =@article.comments.count
                 = t('.Comments')
