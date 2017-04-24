@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: [:show, :destroy, :edit, :update]
-  before_action :require_login, only: [:create, :destroy]
+  before_action :require_login, only: [:create, :destroy, :new]
 
   def create
     @article = Article.find(params[:article_id])

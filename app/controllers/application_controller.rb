@@ -54,12 +54,12 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    session[:forwarding_url] = request.original_fullpath if request.get?
+    session[:return_to] = request.fullpath if request.get?
   end
 
-  def redirect_back_to(default)
-    redirect_to(session[:forwarding_url] || default)
-    session.delete(:forwarding_url)
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
   end
 
   def correct_user

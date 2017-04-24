@@ -33,7 +33,7 @@
               %h2#counts
                 =@article.comments.count
                 = t('.Comments')
-
+            - if login?
               #div
                 = render partial: 'comments/comment', collection: @article.comments, :as => :comment
 
@@ -43,11 +43,13 @@
                   = f.text_area :content, placeholder: t('.content'), class: "form-control"
                 = f.submit t('.create comment'), class: "btn btn-primary"
                 = link_to t('.B'), root_path, class: "btn btn-danger"
+            - else
+              = render "articles/bottom"
 
-              #article
-                - if correct_user
-                  = link_to edit_article_path(@article) do
-                    %i.fa.fa-edit
-                
-                  = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
-                    %i.fa.fa-trash
+            #article
+              - if correct_user
+                = link_to edit_article_path(@article) do
+                  %i.fa.fa-edit
+              
+                = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
+                  %i.fa.fa-trash

@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = @user.auth_token
       end
       login_as @user
-      flash[:success] = "欢迎您#{@user.name}!"
-      redirect_back_to @user
+      redirect_back_or_default @user
+      flash[:success] = "欢迎您! #{@user.name}!"
     else
       flash.now[:warning] = "账号或密码错误"
       render :new
