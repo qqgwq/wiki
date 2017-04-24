@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412065220) do
+ActiveRecord::Schema.define(version: 20170424052247) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20170412065220) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "auth_token"
   end
 
   add_foreign_key "comments", "articles"

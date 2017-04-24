@@ -42,8 +42,8 @@ class ApplicationController < ActionController::Base
   end
 
   def login_from_cookies
-    if cookies[:remember_token].present?
-      if user = User.find_by_remember_token(cookies[:remember_token])
+    if cookies[:auth_token].present?
+      if user = User.find_by_auth_token(cookies[:auth_token])
         session[:user_id] = user.id
         user
       else
@@ -86,15 +86,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def remember_me
-    cookies[:remember_token] = {
-      value: current_user.remember_token,
-      expires_after: 60.minutes,
-      httponly: true
-    }
-  end
+  # def remember_me
+  #   cookies[:auth_token] = {
+  #     value: current_user.auth_token,
+  #     expires_after: 60.minutes,
+  #     httponly: true
+  #   }
+  # end
 
   def forget_me
-    cookies.delete(:remember_token)
+    cookies.delete(:auth_token)
   end
 end
