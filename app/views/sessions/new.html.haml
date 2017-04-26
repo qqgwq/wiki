@@ -9,7 +9,7 @@
             = simple_form_for(:session, url: login_path) do |f|
               = render 'shareds/flash'
               .form-group
-                = f.label :电话号码, class: "control-label"
+                = f.label :手机号码, class: "control-label"
                 = f.text_field :phone, class: "form-control" 
 
               .form-group
