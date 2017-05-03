@@ -7,4 +7,4 @@
     %h2
     = article.comments.count
     = t('.Comments')
-    %span= time_ago_in_words(article.created_at)
+    %span= time_ago_in_words(article.created_at) + "之前"
