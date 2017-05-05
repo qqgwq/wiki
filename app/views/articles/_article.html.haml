@@ -1,10 +1,9 @@
-- cache article do
-  #index1
-    %h2= link_to article.title, article
-    %p= article.user&.name
-    =image_tag article.user.image if article.user
+#index1
+  %h2= link_to article.title, article
+  %p= article.user&.name
+  =image_tag article.user.image if article.user
 
-    %h2
-    = article.comments.count
-    = t('.Comments')
-    %span= time_ago_in_words(article.created_at) + "之前"
+  %h2
+  = article.comments.count
+  = t('.Comments')
+  %span= time_ago_in_words(article.created_at) + "之前" 
