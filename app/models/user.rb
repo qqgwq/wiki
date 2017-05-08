@@ -3,14 +3,16 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   has_secure_password
-  has_many :articles, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :articles, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
   has_many :likes
   has_many :like_articles, through: :likes, source: :likeable, source_type: "Article"
   validates :name, :phone, presence: true, uniqueness: true
   validates :password, presence: true, length: { in: 1..11 }
-  has_attached_file :image, styles: { :medium => "300x300#" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  validates :image, attachment_presence: true
+  has_attached_file :image, styles: { :original => '250x250>', :small => "200x200#" }
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/png", "image/jpeg"]
+  validates_attachment_size :image, less_than: 5.megabytes
   before_create { generate_token(:auth_token) } 
 
   def admin?

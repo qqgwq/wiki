@@ -6,6 +6,7 @@ zh-CN:
         password: "密码"
         password_confirmation: "密码确认"
         phone: "手机号码"
+        image: "图片"
 
       article:
         title: "标题"
