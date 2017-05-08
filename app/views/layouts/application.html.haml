@@ -5,7 +5,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
-      
   %body
     %nav.navbar.navbar-static-top
       .container
@@ -52,10 +51,11 @@
                 -#%a{:href => '#', 'data-toggle' => "modal", 'data-target' => "#signin"}> 登录
               -#%li= link_to "关于我", homes_about_path
               = render 'layouts/sidebar'
-
+        = render 'carousel/carou' 
+      
       .container
         .row
-          .col-md-10
+          .col-md-10 
             = yield
           .col-md-2
           - if login?
