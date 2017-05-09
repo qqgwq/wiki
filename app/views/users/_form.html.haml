@@ -27,7 +27,7 @@
 
               .form-group#ru
                 = rucaptcha_input_tag placeholder: "请输入验证码", class: "form-control"
-                = link_to rucaptcha_image_tag, "#", alt: 'Captcha', id: "rucaptcha"
+                = link_to rucaptcha_image_tag, "#", alt: 'Captcha', id: "rucaptcha", remote: true
 
               = f.file_field :image
 
@@ -36,3 +36,5 @@
               = f.submit t('.signup'), class: 'btn btn-primary'
               |
               = link_to t('.Back'), new_article_path
+
+  
