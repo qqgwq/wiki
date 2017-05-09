@@ -25,7 +25,12 @@
                 = f.label :password_confirmation, class: "control-label"
                 = f.password_field :password_confirmation, class: "form-control"
 
+              .form-group#ru
+                = rucaptcha_input_tag placeholder: "请输入验证码", class: "form-control"
+                = link_to rucaptcha_image_tag, "#", alt: 'Captcha', id: "rucaptcha"
+
               = f.file_field :image
+
               %br
 
               = f.submit t('.signup'), class: 'btn btn-primary'

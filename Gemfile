@@ -51,6 +51,10 @@ gem 'paperclip-i18n'
 #分页
 gem 'kaminari'
 
+#验证码
+gem 'rucaptcha'
+gem 'dalli'
+
 #搜索
 gem 'ransack'
 
