@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       login_as @user
       redirect_to @user
     else
+      flash.now[:danger] = "验证码错误"
       render :new
     end
   end
