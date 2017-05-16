@@ -10,18 +10,22 @@
               = render 'shareds/errors'
               = render 'shareds/flash'
               .form-group
+                %i.glyphicon.glyphicon-user
                 = f.label :name, class: "control-label"
                 = f.text_field :name, class: "form-control"
 
               .form-group
+                %i.glyphicon.glyphicon-phone
                 = f.label :phone, class: "control-label"
                 = f.text_field :phone, class: "form-control"
 
               .form-group
+                %i.glyphicon.glyphicon-eye-open
                 = f.label :password, class: "control-label"
                 = f.password_field :password, class: "form-control"
 
               .form-group
+                %i.glyphicon.glyphicon-eye-open
                 = f.label :password_confirmation, class: "control-label"
                 = f.password_field :password_confirmation, class: "form-control"
 
