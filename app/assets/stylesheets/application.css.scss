@@ -288,3 +288,25 @@ li1{
 #ru{
   width: 30%;
 }
+
+#article-img{
+  img{
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    float: right;
+    margin-top: -3em;
+  }
+}
+.info{
+  position: relative;
+  top: -20px;
+  left: 15px;
+  font-weight: bold;
+}
+#media{
+  height: 12%;
+}
+.article-title{
+  font-size: 2em;
+}

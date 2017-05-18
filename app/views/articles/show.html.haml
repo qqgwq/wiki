@@ -1,19 +1,22 @@
 .main
   .container
     .row
-      .col-md-6
+      .col-md-9
         .panel
           = render 'shareds/flash'
           .panel-body
-            %h2
-              = t('.username')
-              = @article.user.name
-            %h2
-              = t('.category')
-              = @article.category.try(:name)
-            %h2
-              = t('.title')
-              = @article.title
+            .panel-heading#media
+              .article-title
+                = t('.title')
+                = @article.title
+
+              #article-img
+                = link_to(image_tag @article.user.image.url, title: @article.user.name)
+                
+            .info
+              = @article.user.name 
+              发布于
+              = @article.created_at
             %p
               = t('.content')
               = @article.content
