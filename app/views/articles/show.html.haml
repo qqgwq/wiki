@@ -14,9 +14,13 @@
                 = link_to(image_tag @article.user.image.url, title: @article.user.name)
                 
             .info
-              = @article.user.name 
+              = @article.user.name
+              &nbsp
               发布于
               = @article.created_at
+              &nbsp
+              = @article.views_count
+              次阅读
             %p
               = t('.content')
               = @article.content

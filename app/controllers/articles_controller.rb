@@ -23,7 +23,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    
+    unless cookies["view-article-#{@article.id}"]
+      cookies["view-article-#{@article.id}"] = "true"
+      @article.view!
+    end
   end
 
   def create

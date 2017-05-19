@@ -12,5 +12,9 @@ class Article < ApplicationRecord
   def is_user_like?(user)
     likes.map(&:user_id).include? user&.id
   end
+
+  def view!
+    self.increment!(:views_count)
+  end
 end
 
