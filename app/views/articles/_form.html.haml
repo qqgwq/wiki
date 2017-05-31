@@ -18,6 +18,6 @@
 
               .form-group
                 = f.label :内容, class: "control-label"
-                = f.text_area :content, class: "form-control"
+                = f.text_area :content, class: "form-control", data: {emojiable: true}
 
               = f.submit t('.publish'), class: "btn btn-primary"

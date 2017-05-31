@@ -41,6 +41,9 @@ gem 'bootstrap-modal-rails'
 #图标
 gem 'font-awesome-sass'
 
+#表情
+gem 'rails_emoji_picker'
+
 gem 'rails-i18n'
 gem 'better_errors'
 

@@ -126,6 +126,8 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    emoji (1.0.7)
+      json
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -158,6 +160,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    json (2.1.0)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -237,6 +240,8 @@ GEM
     rails-i18n (5.0.3)
       i18n (~> 0.7)
       railties (~> 5.0)
+    rails_emoji_picker (0.1.5)
+      emoji
     railties (5.0.0)
       actionpack (= 5.0.0)
       activesupport (= 5.0.0)
@@ -343,6 +348,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (= 5.0.0)
   rails-i18n
+  rails_emoji_picker
   ransack
   redis
   redis-namespace
