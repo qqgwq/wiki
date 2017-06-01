@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   get 'homes/about'
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
   # get 'password_resets/new'
 
   # get 'password_resets/edit'
@@ -33,4 +33,9 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new", as: "login"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
+
+  namespace :admin do
+    root "users#index"
+    resources :users
+  end
 end

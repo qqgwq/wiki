@@ -1,0 +1,22 @@
+.main
+  .container
+    .row
+      .col-sm-6.col-md-4.col-md-offset-4
+        .panel
+          .panel-heading
+            %h2= "登录"
+          .panel-body
+            = simple_form_for(:session, url: login_path) do |f|
+              = render 'shareds/flash'
+              .form-group
+                = f.label :手机号码, class: "control-label"
+                = f.text_field :phone, class: "form-control" 
+
+              .form-group
+                = f.label :密码, class: "control-label"
+                = f.password_field :password, class: "form-control"
+                 
+              .form-group
+                = f.label "记住我"
+                = f.check_box :remember_me
+              = f.submit "登录", class: "btn btn-success"

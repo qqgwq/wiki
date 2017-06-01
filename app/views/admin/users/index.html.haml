@@ -1,0 +1,30 @@
+.main
+  .container
+    .row
+      .col-md-9
+        .panel
+          .panel-body
+            %h2
+              = t('.signup_count')
+              %li1= User.count
+            %table.table-hover.table-inverse{ style: "width: 100%" }
+              %thead
+                %tr
+                  %th 图片
+                  %th 姓名
+                  %th 电话号码
+              %tbody
+                - @users.each do |user|
+                  %tr
+                    %td
+                      %h2#table= image_tag user.image.url
+
+                    %td
+                      %h2= link_to user.name, user
+
+                    %td
+                      %h2= user.phone
+
+                    -#%td
+                      = link_to user_path(user), method: :delete, data: { confirm: "Are you sure" } do
+                        %i.fa.fa-trash
