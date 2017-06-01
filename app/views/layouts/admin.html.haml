@@ -16,4 +16,7 @@
     </script>
 
   %body
+    %ul.nav.navbar-nav{style: "float: right"}
+      %li= link_to "登入", admin_login_path
+      %li= link_to "登出", admin_logout_path, method: :delete
     = yield

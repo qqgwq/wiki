@@ -28,14 +28,18 @@ Rails.application.routes.draw do
   end
    
   root "articles#index"
-
+  get "welcome", to: "welcomes#index"
   get "signup", to: "users#new", as: "signup"
   get "login", to: "sessions#new", as: "login"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
   namespace :admin do
-    root "users#index"
+    root "welcomes#index"
     resources :users
+    get "signup", to: "users#new", as: "signup"
+    get "login", to: "sessions#new", as: "login"
+    post "login", to: "sessions#create"
+    delete "logout", to: "sessions#destroy"
   end
 end

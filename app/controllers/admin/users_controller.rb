@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  before_action :find_user, only: [:show]
   def index
     @users = User.all
   end
@@ -10,9 +11,8 @@ class Admin::UsersController < Admin::BaseController
   def create
     @user = User.new(user_params)
     if verify_rucaptcha?(@user) && @user.save
-      SmsJob.set(wait: 1.minute).perform_later(@user.phone, @user.name)
       login_as @user
-      redirect_to @user
+      redirect_to admin_users_path
     else
       flash.now[:danger] = "验证码错误"
       render :new
@@ -20,6 +20,20 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-    @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to admin_users_path
+  end
+
+  private
+
+   def user_params
+    params.require(:user).permit(:phone, :name, :password, :password_confirmation, :image)
+  end
+
+  def find_user
+    @user = User.friendly.find(params[:id])
   end
 end
