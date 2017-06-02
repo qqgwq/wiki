@@ -1,0 +1,17 @@
+.container-fluid
+  .row
+    .col-md-10.col-sm-8
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+          %span文章
+        .panel-body
+          %table.table.table-striped
+            .thead
+              %tr
+                %th标题
+                %th内容
+            .tbody
+              %tr
+                %td=@article.title
+                %td=@article.content

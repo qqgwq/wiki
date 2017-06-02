@@ -1,4 +1,4 @@
-class Admin::WelcomesController < Admin::BaseController
+class Admin::WelcomesController < Admin::ApplicationController
   def index
   end
 end

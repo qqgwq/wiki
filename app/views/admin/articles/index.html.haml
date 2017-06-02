@@ -1,0 +1,25 @@
+.container-fluid
+  .row
+    .col-md-10.col-sm-8
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+          %span 所有文章
+
+        .panel-body
+          %table.table.table-striped
+            .thead
+              %tr
+                %th Id
+                %th 标题
+                %th
+            .tbody
+              - @articles.each do |article|
+                %tr
+                  %td= article.id
+                  %td= article.title
+
+                  %td
+                    = link_to "查看详情", admin_article_path(article)
+
+          = paginate @articles

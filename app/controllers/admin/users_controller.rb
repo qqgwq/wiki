@@ -1,7 +1,7 @@
-class Admin::UsersController < Admin::BaseController
+class Admin::UsersController < Admin::ApplicationController
   before_action :find_user, only: [:show]
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(2)
   end
 
   def new

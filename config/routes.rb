@@ -36,7 +36,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "welcomes#index"
+    resources :welcomes
     resources :users
+    resources :articles
     get "signup", to: "users#new", as: "signup"
     get "login", to: "sessions#new", as: "login"
     post "login", to: "sessions#create"

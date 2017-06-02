@@ -1,0 +1,71 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+body{
+  background-image: url("houtai.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.sidebar1{
+       background-color: #1a1f27;
+       min-height: 100%;
+  //   background: #F17153;
+  //   /* For browsers that do not support gradients */
+  //   background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
+  //   /* For Safari 5.1 to 6.0 */
+  //   background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
+  //   /* For Opera 11.1 to 12.0 */
+  //   background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);
+  //   /* For Firefox 3.6 to 15 */
+  //   background: linear-gradient(#F17153, #F58D63, #f1ab53);
+  //   /* Standard syntax */
+  // // #logout{
+  // //   position: relative;
+  // //   top: 320px;
+  // //   left: 80%;
+  // // }
+}
+.logo{
+  img{
+    border-radius: 80%;
+    border: 3px solid white;
+    margin-top: 12px;
+  }
+}
+.list{
+  padding-left: 40px;
+  color: white;
+  font-size: 1em;
+  h3{
+    margin-left: -36px;
+  }
+  li:hover {
+    color: white;
+    box-shadow:1px 1px 10px 1px #50e6df inset;
+    transition: padding-left 0.2s linear;
+    padding-left: 60px;
+  }
+  li{
+    list-style: none;
+    margin-bottom: 9px;
+    padding: 0 0 15px 40px;
+  a{
+    color: white;
+  }
+  }
+}
+  .fa{
+    float: left;
+    margin-top: 3px;
+    color: white;
+    font-size: 2rem;
+  }
+#image{
+  img{
+    width: 20%;
+    height: 31%;
+    border-radius: 100%;
+    border: 3px solid white;
+  }
+}

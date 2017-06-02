@@ -1,7 +1,7 @@
 %html
   %head
     %title Jenkin管理后台
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
@@ -16,7 +16,23 @@
     </script>
 
   %body
-    %ul.nav.navbar-nav{style: "float: right"}
-      %li= link_to "登入", admin_login_path
-      %li= link_to "登出", admin_logout_path, method: :delete
-    = yield
+    .container-fluid
+      .row
+        .col-md-2.col-sm-3.sidebar1
+          .logo
+            = image_tag("gwq.jpg")
+          .left-navigation
+            .list
+              %h3
+                %i.fa.fa-lock
+                %li= link_to "管理后台", admin_welcomes_path
+
+              %i.fa.fa-hand-pointer-o
+              %li= link_to "首页", root_path
+
+              %i.fa.fa-user
+              %li= link_to "所有用户", admin_users_path
+
+              %i.fa.fa-newspaper-o
+              %li= link_to "所有文章", admin_articles_path
+        = yield
