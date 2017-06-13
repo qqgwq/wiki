@@ -77,20 +77,20 @@ gem 'concurrent-ruby'
 #定时任务
 gem 'whenever', require: false
 
-#Grape
+#接口
 gem 'grape'
 gem 'hashie-forbidden_attributes'
 
-#Serializer
+#api 格式化json
 gem 'grape-active_model_serializers'
 gem 'active_model_serializers'
 gem 'grape_on_rails_routes'
 
-#Swagger
+#生成swagger
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 
-#cors
+#跨域
 gem 'rack-cors'
 
 group :development do
