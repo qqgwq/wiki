@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   require 'sidekiq/web'
   mount Sidekiq::Web => 'sidekiq'
+  mount ApiRoot => '/'
+  mount GrapeSwaggerRails::Engine, at: "/documentation"
 
   concern :likeable do
     resource :like, only: [:create, :destroy]

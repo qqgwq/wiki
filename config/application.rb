@@ -11,6 +11,9 @@ module Wiki
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    
     config.i18n.default_locale = "zh-CN"
     config.active_job.queue_adapter = :sidekiq
     CONFIG = Rails.application.secrets

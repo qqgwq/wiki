@@ -77,9 +77,21 @@ gem 'concurrent-ruby'
 #定时任务
 gem 'whenever', require: false
 
-#后台
-gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
-gem 'devise'
+#Grape
+gem 'grape'
+gem 'hashie-forbidden_attributes'
+
+#Serializer
+gem 'grape-active_model_serializers'
+gem 'active_model_serializers'
+gem 'grape_on_rails_routes'
+
+#Swagger
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
+
+#cors
+gem 'rack-cors'
 
 group :development do
   gem 'capistrano', '~> 3.7'
