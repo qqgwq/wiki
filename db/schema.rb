@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519012131) do
+ActiveRecord::Schema.define(version: 20170614025414) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20170519012131) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.text     "content",    limit: 65535
     t.integer  "article_id"
     t.integer  "user_id"
@@ -85,8 +85,12 @@ ActiveRecord::Schema.define(version: 20170519012131) do
 
   create_table "homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avater_file_name"
+    t.string   "avater_content_type"
+    t.integer  "avater_file_size"
+    t.datetime "avater_updated_at"
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
