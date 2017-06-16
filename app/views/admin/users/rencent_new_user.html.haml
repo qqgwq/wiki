@@ -20,5 +20,5 @@
                     %td= r.id
                     %td= r.name
                     %td= r.phone
-                    %td= r.created_at.to_date
+                    %td= r.created_at.to_s(:short)
         = paginate @users
