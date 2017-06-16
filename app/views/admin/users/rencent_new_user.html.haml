@@ -13,11 +13,11 @@
                   %th ID
                   %th 姓名
                   %th 电话
+                  %th 时间
               %tbody
                 - @users.each do |r|
                   %tr
                     %td= r.id
                     %td= r.name
                     %td= r.phone
-                   
         = paginate @users

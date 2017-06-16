@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def self.rencent_user
-    User.where("created_at > ?", Time.now - 1.day.ago)
+    User.where("created_at < ?", Time.current.ago(1.day))
   end
 
   
