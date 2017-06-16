@@ -38,4 +38,7 @@
               
               %i.fa.fa-commenting
               %li= link_to "所有评论", admin_comments_path
+
+              %i.fa.fa-user-md
+              %li= link_to "最近创建用户", rencent_new_user_admin_user_path(:admin, @users)
         = yield

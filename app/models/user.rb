@@ -25,6 +25,10 @@ class User < ApplicationRecord
     end while User.exists?(column => self[column])
   end
 
+  def self.rencent_user
+    User.where("created_at = ?", Time.now - 1.day.ago)
+  end
+
   
 
 

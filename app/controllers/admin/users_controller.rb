@@ -27,6 +27,10 @@ class Admin::UsersController < Admin::ApplicationController
     redirect_to admin_users_path
   end
 
+  def rencent_new_user
+    @users = User.rencent_user.page(params[:page]).per(2)
+  end
+
   private
 
    def user_params

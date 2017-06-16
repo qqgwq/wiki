@@ -39,7 +39,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root "welcomes#index"
     resources :welcomes
-    resources :users
+    resources :users do
+      member do
+       get :rencent_new_user
+      end
+    end
     resources :articles
     resources :comments
     get "signup", to: "users#new", as: "signup"
