@@ -62,13 +62,13 @@
               -#%li= link_to "关于我", homes_about_path
               = render 'layouts/sidebar'
        
-        .container
-          .row
-            .col-md-10 
-              = yield
-            .col-md-2
-            - if login?
-              %ul.list-group#categories
-                %li= link_to t('.All Articles'), root_path, class: "list-group-item"
-                - Category.all.each do |category|
-                  %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
+      .container
+        .row
+          .col-md-10 
+            = yield
+          .col-md-2
+          - if login?
+            %ul.list-group#categories
+              %li= link_to t('.All Articles'), root_path, class: "list-group-item"
+              - Category.all.each do |category|
+                %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
