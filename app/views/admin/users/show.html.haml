@@ -1,8 +1,19 @@
+- content_for(:title, @user.name)
 .main
   .container
     .row
-      .col-md-6.col-md-offset-3
-        .panel
+      .col-md-10.col-sm-8
+        .panel.panel-default
+          .panel-heading
+            .panel-title
+            %span用户
           .panel-body
-            %h2= @user.name
-            %h2= @user.phone
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th ID
+                  %th电话
+              %tbody
+                %tr
+                  %td= @user.id
+                  %td= @user.phone
