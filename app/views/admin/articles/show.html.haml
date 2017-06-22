@@ -12,7 +12,9 @@
               %tr
                 %th标题
                 %th内容
+                %th图片
             .tbody
               %tr
                 %td=@article.title
                 %td=@article.content
+                %td= image_tag @article.avatar.url
