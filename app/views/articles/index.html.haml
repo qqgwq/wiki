@@ -9,7 +9,7 @@
           = f.input :phone, label: false, placeholder: '手机号码'
           = f.input :password, label: false, placeholder: '密码'
           = f.input :记住我, :as => :boolean
-          = f.submit '登录', class: "btn btn-primary"
+          = f.submit '登录', class: "btn btn-primary", data: {disable_with: "登录中..."}
 = render 'carousel/carou'
 = render 'shareds/flash'
 
