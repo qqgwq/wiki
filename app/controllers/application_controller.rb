@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logout
-    session.delete(:user_id)
+    cookies.delete(:auth_token)
     @current_user = nil
     forget_me
   end
@@ -42,14 +42,10 @@ class ApplicationController < ActionController::Base
   end
 
   def login_from_cookies
-    if cookies[:auth_token].present?
-      if user = User.find_by_auth_token(cookies[:auth_token])
-        session[:user_id] = user.id
-        user
-      else
-        forget_me
-        nil
-      end
+    if cookies[:auth_token]
+      User.find_by_auth_token(cookies[:auth_token])
+    else
+      nil
     end
   end
 

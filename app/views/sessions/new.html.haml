@@ -6,17 +6,15 @@
           .panel-heading
             %h2= "登录"
           .panel-body
-            = simple_form_for(:session, url: login_path) do |f|
+            = form_tag(login_path, method: :post) do 
               = render 'shareds/flash'
               .form-group
-                = f.label :手机号码, class: "control-label"
-                = f.text_field :phone, class: "form-control" 
+                = text_field_tag :phone, nil, class: "form-control", placeholder: "电话号码..."
 
               .form-group
-                = f.label :密码, class: "control-label"
-                = f.password_field :password, class: "form-control"
+                = password_field_tag :password, nil, class: "form-control", placeholder: "密码..."
                  
               .form-group
-                = f.label "记住我"
-                = f.check_box :remember_me
-              = f.submit "登录", class: "btn btn-success", data: {disable_with: "登录中..."} 
+                = check_box_tag :remember_me, 1, params[:remember_me]
+                = label_tag "记住我"
+              = submit_tag "登录", class: "btn btn-success", data: {disable_with: " 登录中..."}

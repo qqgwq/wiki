@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       get :person
     end
   end
+  
+  resources :sessions
    
   root "articles#index"
   get "welcome", to: "welcomes#index"

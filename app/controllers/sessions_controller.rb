@@ -4,14 +4,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(phone: login_params[:phone])
-    if @user && @user.authenticate(login_params[:password])
+    @user = User.find_by(phone: params[:phone])
+    if @user && @user.authenticate(params[:password])
       if params[:remember_me]
         cookies.permanent[:auth_token] = @user.auth_token
       else
         cookies[:auth_token] = @user.auth_token
       end
-      login_as @user
+      #login_as @user
       redirect_back_or_default @user
       flash[:success] = "欢迎您! #{@user.name}!"
     else
@@ -27,9 +27,9 @@ class SessionsController < ApplicationController
   end
 
 
-  private
+  # private
 
-  def login_params
-    params.require(:session).permit(:phone, :password)
-  end
+  # def login_params
+  #   params.require(:session).permit(:phone, :password)
+  # end
 end
