@@ -1,4 +1,5 @@
 zh-CN:
+#model
   activerecord:
     attributes:
       user:
@@ -11,6 +12,7 @@ zh-CN:
       article:
         title: "标题"
         content: "内容"
+        avatar: "图片"
   # helpers:
   #   label:
   #     article:

@@ -46,6 +46,7 @@ class ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       redirect_to root_url
+      @article.update(created_at: Time.zone.now)
     else
       render :edit
     end

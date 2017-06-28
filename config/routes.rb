@@ -28,7 +28,6 @@ Rails.application.routes.draw do
       get :person
     end
   end
-  
   resources :sessions
    
   root "articles#index"

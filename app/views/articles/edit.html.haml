@@ -5,6 +5,7 @@
         .panel
           .panel-heading
             编辑
+          = render 'shareds/article_errors'
           .panel-body
             = simple_form_for(@article) do |f|
               .form-group
@@ -14,5 +15,8 @@
               .form-group
                 = f.label :内容, class: "control-label"
                 = f.text_area :content, class: "form-control"
+
+              .form-group
+                = f.file_field :avatar
 
               = f.submit t('.publish'), class: "btn btn-primays"
