@@ -15,4 +15,4 @@
     .user-avatar
       - @article.likes.each do |like|
         - if like.user.image.present?
-          = image_tag like.user.image.url, width: 20, title: current_user.name
+          = image_tag like.user.image.url, width: 20, title: like.user.name
