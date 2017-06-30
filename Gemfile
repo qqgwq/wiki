@@ -106,6 +106,11 @@ group :development do
   gem 'net-ssh', '~>4.1.0'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 3.1.1'
+end
+
 group :production do
   gem 'pg', '~> 0.18.2'
 end

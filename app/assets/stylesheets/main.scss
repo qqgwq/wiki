@@ -97,13 +97,21 @@ body{
   float: right;
   margin-top: 3px;
 }
+#like_heart{
+  float: right;
+  position: relative;
+  padding-left: 8px;
+  top: -14px;
+  right: 95px;
+  color: #999999;
+  
+}
 .fa{
   float: right;
   position: relative;
   padding-left: 8px;
   top: -20px;
   right: 10px;
-  color: #999999;
 }
 
 ul{
@@ -127,8 +135,20 @@ ul{
 
 .span-count{
   position:relative;
+  top: -17px;
+  left:-50px;
+  width: 45px;
+.user-avatar{
+  margin-top: -9px;
+}
+img{
+  position: relative;
   top: -22px;
-  left:32px;
+  left: 9px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
 }
 .span-count1{
   position: relative;
@@ -304,6 +324,10 @@ li1{
     width: 40px;
     height: 40px;
   }
+}
+
+#comment{
+  margin-top: 43px;
 }
 
 // #myCarousel{

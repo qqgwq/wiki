@@ -1,3 +1,5 @@
-$(".span-count").html('<%= @likeable.likes.count %>');
-$(".fa.fa-heart").css("color", "#999999");
+$(".span-count p").html('<%= @likeable.likes.count %>');
+$(".user-avatar #user_<%= current_user.id %>").remove();
 $(".like").data("method", "post");
+$("#like_heart").css("color", "#999999");
+
