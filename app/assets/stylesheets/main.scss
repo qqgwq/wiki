@@ -213,8 +213,8 @@ li1{
 
 #header{
   img{
-    height: 134px;
-    width: 271px;
+    height: 354px;
+    width: 1348px;
   }
 }
 #avatar{
@@ -224,15 +224,16 @@ li1{
     border: 5px solid rgb(23, 255, 255);
     position: relative;
     margin-top: -40px;
-    left: 85px;
+    left: 90%;
   }
 }
 #width{
-  width: 271px;
+  width: 1349px;
   padding:0px;
-  height: 80%;
+  height: 140%;
   margin-top: 0px;
   background: rgb(247, 249, 249);
+  margin-left: -105px;
 }
 #info{
   text-align: center;
@@ -240,7 +241,7 @@ li1{
   color: #428bca;
 
   img{
-    width: 100%;
+    width: 30%;
     margin-top: -10px;
   }
 }
@@ -248,13 +249,15 @@ li1{
  text-align: center;
  font-size: 1em;
  color: red;
+ float: right;
+ margin-top: 40px; 
 }
 
 #footer{
   width: 50%;
-  margin: 30px auto;
+  margin: 47px 50%;
 #icon{
-  width: 35px;
+  width: 40px;
   height: 30px;
   font-size: 2em;
  }
