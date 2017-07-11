@@ -31,14 +31,17 @@
                   %b.caret
                 %ul.dropdown-menu
                   %li= link_to t('.All User'), users_path
+                  %i.fa.fa-user
                   %li.divider
                   %li= link_to t('.New Article'), new_article_path
                   %li= link_to t('.All Article'), articles_path
                   %li= link_to t('.my article'), person_user_path(current_user)
                   %li.divider
                   %li= link_to t('.Setting'), edit_user_path(current_user)
+                  %i.fa.fa-user-circle
                   %li.divider
                   %li= link_to t('.Log Out'), logout_path, method: :delete
+                  %i.fa.fa-sign-out
             - else
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
@@ -51,8 +54,10 @@
                   %li= link_to t('.my article'), person_user_path(current_user)
                   %li.divider
                   %li= link_to t('.Setting'), edit_user_path(current_user)
+                  %i.fa.fa-user-circle
                   %li.divider
                   %li= link_to t('.Log Out'), logout_path, method: :delete
+                  %i.fa.fa-sign-out
           - else
             %ul.nav.navbar-nav
               -#%li= link_to t('.Sign Up'), signup_path

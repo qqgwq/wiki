@@ -21,7 +21,11 @@ body{
      font-size: 1em; 
   }
 }
-
+.dropdown-menu{
+  li a:hover{
+    background: blueviolet;
+  }
+}
 .navbar-nav{
   li{
     img{
