@@ -1,8 +1,6 @@
 .container-fluid
   .row
     .col-md-6.col-sm-8
-      = pie_chart Article.group(:content).count, width: 1800
-      .section{style: "margin-top: -47%"}
-        = pie_chart Article.group(:title).count
+      = pie_chart Article.group(:title).count
       .section1
         = pie_chart User.group(:name).count
