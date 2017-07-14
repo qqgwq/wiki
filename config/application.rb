@@ -23,8 +23,8 @@ module Wiki
     config.i18n.default_locale = "zh-CN"
     config.active_job.queue_adapter = :sidekiq
     CONFIG = Rails.application.secrets
-    config.time_zone = 'Beijing'
-    config.active_record.default_timezone = :local
+    config.time_zone = 'UTC'
+    config.active_record.default_timezone = :utc
     ActiveSupport::Deprecation.debug = true
   end
 end

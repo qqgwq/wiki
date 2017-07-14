@@ -1,6 +1,6 @@
 .container-fluid
   .row
-    .col-md-6.col-sm-8
-      = pie_chart Article.group(:title).count
+    .col-md-6.col-sm-6
       .section1
-        = pie_chart User.group(:name).count
+        %h1 用户
+        = pie_chart User.group_by_month(:created_at).count

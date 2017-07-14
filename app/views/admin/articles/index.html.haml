@@ -23,4 +23,5 @@
                     = link_to "查看详情", admin_article_path(article)
 
           = paginate @articles
+        = pie_chart Article.group_by_week(:created_at).count
        

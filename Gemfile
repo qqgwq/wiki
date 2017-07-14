@@ -42,6 +42,7 @@ gem 'bootstrap-modal-rails'
 #图标
 gem 'font-awesome-sass'
 gem "chartkick"
+gem "groupdate"
 
 #表情
 gem 'rails_emoji_picker'
