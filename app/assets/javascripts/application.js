@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require_tree .
 //= require rails_emoji_picker
+//= require Chart.bundle
+//= require chartkick
