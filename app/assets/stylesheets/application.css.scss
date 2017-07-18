@@ -12,6 +12,9 @@
  *
  *= require_self
  *= require rails_emoji_picker
+ *= require nprogress
+ *= require nprogress-bootstrap
+ *= require nprogress-turbolinks5
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";

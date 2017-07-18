@@ -18,3 +18,5 @@
 //= require rails_emoji_picker
 //= require Chart.bundle
 //= require chartkick
+//= require nprogress
+//= require nprogress-turbolinks
