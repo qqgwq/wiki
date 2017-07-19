@@ -1,6 +1,7 @@
 - cache article, expires_in: 1.minute do 
   #index1
     %h2= link_to article.title, article
+    %span.badge.badge-info= article.category.name
     %p= article.user&.name
     =image_tag article.user.image if article.user
 
