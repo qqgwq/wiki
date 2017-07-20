@@ -29,6 +29,14 @@ class User < ApplicationRecord
     User.where("created_at > ?", Time.current.ago(1.day))
   end
 
+  def self.to_csv
+    CSV.generate(headers: true) do |csv|
+      csv << column_names
+    all.each do |user|
+      csv << user.attributes.values_at(*column_names)
+      end
+    end
+  end
   
 
 

@@ -5,6 +5,8 @@
         .panel
           .panel-body
             - if current_user.try(:is_admin)
+              %p DownLoad
+              = link_to "CSV", users_path(format: "csv")
               %h2
                 = t('.signup_count')
                 %li1= User.count
