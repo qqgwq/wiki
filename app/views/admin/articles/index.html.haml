@@ -1,3 +1,4 @@
+= render 'shareds/flash'
 .container-fluid
   .row
     .col-md-10.col-sm-8
@@ -10,16 +11,19 @@
           %table.table.table-striped
             .thead
               %tr
-                %th Id
+                %th ID
                 %th 标题
-                %th
+                %th 状态
             .tbody
               - @articles.each do |article|
                 %tr
                   %td= article.id
                   %td= article.title
+                  %td= I18n.t("admin.articles.status.#{article.status}")
+                  %td= link_to "通过", complete_admin_article_path(article), method: :patch, class: "btn btn-primary"
+                  %td= link_to "拒绝", deny_admin_article_path(article), method: :post, class: "btn btn-danger"
 
-                  %td
+                  -#%td
                     = link_to "查看详情", admin_article_path(article)
 
           = paginate @articles

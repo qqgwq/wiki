@@ -11,6 +11,7 @@ class Article < ApplicationRecord
   has_attached_file :avatar, styles: { :original => '300x300>', :small => "200x200#" }
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/png", "image/jpeg"]
   validates_attachment_size :avatar, less_than: 5.megabytes
+  enum status:[:audit, :complete, :deny]
 
   def is_user_like?(user)
     likes.map(&:user_id).include? user&.id

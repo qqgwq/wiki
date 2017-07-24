@@ -6,50 +6,93 @@
         .panel
           = render 'shareds/flash'
           .panel-body
-            .panel-heading#media
-              .article-title
-                = t('.title')
-                = @article.title
+            - if @article.complete?
+              .panel-heading#media
+                .article-title
+                  = t('.title')
+                  = @article.title
 
-              #article-img
-                = link_to(image_tag @article.user.image.url, title: @article.user.name)
+                #article-img
+                  = link_to(image_tag @article.user.image.url, title: @article.user.name)
+                  
+              .info
+                = @article.user.name
+                &nbsp
+                发布于
+                = @article.created_at
+                &nbsp
+                = @article.views_count
+                次阅读
+              %p
+                = t('.content')
+                = @article.content
+                = image_tag @article.avatar.url
+              .pull-right
+                = render partial: 'articles/like'
+                %h2#counts  
+                  =@article.comments.count
+                  = t('.Comments')
+              - if login?
+                #div
+                  = render partial: 'comments/comment', collection: @article.comments, :as => :comment
                 
-            .info
-              = @article.user.name
-              &nbsp
-              发布于
-              = @article.created_at
-              &nbsp
-              = @article.views_count
-              次阅读
-            %p
-              = t('.content')
-              = @article.content
-              = image_tag @article.avatar.url
-            .pull-right
-              = render partial: 'articles/like'
-              %h2#counts  
-                =@article.comments.count
-                = t('.Comments')
-            - if login?
-              #div
-                = render partial: 'comments/comment', collection: @article.comments, :as => :comment
-              
 
-              = simple_form_for([@article, @article.comments.build], remote: true) do |f|
-                .form-group
-                  %i.glyphicon.glyphicon-comment
-                  = f.label :content, class: "control-label"
-                  = f.text_area :content, placeholder: t('.content'), class: "form-control", data: {emojiable: true}, id: "comment"
-                = f.submit t('.create comment'), class: "btn btn-primary"
-                = link_to t('.B'), root_path, class: "btn btn-danger"
+                = simple_form_for([@article, @article.comments.build], remote: true) do |f|
+                  .form-group
+                    %i.glyphicon.glyphicon-comment
+                    = f.label :content, class: "control-label"
+                    = f.text_area :content, placeholder: t('.content'), class: "form-control", data: {emojiable: true}, id: "comment"
+                  = f.submit t('.create comment'), class: "btn btn-primary"
+                  = link_to t('.B'), root_path, class: "btn btn-danger"
+              - else
+                = render "articles/bottom"
+
+              #article
+                - if correct_user
+                  = link_to edit_article_path(@article) do
+                    %i.fa.fa-edit
+                
+                  = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
+                    %i.fa.fa-trash
+            - elsif @article.deny?
+              .container
+                .row
+                  .col-md-8.col-sm-10
+                    .panel-heading#media
+                      .article-title
+                        = t('.title')
+                        = @article.title  
+                    .info
+                      = @article.user.name
+                      &nbsp
+                      发布于
+                      = @article.created_at
+                      &nbsp
+                      = @article.views_count
+                      次阅读
+                      %span 你发表的
+                      %strong"#{@article.content}"
+                      没有通过审核,请新建
+                    = link_to "新建", new_article_path, class: "btn btn-primary btn-sm"
             - else
-              = render "articles/bottom"
+              .container
+                .row
+                  .col-md-8.col-sm-10
+                    .panel-heading#media
+                      .article-title
+                        = t('.title')
+                        = @article.title  
+                    .info
+                      = @article.user.name
+                      &nbsp
+                      发布于
+                      = @article.created_at
+                      &nbsp
+                      = @article.views_count
+                      次阅读
+                      %span 你发表的
+                      %strong"#{@article.content}"
+                      正在审核中...
 
-            #article
-              - if correct_user
-                = link_to edit_article_path(@article) do
-                  %i.fa.fa-edit
               
-                = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
-                  %i.fa.fa-trash
+

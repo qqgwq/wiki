@@ -45,7 +45,12 @@ Rails.application.routes.draw do
        get :rencent_new_user
       end
     end
-    resources :articles
+    resources :articles do
+      member do
+        patch :complete
+        post :deny
+    end
+  end
     resources :comments
     get "signup", to: "users#new", as: "signup"
     get "login", to: "sessions#new", as: "login"

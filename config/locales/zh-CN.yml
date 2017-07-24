@@ -13,6 +13,7 @@ zh-CN:
         title: "标题"
         content: "内容"
         avatar: "图片"
+      
   # helpers:
   #   label:
   #     article:
@@ -114,10 +115,24 @@ zh-CN:
       search_body: "搜索内容"
     article:
       Comments: "评论"
+    status:
+      audit: "审核中"
+      complete: "已通过"
+      deny: "已拒绝"
+
+    
 
   shareds:
     errors:
       this user from being saved: "个错误数量"
+
+  admin:
+    articles:
+      status:
+        audit: "审核中"
+        complete: "已通过"
+        deny: "已拒绝"
+
 
 
   
