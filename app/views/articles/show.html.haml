@@ -70,9 +70,9 @@
                       &nbsp
                       = @article.views_count
                       次阅读
-                      %span 你发表的
+                      %span 发表的
                       %strong"#{@article.content}"
-                      没有通过审核,请新建
+                      没有通过审核,请修改
                     = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
             - else
               .container
@@ -90,7 +90,7 @@
                       &nbsp
                       = @article.views_count
                       次阅读
-                      %span 你发表的
+                      %span 发表的
                       %strong"#{@article.content}"
                       正在审核中...
 
