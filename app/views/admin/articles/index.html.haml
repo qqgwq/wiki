@@ -8,23 +8,22 @@
           %span 所有文章
 
         .panel-body
-          %table.table.table-striped
+          %table.table.table-hover.table-striped
             .thead
               %tr
                 %th ID
                 %th 标题
+                %th 类型
                 %th 状态
+                %th 
             .tbody
               - @articles.each do |article|
                 %tr
                   %td= article.id
                   %td= article.title
+                  %td= article.category.name
                   %td= I18n.t("admin.articles.status.#{article.status}")
-                  %td= link_to "通过", complete_admin_article_path(article), method: :patch, class: "btn btn-primary"
-                  %td= link_to "拒绝", deny_admin_article_path(article), method: :post, class: "btn btn-danger"
-
-                  -#%td
-                    = link_to "查看详情", admin_article_path(article)
+                  %td= link_to "进入审查", admin_article_path(article), class: "btn btn-primary btn-xs"
 
           = paginate @articles
         = pie_chart Article.group_by_week(:created_at).count

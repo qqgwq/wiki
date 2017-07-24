@@ -18,3 +18,7 @@
                 %td=@article.title
                 %td=@article.content
                 %td= image_tag @article.avatar.url
+              %tr
+                %td{:colspan => 6}
+                  = link_to "通过", complete_admin_article_path(@article), method: :patch, class: "btn btn-primary"
+                  = link_to "拒绝", deny_admin_article_path(@article), method: :post, class: "btn btn-danger"

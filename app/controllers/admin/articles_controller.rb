@@ -12,13 +12,13 @@ class Admin::ArticlesController < Admin::ApplicationController
     @article = Article.find(params[:id])
     @article.complete! if @article.audit?
     flash[:success] = "审核通过"
-    redirect_to admin_article_path
+    redirect_to admin_articles_path
   end
 
   def deny
     @article = Article.find(params[:id])
     @article.deny! if @article.audit?
     flash[:danger] = "已拒绝"
-    redirect_to admin_article_path
+    redirect_to admin_articles_path
   end
 end

@@ -73,7 +73,7 @@
                       %span 你发表的
                       %strong"#{@article.content}"
                       没有通过审核,请新建
-                    = link_to "新建", new_article_path, class: "btn btn-primary btn-sm"
+                    = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
             - else
               .container
                 .row
