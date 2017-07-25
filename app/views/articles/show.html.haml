@@ -23,6 +23,10 @@
                 &nbsp
                 = @article.views_count
                 次阅读
+                &nbsp
+                点击量
+                = @article.click_count.incr()
+                次
               %p
                 = t('.content')
                 = @article.content
@@ -70,6 +74,10 @@
                       &nbsp
                       = @article.views_count
                       次阅读
+                      &nbsp
+                      点击量
+                      = @article.click_count.incr()
+                      次
                       %span 发表的
                       %strong"#{@article.content}"
                       没有通过审核,请修改
@@ -90,6 +98,10 @@
                       &nbsp
                       = @article.views_count
                       次阅读
+                      &nbsp
+                      点击量
+                      = @article.click_count.incr()
+                      次
                       %span 发表的
                       %strong"#{@article.content}"
                       正在审核中...

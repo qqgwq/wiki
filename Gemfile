@@ -39,6 +39,7 @@ gem 'pry-nav'
 gem 'acts_as_commentable_with_threading'
 gem 'bootstrap-modal-rails'
 gem 'nprogress-rails'
+gem 'redis-objects'
 
 #图标
 gem 'font-awesome-sass'

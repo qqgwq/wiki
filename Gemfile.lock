@@ -269,6 +269,8 @@ GEM
     redis (3.3.3)
     redis-namespace (1.5.3)
       redis (~> 3.0, >= 3.0.4)
+    redis-objects (1.2.1)
+      redis (>= 3.0.2)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -389,6 +391,7 @@ DEPENDENCIES
   ransack
   redis
   redis-namespace
+  redis-objects
   rspec-rails
   rucaptcha
   sass-rails (~> 5.0)

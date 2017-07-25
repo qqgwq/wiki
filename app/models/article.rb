@@ -1,7 +1,9 @@
 class Article < ApplicationRecord
   include Likeable
+  include Redis::Objects
   # extend FriendlyId
   # friendly_id :title
+  counter :click_count
   belongs_to :user
   belongs_to :category
   has_many :comments
