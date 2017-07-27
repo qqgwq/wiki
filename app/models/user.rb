@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :like_articles, through: :likes, source: :likeable, source_type: "Article"
   validates :name, :phone, presence: true, uniqueness: true
   validates :password, presence: true, length: { in: 1..11 }
+  validates :email, presence: true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates :image, attachment_presence: true
   has_attached_file :image, styles: { :original => '250x250>', :small => "200x200#" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/png", "image/jpeg"]

@@ -8,6 +8,7 @@ zh-CN:
         password_confirmation: "密码确认"
         phone: "手机号码"
         image: "图片"
+        email: "邮箱"
 
       article:
         title: "标题"

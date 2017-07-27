@@ -31,10 +31,14 @@
               %li= link_to "首页", root_path
 
               %i.fa.fa-user
-              %li= link_to "所有用户", admin_users_path
+              %li
+                = link_to "所有用户", admin_users_path
+                %span.badge.badge-info= User.count
 
               %i.fa.fa-newspaper-o
-              %li= link_to "所有文章", admin_articles_path
+              %li
+                = link_to "所有文章", admin_articles_path
+                %span.badge.badge-info= Article.count
               
               %i.fa.fa-commenting
               %li= link_to "所有评论", admin_comments_path

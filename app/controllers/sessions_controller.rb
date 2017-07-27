@@ -4,7 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(phone: params[:phone])
+    login = login_params[:login]
+    @user = if login.include?("@")
+              User.find_by(email: params[:login])
+            else
+              User.find_by(phone: params[:login])
+            end
     if @user && @user.authenticate(params[:password])
       if params[:remember_me]
         cookies.permanent[:auth_token] = @user.auth_token
@@ -27,9 +32,9 @@ class SessionsController < ApplicationController
   end
 
 
-  # private
+  private
 
-  # def login_params
-  #   params.require(:session).permit(:phone, :password)
-  # end
+  def login_params
+    params.permit(:login, :password)
+  end
 end
