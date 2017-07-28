@@ -39,7 +39,11 @@ class UsersController < ApplicationController
   end
 
   def person
-  end  
+  end
+
+  def profile
+    @profile = User.friendly.find(params[:id])
+  end
 
   def update
     if @user.update(user_params)

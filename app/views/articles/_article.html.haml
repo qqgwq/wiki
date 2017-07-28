@@ -1,6 +1,8 @@
 - cache article, expires_in: 1.minute do 
   #index1
-    %h2= link_to article.title, article
+    %h2
+      = article.title
+      = link_to "查看更多<<", article, class: "btn btn-primary btn-xs"
     %span.badge.badge-success= I18n.t("articles.status.#{article.status}")
     %span.badge.badge-info= article.category.name
     %p= article.user&.name

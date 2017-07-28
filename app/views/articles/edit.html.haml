@@ -19,4 +19,5 @@
               .form-group
                 = f.file_field :avatar
 
-              = f.submit t('.publish'), class: "btn btn-primays"
+              = f.submit t('.publish'), class: "btn btn-primary btn-sm"
+              = link_to "取消", article_path, class: "btn btn-info btn-sm"
