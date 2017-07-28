@@ -347,16 +347,18 @@ li1{
 //   margin-top: -20px;
 // }
 //profile
-.pull-right{
-  img{
-    border-radius: 50%;
-    width: 96px;
-    height: 96px;
+  .user_image{
+    float: right;
+    img{
+      border-radius: 50%;
+      width: 96px;
+      height: 96px;
+    }
+    .user_edit{
+      margin: 13px;
+    }
   }
-  .user_edit{
-    margin: 13px;
-  }
-}
+
 
 .user{
   font-size: 1rem;
