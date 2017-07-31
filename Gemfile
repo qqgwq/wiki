@@ -41,6 +41,9 @@ gem 'bootstrap-modal-rails'
 gem 'nprogress-rails'
 gem 'redis-objects'
 
+#性能监控
+gem 'newrelic_rpm'
+
 #图标
 gem 'font-awesome-sass'
 gem "chartkick"

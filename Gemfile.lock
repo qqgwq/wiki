@@ -197,6 +197,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
+    newrelic_rpm (3.17.2.327)
     nio4r (1.2.1)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -377,6 +378,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mysql2
   net-ssh (~> 4.1.0)
+  newrelic_rpm
   nprogress-rails
   paperclip
   paperclip-i18n
