@@ -243,10 +243,15 @@ li1{
   text-align: center;
   font-size: 2em;
   color: #428bca;
+  float: right;
+  position: relative;
+  top: 37px;
+  right: -17%;
 
   img{
-    width: 30%;
+    width: 80%;
     margin-top: -10px;
+    float: right;
   }
 }
 #title{
@@ -258,8 +263,8 @@ li1{
 }
 
 #footer{
-  width: 50%;
-  margin: 47px 50%;
+  width: 53%;
+  margin: 28px 56px;
 #icon{
   width: 40px;
   height: 30px;

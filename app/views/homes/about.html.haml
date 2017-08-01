@@ -5,17 +5,36 @@
       %div#header= image_tag("build.jpg")
       %div#avatar
         = image_tag("gwq.jpg", title: @home.name)
-        %div#title Ruby工程师,从事ruby后端开发.
+        %div#title
+          %ul
+            %li 年龄: 1995年生
+            %li 姓名: 高万强
+            %li Ruby工程师,从事ruby后端开发.
+            %li 微信: g1305851004
+            %li QQ: 1305851004
+          %div#footer
+            = link_to "https://github.com/qqgwq" do
+              %i.fa.fa-github#icon
+            = link_to "https://twitter.com/gwq1020" do
+              %i.fa.fa-twitter#icon
+            = link_to "http://weibo.com/5563887016/profile?topnav=1&wvr=6" do
+              %i.fa.fa-weibo#icon
+      %div#exprience
+        %ul
+          %h1 经历:
+          %li 2016年8月第一份ruby工作加入成都市多元互动科技有限公司,开发产品并维护服务器端.
+          %li 2016年12月进入成都市JWBC科技有限公司实习,后端的开发和维护.
 
-        %div#footer
-          = link_to "https://github.com/qqgwq" do
-            %i.fa.fa-github#icon
-          = link_to "https://twitter.com/gwq1020" do
-            %i.fa.fa-twitter#icon
-          = link_to "http://weibo.com/5563887016/profile?topnav=1&wvr=6" do
-            %i.fa.fa-weibo#icon
+          %h1 技能:
+          %li 熟悉rubyonrails.
+          %li  使用谷歌和stackoverflow查阅相关资料。
+          %li  了解元编程/redis，使用pg/mysql数据库。
+          %li  熟悉常用的gem.
+          %li  能够熟练阅读英语文档。
+          %li  熟悉git的各种操作
+          %li  有自己的独立网站
+          %li  熟悉html/css/bootstrap/jquery/
         = render 'modals/modal'
       %div#info
-        = @home.name
-        %p 喜欢我就打点赏吧！
+        %p 打赏:
         %p= image_tag("wechat.jpg")
