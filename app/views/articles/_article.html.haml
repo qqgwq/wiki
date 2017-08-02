@@ -1,14 +1,21 @@
-- cache article, expires_in: 1.minute do 
-  #index1
-    %h2
-      = article.title
-      = link_to "查看更多<<", article, class: "btn btn-primary btn-xs"
-    %span.badge.badge-success= I18n.t("articles.status.#{article.status}")
-    %span.badge.badge-info= article.category.name
-    %p= article.user&.name
-    =image_tag article.user.image if article.user
-
-    %h2
-    = article.comments.count
-    = t('.Comments')
-    %span= time_ago_in_words(article.created_at) + "之前" 
+- cache article, expires_in: 1.minute do
+  %ul.list-group.list-group-article
+    %li.list-group-item.list-group-item-article#article_list
+      #article_image
+        =image_tag article.user.image if article.user
+        #article_title
+          = article.title
+          by
+          &nbsp
+        .article_username
+          %p= article.user&.name
+        &nbsp
+        = link_to "查看更多...", article, class: "btn btn-primary btn-xs"
+      #index1
+        %span.badge.badge-info= article.category.name
+        %span.badge.badge-success= I18n.t("articles.status.#{article.status}")
+        %span
+          = article.comments.count
+          = t('.Comments')
+        %span= time_ago_in_words(article.created_at) + "之前" 
+        

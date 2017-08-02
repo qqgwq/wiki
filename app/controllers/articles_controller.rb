@@ -7,11 +7,11 @@ class ArticlesController < ApplicationController
     #binding.pry
     if params[:category].blank?
        @q = Article.ransack(params[:q])
-       @articles = @q.result.includes(:user, :comments).order(created_at: :desc).page(params[:page]).per(2)
+       @articles = @q.result.includes(:user, :comments).order(created_at: :desc).page(params[:page]).per(3)
     else
       @category_name = params[:category]
       @category_id = Category.find_by(name: params[:category]).id
-      @articles = Article.where(category_id: @category_id).order(created_at: :desc).page(params[:page]).per(2)
+      @articles = Article.where(category_id: @category_id).order(created_at: :desc).page(params[:page]).per(3)
       respond_to do |format|
         format.js
       end

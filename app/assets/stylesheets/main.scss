@@ -36,26 +36,39 @@ body{
 }
 
 #index1{
-  border-bottom: 1px solid #ccc;
-  margin-left: 10px;
-  p{
-    float: left;
-    margin: 10px auto;
-    padding: 0 10px;
-  }
+  height: 30px;
+  position: relative;
+  right: -27px;
   span{
     float: right;
-    margin-right: 3em;
+    margin-right: 1em;
+    margin-top: 19px;
+    font-size: 14px;
+    font-weight: bold;
   }
-  h2{
-    font-size: 1em;
-  }
-  img{
-    width: 10%;
-    height: 15%;
-    border-radius: 50%;
-    }
 }
+  #article_list{
+      border-top: 0;
+      border-left: 0;
+  #article_image{
+    img{
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      float: left;
+      margin-top: -12px;
+      }
+      .article_username{
+        float: left;
+      }
+      #article_title{
+        float: left;
+        margin-left: 7px;
+      }
+    }
+  }
+
+
 
 #index{
   border-bottom: 1px solid #ccc;
