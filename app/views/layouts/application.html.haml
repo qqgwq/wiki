@@ -76,3 +76,5 @@
               %li= link_to t('.All Articles'), root_path, class: "list-group-item"
               - Category.all.each do |category|
                 %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
+    -#不需要刷新
+    = javascript_include_tag 'rails_emoji_picker'

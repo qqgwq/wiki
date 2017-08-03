@@ -19,7 +19,10 @@
 
               .form-group
                 = f.label :内容, class: "control-label"
-                = f.text_area :content, class: "form-control", data: {emojiable: true}
+                %br
+                %p{class: "emoji-picker-container"}
+                  = f.text_area :content, class: "form-control", data: {emojiable: true}
+                &nbsp
                 = f.file_field :avatar
 
               = f.submit t('.publish'), class: "btn btn-primary"

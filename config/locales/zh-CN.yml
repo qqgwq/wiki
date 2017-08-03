@@ -94,7 +94,6 @@ zh-CN:
   articles:
     show:
       create comment: "评论"
-      content: "评论内容"
       #Comments: "评论"
       category_name: "类名"
       Comments: "评论"
