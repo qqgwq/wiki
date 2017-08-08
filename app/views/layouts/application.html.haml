@@ -23,41 +23,27 @@
               %i.fa.fa-home
         %ul.nav.navbar-nav.navbar-right
           - if login?
-            - if current_user.is_admin
-              %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                  = image_tag current_user.image.url
-                  = current_user.name
-                  %b.caret
-                %ul.dropdown-menu
-                  %li= link_to t('.All User'), users_path
-                  %i.fa.fa-user
-                  %li.divider
-                  %li= link_to "我的", profile_user_path(current_user)
-                  %i.fa.fa-user-circle
-                  %li.divider
-                  %li= link_to t('.New Article'), new_article_path
-                  %li= link_to t('.All Article'), articles_path
-                  %li= link_to t('.my article'), person_user_path(current_user)
-                  %li.divider
-                  %li= link_to t('.Log Out'), logout_path, method: :delete
-                  %i.fa.fa-sign-out
-            - else
-              %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                  = image_tag current_user.image.url
-                  = current_user.name
-                  %b.caret
-                %ul.dropdown-menu
-                  %li= link_to "我的", profile_user_path
-                  %i.fa.fa-user-circle
-                  %li.divider
-                  %li= link_to t('.New Article'), new_article_path
-                  %li= link_to t('.All Article'), articles_path
-                  %li= link_to t('.my article'), person_user_path(current_user)
-                  %li.divider
-                  %li= link_to t('.Log Out'), logout_path, method: :delete
-                  %i.fa.fa-sign-out
+            %li
+              = link_to notifications_path, class: "notifications" do
+                %i.fa.fa-bell
+                - if unread_notifications_count > 0
+                  .badge= unread_notifications_count > 99 ? '99+' : unread_notifications_count
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                = image_tag current_user.image.url
+                = current_user.name
+                %b.caret
+              %ul.dropdown-menu
+                %li.divider
+                %li= link_to "我的", profile_user_path(current_user)
+                %i.fa.fa-user-circle
+                %li.divider
+                %li= link_to t('.New Article'), new_article_path
+                %li= link_to t('.All Article'), articles_path
+                %li= link_to t('.my article'), person_user_path(current_user)
+                %li.divider
+                %li= link_to t('.Log Out'), logout_path, method: :delete
+                %i.fa.fa-sign-out
           - else
             %ul.nav.navbar-nav
               -#%li= link_to t('.Sign Up'), signup_path
@@ -66,15 +52,15 @@
               -#%li= link_to "关于我", homes_about_path
               = render 'layouts/sidebar'
        
-      .container
-        .row
-          .col-md-10 
-            = yield
-          .col-md-2
-          - if login?
-            %ul.list-group#categories
-              %li= link_to t('.All Articles'), root_path, class: "list-group-item"
-              - Category.all.each do |category|
-                %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
+    .container
+      .row
+        .col-md-10 
+          = yield
+        .col-md-2
+        - if login?
+          %ul.list-group#categories
+            %li= link_to t('.All Articles'), root_path, class: "list-group-item"
+            - Category.all.each do |category|
+              %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
     -#不需要刷新
     = javascript_include_tag 'rails_emoji_picker'

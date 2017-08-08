@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @comment = @article.comments&.create params.require(:comment).permit(:content).merge(user: current_user)
     respond_to do |format|
       if @comment.save
+         @comment.create_article_notification
         format.html {redirect_to article_path(@article)}
         format.js { flash[:success] = "添加评论成功" }
       else

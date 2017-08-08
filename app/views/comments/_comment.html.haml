@@ -1,9 +1,15 @@
 %div{:id => "comment_#{comment.id}"}
-  #img2= image_tag current_user.image.url
-  %p= comment&.user&.name
-  #xyz
-    = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
-  %h4#comment="#{content_with_emoji(comment.content)}".html_safe
+  %ul.list-group
+    %li.list-group-item-wiki
+      #img2= image_tag comment.user.image.url
+      .metadate
+        | #
+        %span.author
+          = comment&.user&.name
+        %span.date
+          = comment.created_at.to_date
+        %h4#comment="#{content_with_emoji(comment.content)}".html_safe
+      
   
   - if comment.user == current_user
     = link_to edit_article_comment_path(comment.article, comment) do

@@ -7,6 +7,7 @@ class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :comments
+  has_many :notifications
   validates :title, presence: true, length: { in: 3..11 }
   validates :content, presence: true
   validates :avatar, attachment_presence: true

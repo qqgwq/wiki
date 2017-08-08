@@ -1,0 +1,28 @@
+<div class="panel panel-default notifications">
+  <div class="panel-heading hide-ios clearfix">
+    <h3 class="panel-title">
+      所有通知
+    </h3>
+    <div class="notification_clear">
+      <%= link_to "清空所有", clear_notifications_path, method: :delete, class: "btn btn-danger btn-sm", remote: true %>
+    </div>
+  </div>
+  <div class="panel-body">
+    <% if @notifications.any? %>
+      <% @notifications.each do |notification| %>
+        <% notification.article.comments.each do |comment| %>
+          <div class="notification_avater">
+            <%= image_tag comment.user.image.url %>
+          </div>
+          <ul class="list-group" class="list-group-wiki">
+            <li class="list-group-item-wiki">#<%= notification.article.title %></li>
+            <li class="list-group-item-wiki">
+              <%= comment.user.name %>&nbsp#<%= comment.created_at.to_date %>&nbsp#<%= comment.content %>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<%= current_user.notifications.unread.where(id: @notifications.pluck(:id)).update_all(read: true) %>

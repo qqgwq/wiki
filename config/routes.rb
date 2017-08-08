@@ -30,6 +30,13 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions
+
+  resources :notifications, only: [:index, :destroy] do
+    collection do
+      post :mark
+      delete :clear
+    end
+  end
    
   root "articles#index"
   get "welcome", to: "welcomes#index"

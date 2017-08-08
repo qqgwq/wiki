@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :articles, dependent: :delete_all
   has_many :comments, dependent: :delete_all
+  has_many :notifications
   has_many :likes
   has_many :like_articles, through: :likes, source: :likeable, source_type: "Article"
   validates :name, :phone, presence: true, uniqueness: true

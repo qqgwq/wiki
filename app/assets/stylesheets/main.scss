@@ -83,12 +83,13 @@ body{
    border-top: 1px solid #ccc;
    #img2{
      img{
-      width: 10%;
-      height: 10%;
+      width: 48px;
+      height: 48px;
       float: left;
       border-radius: 50%;
       margin-left: -15px;
       margin-right: 8px;
+      margin-top: 10px;
      }
   }
 }
@@ -354,9 +355,7 @@ li1{
   }
 }
 
-#comment{
-  margin-top: 43px;
-}
+
 
 // #myCarousel{
 //   width: 1349px;
@@ -381,4 +380,34 @@ li1{
 .user{
   font-size: 1rem;
   color: #999;
+}
+
+  .notifications{
+    margin-top: 34px;
+  .fa-bell{
+      color: red;
+  }
+  .badge{
+    font-size: 1rem;
+    background-color: red;
+    margin-top: -22px;
+    position: relative;
+    left: 34px;
+  }
+}
+.panel-default{
+  padding: 0;
+}
+.notification_avater{
+  float: left;
+  img{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    float: left;
+  }
+}
+.notification_clear{
+  float: right;
+  margin: -10px;
 }

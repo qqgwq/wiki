@@ -1,5 +1,13 @@
-= simple_form_for([@article, @comment]) do |f|
-  .form-group
-    = f.label :content, class: "control-label"
-    = f.text_area :content, class: "form-control"
-  = f.submit t('.edit comment'), class: "btn btn-primary"
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        .panel-title
+          %span编辑
+
+      .panel-body
+        = simple_form_for([@article, @comment]) do |f|
+          .form-group
+            = f.label :content, class: "control-label"
+            = f.text_area :content, class: "form-control", data: {emojiable: true}
+          = f.submit t('.edit comment'), class: "btn btn-primary"
