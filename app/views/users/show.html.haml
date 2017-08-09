@@ -1,16 +1,25 @@
 - content_for(:title, @user.name)
 = render 'shareds/flash'
-.main
-  .container
-    .row
-      .col-md-6.col-md-offset-3
-        .panel
-          .panel-body
-            %h2= @user.name
-            %h2= @user.phone
-          - if right_user
-            = link_to edit_user_path(current_user) do
-              %i.fa.fa-edit
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        .panel-title
+        %span资料
 
-            = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
-              %i.fa.fa-trash
+      .panel-body
+        %h2= @user.name
+        %h2= @user.phone
+      - if right_user
+        = link_to edit_user_path(current_user) do
+          %i.fa.fa-edit
+
+        = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
+          %i.fa.fa-trash
+
+  .col-md-3
+    - if login?
+      %ul.list-group#categories
+        %li= link_to "所有文章", root_path, class: "list-group-item"
+        - Category.all.each do |category|
+          %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"

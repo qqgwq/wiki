@@ -14,14 +14,15 @@
             = check_box_tag :remember_me, 1, params[:remember_me]
             
           = submit_tag '登录', class: "btn btn-primary", data: {disable_with: "登录中..."}
-= render 'carousel/carou'
-= render 'shareds/flash'
+-#= render 'carousel/carou'
+  = render 'shareds/flash'
 
 
 .main
   .container
+    #bg-img= image_tag "welcome_banner_image.jpg"
     .row
-      .col-md-10
+      .col-md-9
         .panel
           .panel-heading
             %h2= t('.All article')
@@ -35,6 +36,12 @@
           #paginator
             = paginate @articles, remote: true
 
-.footer{ style: "text-align: center; color: #ddd;" }
-  %h2 Copyright @2017 wiki
-  Design by gwq
+        .footer{ style: "text-align: center; color: white; margin-top: -60px;" }
+          %h2 Copyright @2017 wiki
+          Design by gwq
+      .col-md-3
+        - if login?
+          %ul.list-group#categories
+            %li= link_to "所有文章", root_path, class: "list-group-item"
+            - Category.all.each do |category|
+              %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"

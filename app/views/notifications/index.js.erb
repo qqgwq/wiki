@@ -1,0 +1,2 @@
+$(".body").html("<%=escape_javascript (render(partial: "notifications/notification", locals: { notifications: @notifications })) %>");
+$("#notification_paginate").html("<%=escape_javascript(paginate(@notifications, remote: true)) %>");

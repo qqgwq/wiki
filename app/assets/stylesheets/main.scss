@@ -1,12 +1,17 @@
 body{
-  background-image: image-url("welcome_banner_image.jpg");
-	background-size: cover;
-	background-repeat: no-repeat; 
+  // background-image: image-url("welcome_banner_image.jpg");
+	// background-size: cover;
+	// background-repeat: no-repeat; 
+  background: #eee;
 }
 // #bk{
 //   background-image: image-url("callout_background.jpg");
 // }
-
+.navbar-wiki{
+  background: #fff;
+  margin-bottom: 2px;
+  height: 0px;
+}
 #signin {
   z-index: 3000;
 }
@@ -144,7 +149,6 @@ ul{
 }
 
 .container1{
-  margin-top: 3em;
   .alert{
     font-size: 3rem;
   }
@@ -214,6 +218,7 @@ li1{
   padding-left: 0px;
   float: right;
   width: 150px;
+  margin-top: 68px;
 }
 #errors{
   ul{
@@ -251,7 +256,7 @@ li1{
   height: 140%;
   margin-top: 0px;
   background: rgb(247, 249, 249);
-  margin-left: -105px;
+  margin-left: -160px;
 }
 #info{
   text-align: center;
@@ -410,4 +415,12 @@ li1{
 .notification_clear{
   float: right;
   margin: -10px;
+}
+#bg-img{
+  margin-left: -14em;
+  position: fixed;
+  img{
+    height: 100%;
+    margin-top: -12px;
+  }
 }

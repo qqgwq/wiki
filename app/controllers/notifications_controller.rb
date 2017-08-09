@@ -2,7 +2,11 @@ class NotificationsController < ApplicationController
   before_action :require_login
 
   def index
-    @notifications = current_user.notifications.order(id: :desc).page(params[:page])
+    @notifications = current_user.notifications.order(id: :desc).page(params[:page]).per(3)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
