@@ -27,8 +27,10 @@
           %p
             = @article.content
             = image_tag @article.avatar.url
-          .pull-right
-            = render partial: 'articles/like'
+          
+          .action.clearfix
+            .pull-right{style: "width: 80px;"}
+              = render partial: 'articles/like'
 
           #div
             = render partial: 'comments/comment', collection: @article.comments, :as => :comment
