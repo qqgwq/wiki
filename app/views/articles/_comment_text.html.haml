@@ -1,0 +1,20 @@
+- if login?
+  = simple_form_for([@article, @article.comments.build], remote: true) do |f|
+    .form-group
+      %i.glyphicon.glyphicon-comment
+      = f.label :评论
+      %br
+      %p{class: "emoji-picker-container"}
+        = f.text_area :content, placeholder: "评论内容...", class: "form-control", data: {emojiable: true}, id: "comment"
+    = f.submit t('.create comment'), class: "btn btn-primary"
+    = link_to t('.B'), root_path, class: "btn btn-danger"
+- else
+  = render "articles/bottom"
+
+#article
+  - if correct_user
+    = link_to edit_article_path(@article) do
+      %i.fa.fa-edit
+  
+    = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
+      %i.fa.fa-trash

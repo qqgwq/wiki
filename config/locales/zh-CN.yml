@@ -93,16 +93,18 @@ zh-CN:
 
   articles:
     show:
-      create comment: "评论"
       #Comments: "评论"
       category_name: "类名"
       Comments: "评论"
-      B: "返回首页"
+     
       category: "类别:"
       title: "标题:"
       content: "内容:"
       username: "用户:"
-     
+
+    comment_text:
+       B: "返回首页"
+       create comment: "评论"
      
     edit: 
       publish: "发布"

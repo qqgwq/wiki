@@ -1,112 +1,90 @@
 - content_for(:title, @article.title)
-.main
-  .container
-    .row
-      .col-md-10
-        .panel
-          = render 'shareds/flash'
-          .panel-body
-            - if @article.complete?
-              .panel-heading#media
-                .article-title
-                  = t('.title')
-                  = @article.title
+.row
+  .col-md-15
+    .panel.panel-wiki2
+      = render 'shareds/flash'
+      .panel.panel-default
+        - if @article.complete?
+          .panel-heading
+            .panel-title
+            = @article.title
 
-                #article-img
-                  = link_to(image_tag @article.user.image.url, title: @article.user.name)
-                  
-              .info
-                = @article.user.name
-                &nbsp
-                发布于
-                = @article.created_at
-                &nbsp
-                = @article.views_count
-                次阅读
-                &nbsp
-                点击量
-                = @article.click_count.incr()
-                次
-              %p
-                = t('.content')
-                = @article.content
-                = image_tag @article.avatar.url
-              .pull-right
-                = render partial: 'articles/like'
-                %h2#counts  
-                  =@article.comments.count
-                  = t('.Comments')
-              - if login?
-                #div
-                  = render partial: 'comments/comment', collection: @article.comments, :as => :comment
-                
-                = simple_form_for([@article, @article.comments.build], remote: true) do |f|
-                  .form-group
-                    %i.glyphicon.glyphicon-comment
-                    = f.label :评论
-                    %br
-                    %p{class: "emoji-picker-container"}
-                      = f.text_area :content, placeholder: "评论内容...", class: "form-control", data: {emojiable: true}, id: "comment"
-                  = f.submit t('.create comment'), class: "btn btn-primary"
-                  = link_to t('.B'), root_path, class: "btn btn-danger"
-              - else
-                = render "articles/bottom"
+            #article-img
+              = link_to(image_tag @article.user.image.url, title: @article.user.name)
 
-              #article
-                - if correct_user
-                  = link_to edit_article_path(@article) do
-                    %i.fa.fa-edit
-                
-                  = link_to article_path(@article), method: :delete, data: { confirm: "确定删除?" } do
-                    %i.fa.fa-trash
+          .info
+            = @article.user.name
+            &nbsp
+            发布于
+            = @article.created_at
+            &nbsp
+            = @article.views_count
+            次阅读
+            &nbsp
+            点击量
+            = @article.click_count.incr()
+            次
+          %p
+            = @article.content
+            = image_tag @article.avatar.url
+          .pull-right
+            = render partial: 'articles/like'
 
-            - elsif @article.deny?
-              .container
-                .row
-                  .col-md-8.col-sm-10
-                    .panel-heading#media
-                      .article-title
-                        = t('.title')
-                        = @article.title  
-                    .info
-                      = @article.user.name
-                      &nbsp
-                      发布于
-                      = @article.created_at
-                      &nbsp
-                      = @article.views_count
-                      次阅读
-                      &nbsp
-                      点击量
-                      = @article.click_count.incr()
-                      次
-                      %span 发表的
-                      %strong"#{@article.content}"
-                      没有通过审核,请修改
-                    = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
-            - else
-              .container
-                .row
-                  .col-md-8.col-sm-10
-                    .panel-heading#media
-                      .article-title
-                        = t('.title')
-                        = @article.title  
-                    .info
-                      = @article.user.name
-                      &nbsp
-                      发布于
-                      = @article.created_at
-                      &nbsp
-                      = @article.views_count
-                      次阅读
-                      &nbsp
-                      点击量
-                      = @article.click_count.incr()
-                      次
-                      %span 发表的
-                      %strong"#{@article.content}"
-                      正在审核中...
-
-              
-
+          #div
+            = render partial: 'comments/comment', collection: @article.comments, :as => :comment
+          
+          .panel.panel-wiki#comment-text
+            .panel.panel-default
+              .panel-heading
+                .panel-title
+                %span共收
+                = @article.comments.count
+                条评论
+              .panel
+                .panel-body
+                  = render "comment_text"
+          
+          
+        - elsif @article.deny?
+          .col-md-15
+            .panel.panel-wiki#comment-text
+              .panel.panel-default
+                .panel-heading
+                  .panel-title
+                  = @article.title  
+                .info
+                  = @article.user.name
+                  &nbsp
+                  = @article.created_at.to_date
+                  &nbsp
+                  = @article.views_count
+                  次阅读
+                  &nbsp
+                  点击量
+                  = @article.click_count.incr()
+                  次
+                  %span 发表的
+                  %strong"#{@article.content}"
+                  没有通过审核,请修改
+              = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
+        - else
+          .col-md-15
+            .panel.panel-wiki#comment-text
+              .panel.panel-default
+                .panel-heading
+                  .panel-title
+                  = @article.title  
+                .info
+                  = @article.user.name
+                  &nbsp
+                  = @article.created_at.to_date
+                  &nbsp
+                  = @article.views_count
+                  次阅读
+                  &nbsp
+                  点击量
+                  = @article.click_count.incr()
+                  次
+                  %span 发表的
+                  %strong"#{@article.content}"
+                正在审核中...

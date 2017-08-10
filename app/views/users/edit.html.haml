@@ -1,31 +1,29 @@
-.main
-  .container
-    .row
-      .col-md-6.col-md-offset-3
-        .panel
-          .panel-heading
-            编辑
-          .panel-body
-            = simple_form_for(@user) do |f|
-              .form-group
-                = f.label :name, class: "control-label"
-                = f.text_field :name, class: "form-control"
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-wikis
+      .panel-heading
+        编辑
+      .panel-body
+        = simple_form_for(@user) do |f|
+          .form-group
+            = f.label :name, class: "control-label"
+            = f.text_field :name, class: "form-control"
 
-              .form-group
-                = f.label :phone, class: "control-label"
-                = f.text_field :phone, class: "form-control"
-              .form-group
-                = f.label :email, class: "control-label"
-                = f.text_field :email, class: "form-control"
-              .form-group
-                = f.label :password, class: "control-label"
-                = f.password_field :password, class: "form-control"
+          .form-group
+            = f.label :phone, class: "control-label"
+            = f.text_field :phone, class: "form-control"
+          .form-group
+            = f.label :email, class: "control-label"
+            = f.text_field :email, class: "form-control"
+          .form-group
+            = f.label :password, class: "control-label"
+            = f.password_field :password, class: "form-control"
 
-              .form-group
-                = f.label :password_confirmation, class: "control-label"
-                = f.password_field :password_confirmation, class: "form-control"
+          .form-group
+            = f.label :password_confirmation, class: "control-label"
+            = f.password_field :password_confirmation, class: "form-control"
 
-                = f.file_field :image
+            = f.file_field :image
 
-              = f.submit t('.Edit'), class: 'btn btn-primary'
-              = link_to t('.Back'), users_path
+          = f.submit t('.Edit'), class: 'btn btn-primary'
+          = link_to t('.Back'), users_path

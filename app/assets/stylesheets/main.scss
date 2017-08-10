@@ -19,7 +19,6 @@ body{
 .modal-backdrop { z-index: 0 !important;}
 
 .panel{
-  margin: 70px auto;
   padding-left: 8px;
   border: none;
   h2{
@@ -85,17 +84,18 @@ body{
 
 
  #div{
-   border-top: 1px solid #ccc;
+   margin-left: 12px;
    #img2{
      img{
       width: 48px;
       height: 48px;
       float: left;
       border-radius: 50%;
-      margin-left: -15px;
       margin-right: 8px;
-      margin-top: 10px;
      }
+  }
+  #destroy_comment{
+    margin-top: -12px;
   }
 }
 
@@ -124,8 +124,8 @@ body{
   float: right;
   position: relative;
   padding-left: 8px;
-  top: -14px;
-  right: 95px;
+  top: 5px;
+  right: 53px;
   color: #999999;
   
 }
@@ -156,9 +156,6 @@ ul{
 
 
 .span-count{
-  position:relative;
-  top: -17px;
-  left:-50px;
   width: 45px;
 .user-avatar{
   margin-top: -9px;
@@ -218,7 +215,6 @@ li1{
   padding-left: 0px;
   float: right;
   width: 150px;
-  margin-top: 68px;
 }
 #errors{
   ul{
@@ -338,7 +334,7 @@ li1{
     width: 46px;
     height: 46px;
     float: right;
-    margin-top: -3em;
+    margin-top: -20px;
   }
 }
 .info{
@@ -389,9 +385,6 @@ li1{
 
   .notifications{
     margin-top: 25px;
-  .fa-bell{
-      color: red;
-  }
   .badge{
     font-size: 1rem;
     background-color: red;
@@ -424,4 +417,21 @@ li1{
     height: 100%;
     margin-top: -12px;
   }
+}
+
+//show
+#comment-text{
+  padding: 0px;
+  margin-bottom: 50px;
+  position: absolute;
+  width: 100%;
+ 
+}
+.panel-wiki2{
+  padding: 0px;
+  margin-top: 8px;
+}
+//注册／登录
+.panel-wikis{
+  margin: 24px;
 }

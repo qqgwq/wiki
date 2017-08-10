@@ -10,8 +10,9 @@
           = comment.created_at.to_date
         %h4#comment="#{content_with_emoji(comment.content)}".html_safe
        
-  - if comment.user == current_user
-    = link_to edit_article_comment_path(comment.article, comment) do
-      %i.fa.fa-edit
-    = link_to [comment.article, comment], method: :delete, remote: true, data: { confirm: "确定删除?" } do
-      %i.fa.fa-trash
+    - if comment.user == current_user
+      #destroy_comment
+        = link_to edit_article_comment_path(comment.article, comment) do
+          %i.fa.fa-edit
+        = link_to [comment.article, comment], method: :delete, remote: true, data: { confirm: "确定删除?" } do
+          %i.fa.fa-trash

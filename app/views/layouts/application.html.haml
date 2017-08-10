@@ -25,9 +25,12 @@
           - if login?
             %li
               = link_to notifications_path, class: "notifications" do
-                %i.fa.fa-bell
                 - if unread_notifications_count > 0
+                  %i.fa.fa-bell{style: "color: red" }
                   .badge= unread_notifications_count > 99 ? '99+' : unread_notifications_count
+                - else
+                  %i.fa.fa-bell{style: "color: black" }
+
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                 = image_tag current_user.image.url

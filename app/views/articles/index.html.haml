@@ -33,13 +33,12 @@
           .item
             = image_tag("lun3", style: "width: 1440px")
 
-          %a.left.carousel-control{:href => "#slide-images", :data => {:slide => "prev"}}
-            %span.glyphicon.glyphicon-chevron-left
           %a.right.carousel-control{:href => "#slide-images", :data => {:slide => "next"}}
             %span.glyphicon.glyphicon-chevron-right
+
     .row
       .col-md-9
-        .panel
+        .panel.panel-wikis
           .panel-heading
             %h2= t('.All article')
             = search_form_for @q do |f|
@@ -51,9 +50,9 @@
             = render @articles
           #paginator
             = paginate @articles, remote: true
-
-        .footer{ style: "text-align: center; color: white; margin-top: -60px;" }
-          %h2 Copyright @2017 wiki
+        %h3{ style: "text-align: center; color: white; font-size: 2em;" }
+          Copyright @2017 wiki
+          &nbsp
           Design by gwq
       .col-md-3
         - if login?

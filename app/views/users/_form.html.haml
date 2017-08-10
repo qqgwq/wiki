@@ -1,50 +1,48 @@
 - content_for(:title, "注册")
-.main
-  .container
-    .row
-      .col-sm-6.col-md-offset-3
-        .panel
-          .panel-heading
-            %h2= t('.sign up')
-          .panel-body
-            = simple_form_for @user, html: { multipart: true } do |f|
-              = render 'shareds/errors'
-              = render 'shareds/flash'
-              .form-group
-                %i.glyphicon.glyphicon-user
-                = f.label :name, class: "control-label"
-                = f.text_field :name, class: "form-control", tabindex: 1
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-wikis
+      .panel-heading
+        %h2= t('.sign up')
+      .panel-body
+        = simple_form_for @user, html: { multipart: true } do |f|
+          = render 'shareds/errors'
+          = render 'shareds/flash'
+          .form-group
+            %i.glyphicon.glyphicon-user
+            = f.label :name, class: "control-label"
+            = f.text_field :name, class: "form-control", tabindex: 1
 
-              .form-group
-                %i.glyphicon.glyphicon-phone
-                = f.label :phone, class: "control-label"
-                = f.text_field :phone, class: "form-control", tabindex: 2
+          .form-group
+            %i.glyphicon.glyphicon-phone
+            = f.label :phone, class: "control-label"
+            = f.text_field :phone, class: "form-control", tabindex: 2
 
-              .form-group
-                %i.glyphicon.glyphicon-envelope
-                = f.label :email, class: "control-label"
-                = f.text_field :email, class: "form-control", tabindex: 3
+          .form-group
+            %i.glyphicon.glyphicon-envelope
+            = f.label :email, class: "control-label"
+            = f.text_field :email, class: "form-control", tabindex: 3
 
-              .form-group
-                %i.glyphicon.glyphicon-lock
-                = f.label :password, class: "control-label"
-                = f.password_field :password, class: "form-control", tabindex: 4
+          .form-group
+            %i.glyphicon.glyphicon-lock
+            = f.label :password, class: "control-label"
+            = f.password_field :password, class: "form-control", tabindex: 4
 
-              .form-group
-                %i.glyphicon.glyphicon-lock
-                = f.label :password_confirmation, class: "control-label"
-                = f.password_field :password_confirmation, class: "form-control", tabindex: 5
+          .form-group
+            %i.glyphicon.glyphicon-lock
+            = f.label :password_confirmation, class: "control-label"
+            = f.password_field :password_confirmation, class: "form-control", tabindex: 5
 
-              .form-group#ru
-                = rucaptcha_input_tag placeholder: "请输入验证码", class: "form-control", tabindex: 6
-                = link_to rucaptcha_image_tag, "#", alt: 'Captcha', id: "rucaptcha", remote: true
+          .form-group#ru
+            = rucaptcha_input_tag placeholder: "请输入验证码", class: "form-control", tabindex: 6
+            = link_to rucaptcha_image_tag, "#", alt: 'Captcha', id: "rucaptcha", remote: true
 
-              = f.file_field :image
+          = f.file_field :image
 
-              %br
+          %br
 
-              = f.submit t('.signup'), class: 'btn btn-primary', data: { disable_with: "注册中..." }, tabindex: 7
-              |
-              = link_to t('.Back'), new_article_path
+          = f.submit t('.signup'), class: 'btn btn-primary', data: { disable_with: "注册中..." }, tabindex: 7
+          |
+          = link_to t('.Back'), new_article_path
 
-  
+

@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only: [:edit, :destroy]
   before_action :set_search
   def index
-    #binding.pry
     if params[:category].blank?
        @q = Article.ransack(params[:q])
        @articles = @q.result.includes(:user, :comments).order(created_at: :desc).page(params[:page]).per(3)
