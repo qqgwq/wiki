@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     login = login_params[:login]
-    @user = if login.include?("@")
+    @user = if login.include?('@')
               User.find_by(email: params[:login])
             else
               User.find_by(phone: params[:login])

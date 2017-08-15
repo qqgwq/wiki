@@ -40,6 +40,7 @@ gem 'acts_as_commentable_with_threading'
 gem 'bootstrap-modal-rails'
 gem 'nprogress-rails'
 gem 'redis-objects'
+gem 'jquery-validation-rails'
 
 #性能监控
 gem 'newrelic_rpm'

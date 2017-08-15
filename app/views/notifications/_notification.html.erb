@@ -1,13 +1,14 @@
 <% if notifications.any? %>
   <% notifications.each do |notification| %>
+    <% article ||= notification.article %>
     <% notification.article.comments.each do |comment| %>
       <div class="notification_avater">
         <%= image_tag comment.user.image.url %>
       </div>
       <ul class="list-group" class="list-group-wiki">
-        <li class="list-group-item-wiki">#<%= notification.article.title %></li>
+        <li class="list-group-item-wiki">#<%= link_to notification.article.title, article_path(article) %></li>
         <li class="list-group-item-wiki">
-          @<%= comment.user.name %>&nbsp#<%= comment.created_at.to_date %>&nbsp#<%= comment.content %>
+          @<%= comment.user.name %>&nbsp#<%= comment.created_at.to_date %>
         </li>
       </ul>
     <% end %>

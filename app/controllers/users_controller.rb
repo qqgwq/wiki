@@ -25,13 +25,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if verify_rucaptcha?(@user) && @user.save
+    @phone = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
+    if @phone.value == params[:verification] && @user.save
       SmsJob.set(wait: 1.minute).perform_later(@user.phone, @user.name)
       login_as @user
       redirect_to @user
     else
       flash.now[:danger] = "验证码错误"
-      render :new
+      render :new                     
     end
   end
 
@@ -58,7 +59,26 @@ class UsersController < ApplicationController
      redirect_to root_path
   end
 
-  
+  #短信验证码
+  def get_sms_code
+    respond_to do |format|
+    @phone = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
+    if @phone.value.present?
+      flash[:success] = "短信发送中, 请稍等"
+      @phone.value = sms_code
+      SmsCodeJob.perform_later(params[:phone], @phone.value)
+      format.json
+    else 
+      User.exists?(phone: params[:phone])
+      flash[:danger] = "手机已注册" 
+      format.json
+      end
+    end
+  end
+
+  def sms_code
+    rand(000000..999999)
+  end
 
   private
 
@@ -67,6 +87,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:phone, :name, :password, :password_confirmation, :image, :email)
+    params.permit(:phone, :name, :image, :password, :verification, :email)
   end
 end

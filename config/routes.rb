@@ -28,9 +28,12 @@ Rails.application.routes.draw do
       get :person
       get :profile
     end
+    collection do
+      post :get_sms_code
+    end
   end
-  resources :sessions
 
+  resources :sessions
   resources :notifications, only: [:index, :destroy] do
     collection do
       post :mark
