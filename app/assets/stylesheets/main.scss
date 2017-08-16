@@ -258,7 +258,7 @@ li1{
   color: #428bca;
   float: right;
   position: relative;
-  top: -20%;
+  top: -15%;
   
 
   img{
@@ -432,4 +432,19 @@ li1{
 //注册／登录
 .panel-wikis{
   margin: 24px;
+}
+
+#count_down{
+  position: relative;
+  top: -168px;
+  font-size: 4em;
+  color: red;
+}
+#count_down1{
+  position: relative;
+  top: -6em;
+  font-size: 4em;
+  color:#f0ffff;
+  right: -9em;
+  list-style-type: none;
 }

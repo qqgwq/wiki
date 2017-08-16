@@ -24,15 +24,25 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    @phone = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
-    if @phone.value == params[:verification] && @user.save
+    phone, verification_code = user_params.dig("phone"), user_params.dig("verification_code")
+    phone_value = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
+    if User.exists?(phone: phone)
+      flash[:danger] = "用户已注册"
+      redirect_to new_user_path
+    else
+      if phone_value.value.to_s == verification_code.to_s
+      @user = User.new(user_params)
+    if @user.save!
       SmsJob.set(wait: 1.minute).perform_later(@user.phone, @user.name)
       login_as @user
       redirect_to @user
     else
+      redirect_to new_user_path
+    end
+    else
       flash.now[:danger] = "验证码错误"
-      render :new                     
+      render :new       
+      end              
     end
   end
 
@@ -61,18 +71,18 @@ class UsersController < ApplicationController
 
   #短信验证码
   def get_sms_code
-    respond_to do |format|
+    if User.exists?(phone: params[:phone])
+      flash[:danger] = "用户已注册" 
+      redirect_to new_user_path
+    end
     @phone = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
     if @phone.value.present?
-      flash[:success] = "短信发送中, 请稍等"
+      flash[:danger] = "短信发送中, 请稍等"
+      redirect_to new_user_path
+    else
+      @result = { sms_code: @phone.value }
       @phone.value = sms_code
       SmsCodeJob.perform_later(params[:phone], @phone.value)
-      format.json
-    else 
-      User.exists?(phone: params[:phone])
-      flash[:danger] = "手机已注册" 
-      format.json
-      end
     end
   end
 
@@ -87,6 +97,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:phone, :name, :image, :password, :verification, :email)
+    params.permit(:phone, :name, :image, :password, :verification_code, :email)
   end
 end

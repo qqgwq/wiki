@@ -9,6 +9,7 @@ zh-CN:
         phone: "手机号码"
         image: "图片"
         email: "邮箱"
+        verification: "验证码"
 
       article:
         title: "标题"

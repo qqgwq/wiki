@@ -21,9 +21,11 @@
             = text_field_tag :phone, nil, placeholder: "手机号码...", class: "form-control", tabindex: 3
 
           .form-group
-            = text_field_tag :verification, nil, size: 6
+            = text_field_tag :verification_code, nil, size: 6, placeholder: "验证码"
             = button_tag "点击获取验证码", class: "btn btn-info", id: "get_sms_code"
-            
+            %span#time_count 120
+            %sapn 秒倒计时
+
           .form-group
             %i.glyphicon.glyphicon-lock
             = password_field_tag :password, nil, placeholder: "密码...", class: 'form-control', tabindex: 4
@@ -40,23 +42,33 @@
             |
             = link_to t('.Back'), new_article_path
 
-          :javascript
-            $("#get_sms_code").click(function(){
-              var phone = $("#phone").val();
-              if (phone){
-                $.ajax({
-                  type: "POST",
-                  url: "get_sms_code_users_path,
-                  dataType: 'json',
-                  success:function(result){
-                    alert('ok');
-                  },
-                  error:function(result){
-                    alert('error');
-                  }
-                });
-              } else{
-                alert("请输入电话号码");
-                event.preventDefault();
-              }
-            })
+:javascript
+  $("#get_sms_code").click(function(){
+    var phone = $("#phone").val();
+    if (phone){
+      $.ajax({
+        type: "POST",
+        url: "/get_sms_code",
+        dataType: 'json',
+        data: {phone: phone}
+      });
+    var counter = 120;
+      setInterval(function() {
+      counter--;
+      if (counter >= 0) {
+        span = document.getElementById("time_count");
+        span.innerHTML = counter;
+      }
+      if (counter == 0) {
+        alert('验证码已过期, 请点击重新发送');
+        clearInterval(counter);
+      }
+    }, 1000);
+
+    } else{
+      alert("请输入电话号码")
+    }
+    event.preventDefault();
+  });
+
+ 

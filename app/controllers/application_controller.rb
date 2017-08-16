@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
 
   def logout
     cookies.delete(:auth_token)
+    session[:user_id] = nil
     @current_user = nil
     forget_me
   end

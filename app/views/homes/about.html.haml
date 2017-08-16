@@ -5,10 +5,13 @@
       %div#header= image_tag("build.jpg")
       %div#avatar
         = image_tag("gwq.jpg", title: @home.name)
+        %span#count_down
+        %li#count_down1 Time is life
         %div#title
           %ul
             %li 年龄: 1995年生
             %li 姓名: 高万强
+            %li 学校：泸职院
             %li Ruby工程师,从事ruby后端开发.
             %li Wechat: g1305851004
             %li QQ: 1305851004
@@ -38,3 +41,20 @@
       %div#info
         %p 打赏:
         %p= image_tag("wechat.jpg")
+  :javascript
+    var interval = 1000; 
+    function ShowCountDown(year,month,day,hour,minute,divname) 
+    { 
+    var now = new Date(); 
+    var endDate = new Date(year, month-1, day,hour,minute,); 
+    var leftTime=endDate.getTime()-now.getTime(); 
+    var leftsecond = parseInt(leftTime/1000); 
+    //var day1=parseInt(leftsecond/(24*60*60*6)); 
+    var day1=Math.floor(leftsecond/(60*60*24)); 
+    var hour=Math.floor((leftsecond-day1*24*60*60)/3600); 
+    var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60); 
+    var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60); 
+    var cc = document.getElementById(divname); 
+    cc.innerHTML = "距离"+year+"年"+month+"月"+day+"日还有："+day1+"天"+hour+"小时"+minute+"分"+second+"秒";
+    } 
+    window.setInterval(function(){ShowCountDown(2018,01,01,21,30,'count_down');}, interval); 

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => 'sidekiq'
   mount ApiRoot => '/'
   mount GrapeSwaggerRails::Engine, at: "/documentation"
+  post '/get_sms_code', to: "users#get_sms_code"
 
   concern :likeable do
     resource :like, only: [:create, :destroy]
@@ -27,9 +28,6 @@ Rails.application.routes.draw do
     member do
       get :person
       get :profile
-    end
-    collection do
-      post :get_sms_code
     end
   end
 

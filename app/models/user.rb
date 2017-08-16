@@ -1,6 +1,6 @@
 class User < ApplicationRecord 
   #before_destroy :no_referenced_comments
-  attr_accessor :verification
+  attr_accessor :verification_code
   extend FriendlyId
   friendly_id :name
   has_secure_password
@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 1..11 }
   validates :email, presence: true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates :image, attachment_presence: true
-  validates :verification, presence: true
+  validates :verification_code, presence: true
   has_attached_file :image, styles: { :original => '250x250>', :small => "200x200#" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/png", "image/jpeg"]
   validates_attachment_size :image, less_than: 5.megabytes
