@@ -39,9 +39,10 @@
             .panel.panel-default
               .panel-heading
                 .panel-title
-                %span共收
-                = @article.comments.count
-                条评论
+                #counts 
+                  共
+                  = @article.comments.count
+                  条评论
               .panel
                 .panel-body
                   = render "comment_text"

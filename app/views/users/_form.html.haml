@@ -58,10 +58,12 @@
       if (counter >= 0) {
         span = document.getElementById("time_count");
         span.innerHTML = counter;
+        $("#get_sms_code").prop("disabled", true);
       }
       if (counter == 0) {
         alert('验证码已过期, 请点击重新发送');
         clearInterval(counter);
+        $("#get_sms_code").attr("disabled", false);
       }
     }, 1000);
 
