@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = @user.auth_token
       end
-      #login_as @user
       redirect_back_or_default @user
       flash[:success] = "欢迎您! #{@user.name}!"
     else

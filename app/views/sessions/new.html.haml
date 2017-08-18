@@ -11,6 +11,7 @@
 
           .form-group
             = password_field_tag :password, nil, class: "form-control", placeholder: "密码..."
+          = link_to "忘记密码?", new_password_resets_path
               
           .form-group
             = check_box_tag :remember_me, 1, params[:remember_me]

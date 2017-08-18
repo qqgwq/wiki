@@ -1,0 +1,52 @@
+- content_for(:title, "密码重置")
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-wikis
+      .panel-heading
+        .panel-title
+          %span 密码重置
+      .panel-body
+        = form_tag(password_resets_path, method: :post) do
+          = render 'shareds/errors'
+          = render 'shareds/flash'
+          .form-group
+            = text_field_tag :phone, nil, placeholder: "手机号", class: "form-control"
+
+          .form-group
+            = text_field_tag :verification_code, nil, placeholder: "输入验证码", size: 6
+            = button_tag "获取验证码", id: "get_password_resets_code", class: "btn btn-info"
+
+          .form-group
+            = submit_tag "重置", class: "btn btn-primary", data: {disable_with: "重置..."}
+:javascript
+  $("#get_password_resets_code").click(function(){
+    var phone = $("#phone").val();
+    if (phone){
+      $.ajax({
+        type: "POST",
+        url: "/password_resets_code",
+        dataType: 'json',
+        data: {phone: phone}
+      });
+      var counter = 120;
+      setInterval(function() {
+      counter--;
+      if (counter >= 0) {
+        span = document.getElementById("get_password_resets_code")
+        span.innerHTML = counter+"秒后点击重新获取";
+        $("#get_password_resets_code").prop("disabled", true);
+      }
+      if (counter == 0) {
+        clearInterval(counter);
+        span = document.getElementById("get_password_resets_code")
+        span.innerHTML = "获取验证码"
+        $("#get_password_resets_code").attr("disabled", false);
+
+      }
+    }, 1000);
+
+    } else{
+      alert("请输入手机号码");
+    }
+    event.preventDefault();
+  });

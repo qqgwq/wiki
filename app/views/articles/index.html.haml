@@ -9,6 +9,7 @@
           = text_field_tag :login, params[:login], placeholder: '手机号码/邮箱...'
           .form-group
             = password_field_tag :password, nil, placeholder: '密码'
+          = link_to "忘记密码?", new_password_resets_path
           .form-group
             = label_tag :记住我
             = check_box_tag :remember_me, 1, params[:remember_me]

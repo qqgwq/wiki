@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   mount ApiRoot => '/'
   mount GrapeSwaggerRails::Engine, at: "/documentation"
   post '/get_sms_code', to: "users#get_sms_code"
+  post '/password_resets_code', to: "password_resets#password_resets_code"
 
   concern :likeable do
     resource :like, only: [:create, :destroy]
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
       delete :clear
     end
   end
+  resource :password_resets
    
   root "articles#index"
   get "welcome", to: "welcomes#index"
