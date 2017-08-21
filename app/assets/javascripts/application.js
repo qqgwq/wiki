@@ -20,3 +20,6 @@
 //= require chartkick
 //= require nprogress
 //= require nprogress-turbolinks
+//= require jquery.validate
+//= require jquery.validate.localization/messages_es
+//= require jquery.validate.localization/messages_de

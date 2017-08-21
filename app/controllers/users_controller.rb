@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     else
       if phone_value.value.to_s == verification_code.to_s
       @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       SmsJob.set(wait: 1.minute).perform_later(@user.phone, @user.name)
       login_as @user
       redirect_to @user

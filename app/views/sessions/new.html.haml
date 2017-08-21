@@ -4,7 +4,7 @@
       .panel-heading
         %h2= "登录"
       .panel-body
-        = form_tag(login_path, method: :post) do 
+        = form_tag(login_path, method: :post, id: "login_errors") do 
           = render 'shareds/flash'
           .form-group
             = text_field_tag :login, params[:login], class: "form-control", placeholder: "电话号码/邮箱..."
@@ -17,3 +17,31 @@
             = check_box_tag :remember_me, 1, params[:remember_me]
             = label_tag "记住我"
           = submit_tag "登录", class: "btn btn-success", data: {disable_with: " 登录中..."}
+:javascript
+  $(document).ready(function(){
+    $("#login_errors").validate({
+      rules: {
+        phone: {
+          required: true,
+          maxlenght: 11
+        },
+        email: {
+          required: true,
+        },
+        password: {
+          required: true,
+          maxlenght: 11
+        }
+      },
+      messages: {
+        phone: {
+          required: "请正确输入手机号",
+          maxlenght: "11位的手机号",
+        },
+        password: {
+          required: "正确输入你的密码",
+          maxlenght: "最大11位",
+        }
+      }
+    });
+  });

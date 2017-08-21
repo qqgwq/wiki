@@ -5,9 +5,7 @@
       .panel-heading
         %h2= t('.sign up')
       .panel-body
-        = form_tag(users_path, multipart: true, method: :post) do 
-          = render 'shareds/errors'
-          = render 'shareds/flash'
+        = form_tag(users_path, multipart: true, method: :post, id: "errors_message") do 
           .form-group
             %i.glyphicon.glyphicon-user
             = text_field_tag :name, nil, placeholder: "用户名...", class: "form-control", tabindex: 1
@@ -72,4 +70,45 @@
     }
     event.preventDefault();
   });
- 
+  
+  $(document).ready(function(){
+    $("#errors_message").validate({
+      rules: {
+        name: "required",
+        email: {
+          required: true,
+          email: true
+        },
+        phone: {
+          required: true,
+          maxlength: 11
+        },
+        verification_code: {
+          required: true,
+        },
+        password: {
+          required: true,
+          maxlength: 11,
+        }
+      },
+      messages: {
+        name: "输入你的姓名",
+        email: {
+          required: "请输入Email地址",
+          email: "请正确输入Email地址",
+        },
+        phone: {
+          required: "请输入手机号",
+          maxlength: "11位的手机号",
+        },
+        verification_code: {
+          required: "请输入验证码",
+        },
+        password: {
+          required: "请输入不少于11位的密码",
+          maxlength: "最多11位",
+        }
+      }
+    });
+  });
+

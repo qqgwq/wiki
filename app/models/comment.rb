@@ -4,19 +4,19 @@ class Comment < ApplicationRecord
   has_many :notifications
   validates :content, presence: true
 
-  def create_notification
-    create_article_notification
-    create_comment_notification
-  end
+  # def create_notification
+  #   create_article_notification
+  #   create_comment_notification
+  # end
 
-  #回复评论
-  def create_comment_notification
-    if user != self.user
-      Notification.create!(article_id: self.article.id,
-                          user: self.user,
-                          comment_id: self.id)
-    end
-  end
+  # #回复评论
+  # def create_comment_notification
+  #   if user != self.user
+  #     Notification.create!(article_id: self.article.id,
+  #                         user: self.user,
+  #                         comment_id: self.id)
+  #   end
+  # end
 
   #创建文章评论通知
   def create_article_notification
