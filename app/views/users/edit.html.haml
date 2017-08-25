@@ -12,16 +12,14 @@
           .form-group
             = f.label :phone, class: "control-label"
             = f.text_field :phone, class: "form-control"
+
           .form-group
             = f.label :email, class: "control-label"
             = f.text_field :email, class: "form-control"
+            
           .form-group
             = f.label :password, class: "control-label"
             = f.password_field :password, class: "form-control"
-
-          .form-group
-            = f.label :password_confirmation, class: "control-label"
-            = f.password_field :password_confirmation, class: "form-control"
 
             = f.file_field :image
 

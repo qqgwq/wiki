@@ -88,6 +88,7 @@ gem 'whenever', require: false
 #接口
 gem 'grape'
 gem 'hashie-forbidden_attributes'
+gem 'jwt'
 
 #api 格式化json
 gem 'grape-active_model_serializers'

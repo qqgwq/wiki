@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'homes/about'
+  root 'articles#index'
 
   # devise_for :admin_users, ActiveAdmin::Devise.config
   # ActiveAdmin.routes(self)
