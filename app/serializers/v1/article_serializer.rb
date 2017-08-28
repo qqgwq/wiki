@@ -4,5 +4,6 @@ module V1
     has_many :likes, as: 'likeable'
     belongs_to :user
     belongs_to :category
+    has_many :comments
   end
 end

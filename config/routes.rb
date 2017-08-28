@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'homes/about'
-  root 'articles#index'
 
   # devise_for :admin_users, ActiveAdmin::Devise.config
   # ActiveAdmin.routes(self)
@@ -11,8 +10,8 @@ Rails.application.routes.draw do
 
   require 'sidekiq/web'
   mount Sidekiq::Web => 'sidekiq'
-  mount ApiRoot => '/'
-  mount GrapeSwaggerRails::Engine, at: "/documentation"
+  mount ApiRoot => '/api'
+  mount GrapeSwaggerRails::Engine, at: "/doc"
   post '/get_sms_code', to: "users#get_sms_code"
   post '/password_resets_code', to: "password_resets#password_resets_code"
 

@@ -9,11 +9,12 @@ module V1
     mount V1::Articles
     mount V1::Likes
     mount V1::Categories
+    mount V1::Comments
 
     add_swagger_documentation(
         api_version: "v1",
         hide_documentation_path: true,
-        mount_path: "/api/v1/swagger_doc",
+        mount_path: "/api",
         hide_format: true
         )
   end

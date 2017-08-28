@@ -39,16 +39,28 @@ module V1
         optional :content, type: String, desc: "文章内容"
         optional :category_id, type: Integer, desc: "文章分类"
         optional :image, type: Rack::Multipart::UploadedFile, desc: "图片"
-        optional :id, type: Integer
+        optional :article_id, type: Integer, desc: "文章ID"
       end
       patch "", each_serializer: V1::ArticleSerializer, root: 'article' do
         authenticate!
-        @article = current_user.articles.find(params[:id])
+        @article = current_user.articles.find(params[:article_id])
         if @article.update(params)
           render current_user
         else
           error!({"error" => current_user.errors.full_messages.first}, 401)
         end
+      end
+
+      desc "删除文章, 需要验证"
+      params do
+        requires :id, type: Integer
+        requires :user_id, type: Integer
+      end
+      delete "", each_serializer: V1::ArticleSerializer, root: 'article' do
+        #binding.pry
+        authenticate!
+        @article = current_user.articles.find(params[:id]).destroy
+        render current_user 
       end
     end
   end

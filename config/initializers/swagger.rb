@@ -1,7 +1,7 @@
-GrapeSwaggerRails.options.url      = '/swagger_doc'
-GrapeSwaggerRails.options.app_url  = '/api/v1/swagger_doc'
-GrapeSwaggerRails.options.app_name = 'Wiki'
+GrapeSwaggerRails.options.url = '/api'
+GrapeSwaggerRails.options.app_url  = "#{ENV['http://192.168.10.113:3000/api']}"
+GrapeSwaggerRails.options.app_name = 'Wiki接口文档'
 
 GrapeSwaggerRails.options.before_action do
-GrapeSwaggerRails.options.app_url = request.protocol + request.host_with_port + '/api/v1'
+  GrapeSwaggerRails.options.app_url = request.protocol + request.host_with_port + '/api'
 end 

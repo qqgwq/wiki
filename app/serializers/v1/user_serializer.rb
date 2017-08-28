@@ -3,5 +3,6 @@ module V1
     attributes :id, :name, :email, :phone
     has_many :likes
     has_many :articles
+    has_many :comments
   end
 end

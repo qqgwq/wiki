@@ -13,10 +13,3 @@
       - if right_user
         = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
           %i.fa.fa-trash
-
-  .col-md-3
-    - if login?
-      %ul.list-group#categories
-        %li= link_to "所有文章", root_path, class: "list-group-item"
-        - Category.all.each do |category|
-          %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"

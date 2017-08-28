@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   counter :click_count
   belongs_to :user
   belongs_to :category
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :notifications
   validates :title, presence: true, length: { in: 3..11 }
   validates :content, presence: true
