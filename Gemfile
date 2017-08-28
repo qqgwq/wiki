@@ -103,7 +103,7 @@ gem 'grape-swagger-rails'
 gem 'rack-cors'
 
 group :development do
-  gem 'capistrano', '~> 3.7'
+  gem 'capistrano', '~> 3.9.0'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails'

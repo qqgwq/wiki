@@ -189,7 +189,7 @@ GEM
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     multi_json (1.12.1)
-    mustermann (1.0.0)
+    mustermann (1.0.1)
     mustermann-grape (1.0.0)
       mustermann (~> 1.0.0)
     mysql2 (0.4.9)
@@ -353,7 +353,7 @@ DEPENDENCIES
   better_errors
   bootstrap-modal-rails
   bootstrap-sass
-  capistrano (~> 3.7)
+  capistrano (~> 3.9.0)
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
