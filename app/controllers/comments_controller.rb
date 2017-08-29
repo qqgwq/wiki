@@ -39,6 +39,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def preview
+    @content = params[:content]
+    render layout: false
+  end
 
 
   private
