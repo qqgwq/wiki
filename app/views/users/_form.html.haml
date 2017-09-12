@@ -31,7 +31,9 @@
             = link_to rucaptcha_image_tag, "#", alt: 'Captcha', id: "rucaptcha", remote: true
 
           .form-group
-          = file_field_tag :image
+            %span 头像
+            = file_field_tag :image, accept: 'image/png, image/jpg, image/jpeg', class: "filestyle", 
+            "data-input" =>"false", "date-classButton" => "btn btn-primary", classIcon: "icon-plus"
 
           %br
             = submit_tag t('.signup'), class: 'btn btn-primary', data: { disable_with: "注册中..." }, tabindex: 7
@@ -92,7 +94,7 @@
         }
       },
       messages: {
-        name: "输入你的姓名",
+        name: "请输入用户名",
         email: {
           required: "请输入Email地址",
           email: "请正确输入Email地址",
@@ -111,4 +113,6 @@
       }
     });
   });
-
+  $(":file").filestyle({
+    input: false
+  })

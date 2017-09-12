@@ -57,13 +57,13 @@
           Design by gwq
 
       .col-md-3
-        .panel.panel-wikis
-        .panel.panel-default
-          .panel-heading.clearfix
-            %span源码地址
-          .panel-body
-            %a{:href => "https://www.github.com/qqgwq/wiki"}请点击这里
-
+        - unless login?
+          .panel.panel-wikis
+          .panel.panel-default
+            .panel-heading.clearfix
+              %span源码地址
+            .panel-body
+              %a{:href => "https://www.github.com/qqgwq/wiki"}请点击这里
 
       .col-md-2
         - if login?
@@ -71,3 +71,4 @@
             %li= link_to "所有文章", root_path, class: "list-group-item"
             - Category.all.each do |category|
               %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
+

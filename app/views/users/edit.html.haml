@@ -1,27 +1,79 @@
 .row
-  .col-md-6.col-md-offset-3
+  .col-md-9
     .panel.panel-wikis
       .panel-heading
         编辑
+
       .panel-body
-        = simple_form_for(@user) do |f|
+        = form_for @user, html: { multiple: true, class: 'form-horizontal center', id: "edit" } do |f|
           .form-group
-            = f.label :name, class: "control-label"
-            = f.text_field :name, class: "form-control"
+            .col-sm-6
+              = image_tag current_user.image.url, :width => '80%', id: "avatar"
+              = f.file_field :image, class: "filestyle", "data-input" => false, 
+              "date-classButton" => "btn btn-primary", classIcon: "icon-plus"
+          .form-group
+            = f.label :name, class: "control-label col-sm-3", require: true
+            .col-sm-6
+              = f.text_field :name, class: "form-control", require: true
 
           .form-group
-            = f.label :phone, class: "control-label"
-            = f.text_field :phone, class: "form-control"
+            = f.label :phone, class: "control-label col-sm-3"
+            .col-sm-6
+              = f.text_field :phone, class: "form-control"
 
           .form-group
-            = f.label :email, class: "control-label"
-            = f.text_field :email, class: "form-control"
+            = f.label :email, class: "control-label col-sm-3"
+            .col-sm-6
+              = f.text_field :email, class: "form-control"
             
           .form-group
-            = f.label :password, class: "control-label"
-            = f.password_field :password, class: "form-control"
+            = f.label :password, class: "control-label col-sm-3"
+            .col-sm-6
+              = f.password_field :password, class: "form-control"
+            
+          .form-group
+            .col-sm-6.col-sm-push-3
+              = f.submit t('.Edit'), class: 'btn btn-primary'
+              = link_to t('.Back'), users_path
 
-            = f.file_field :image
+:javascript
+  $("#edit").validate({
+    rules: {
+      'user[name]': {
+        required: true,
+      },
+      'user[email]': {
+        required: true,
+        email: true
+      },
+      'user[phone]': {
+        required: true,
+        maxlength: 11
+      },
+      'user[password]': {
+        required: true,
+        maxlength: 11,
+      }
+    },
+    messages: {
+      'user[name]': {
+        required: "用户名不能为空",
+      },
+      'user[email]': {
+        required: "邮箱不能为空",
+      },
+      'user[phone]': {
+        required: "手机号不能为空",
+      },
+      'user[password]': {
+        required: "密码不能为空",
+      },
+      'user[image]': {
+        required: "头像不能为空",
+      }
+    }
+  });
 
-          = f.submit t('.Edit'), class: 'btn btn-primary'
-          = link_to t('.Back'), users_path
+  $(":file").filestyle({
+    input: false
+  })

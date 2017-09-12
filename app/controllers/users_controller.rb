@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update_attributes params.require(:user).permit(:name, :phone, :email, :password, :image)
       redirect_to @user
     else
       render :edit

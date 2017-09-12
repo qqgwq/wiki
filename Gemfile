@@ -59,6 +59,7 @@ gem 'better_errors'
 #上传图片
 gem 'paperclip'
 gem 'paperclip-i18n'
+gem 'bootstrap-filestyle-rails'
 
 #分页
 gem 'kaminari'

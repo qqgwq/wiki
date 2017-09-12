@@ -63,6 +63,7 @@ GEM
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
+    bootstrap-filestyle-rails (1.2.1)
     bootstrap-modal-rails (2.2.5)
       railties (>= 3.1)
     bootstrap-sass (3.3.7)
@@ -351,6 +352,7 @@ DEPENDENCIES
   acts_as_commentable_with_threading
   bcrypt
   better_errors
+  bootstrap-filestyle-rails
   bootstrap-modal-rails
   bootstrap-sass
   capistrano (~> 3.9.0)
