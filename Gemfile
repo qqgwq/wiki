@@ -112,7 +112,7 @@ group :development do
   gem 'capistrano3-puma', '~> 1.2.1'
   gem 'rack-mini-profiler', require: false
   gem 'pry-nav'
-  gem 'mysql2'
+  gem 'pg', '~> 0.18.2'
   gem 'net-ssh', '~>4.1.0'
 end
 

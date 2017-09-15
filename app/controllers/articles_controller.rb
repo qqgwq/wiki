@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     if params[:category].blank?
       @q = Article.ransack(params[:q])
       @articles = @q.result.includes(:user, :comments).order(created_at: :desc).page(params[:page]).per(3)
-      @users = User.order("field(id, #{User.ranks.members.reverse.join(',')})")
+      @users = User.order_by_ids(User.ranks.members.reverse)
     else
       @category_name = params[:category]
       @category_id = Category.where(name: params[:category]).first&.id

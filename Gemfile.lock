@@ -196,7 +196,6 @@ GEM
     mustermann (1.0.1)
     mustermann-grape (1.0.0)
       mustermann (~> 1.0.0)
-    mysql2 (0.4.9)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
@@ -387,7 +386,6 @@ DEPENDENCIES
   jwt
   kaminari
   listen (~> 3.0.5)
-  mysql2
   net-ssh (~> 4.1.0)
   newrelic_rpm
   nprogress-rails

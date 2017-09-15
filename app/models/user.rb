@@ -55,16 +55,4 @@ class User < ApplicationRecord
     order_by << "end"
     order(order_by.join(" "))
   end
-
-
-
-  
-
-
-  # private
-  #  def no_referenced_comments
-  #    return if comments.empty?
-  #   #errors.add_to_base("This user is referenced by comment(s): #{comments.map(&:id).to_sentence}")
-  #   false 
-  #  end
 end
