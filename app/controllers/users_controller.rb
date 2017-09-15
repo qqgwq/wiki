@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    
   end
 
   def create
@@ -56,6 +57,7 @@ class UsersController < ApplicationController
     @profile = User.friendly.find(params[:id])
   end
 
+
   def update
     if @user.update_attributes params.require(:user).permit(:name, :phone, :email, :password, :image)
       redirect_to @user
@@ -89,6 +91,7 @@ class UsersController < ApplicationController
   def sms_code
     rand(000000..999999)
   end
+
 
   private
 

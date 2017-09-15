@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 20170807035812) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.index ["category_id"], name: "index_articles_on_category_id", unique: true, using: :btree
-    t.index ["user_id"], name: "index_articles_on_user_id", unique: true, using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|

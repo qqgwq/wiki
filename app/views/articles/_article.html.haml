@@ -1,21 +1,27 @@
 - cache article, expires_in: 1.minute do
-  %ul.list-group.list-group-article
-    %li.list-group-item.list-group-item-article#article_list
-      #article_image
-        =image_tag article.user.image if article.user
-        #article_title
-          = article.title
-          by
-          &nbsp
-        .article_username
-          %p= article.user&.name
-        &nbsp
-        = link_to "查看更多...", article, class: "btn btn-primary btn-xs"
-      #index1
-        %span.badge.badge-info= article.category.name
-        %span.badge.badge-success= I18n.t("articles.status.#{article.status}")
-        %span
-          = article.comments.count
-          = t('.Comments')
-        %span= time_ago_in_words(article.created_at) + "之前" 
-        
+  .panel.body
+    %ul.list-group
+      .list-group-item
+        .media-left
+          =image_tag(article.user.image, class: "img-rounded", width: 64, height: 64) if article.user
+        .media-body
+          .media-heading
+            = article.title
+            by
+            = article.user&.name
+          .media-heading
+            = link_to "查看更多...", article, class: "btn btn-primary btn-xs", id: "score", 
+            "data-original-title" => "读取文章积分+3"
+        #index1
+          %span.badge.badge-info= article.category.name
+          %span.badge.badge-success= I18n.t("articles.status.#{article.status}")
+          %span
+            = article.comments.count
+            = t('.Comments')
+          %span= time_ago_in_words(article.created_at) + "之前" 
+
+- if login?
+  :javascript
+    $(document).ready(function(){
+      $("#score").tooltip('toggle')
+    });

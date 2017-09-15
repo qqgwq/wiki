@@ -3,26 +3,47 @@
   .container
     .row
       .col-md-6.col-md-offset-3
-        .panel
+        .panel.panel-default
           .panel-heading
             %h2= t('.publish')
-          = render 'shareds/article_errors'
           .panel-body
-            = simple_form_for(@article) do |f|
+            = form_for @article, html: { multipart: true, id: "edit_article" } do |f|
               .form-group
                 = f.label :类型, class: "control-label"
-                = f.collection_select :category_id, Category.all, :id, :name, class: "form-control"
+                = f.collection_select :category_id, Category.all, :id, :name, 
+                class: "form-control", :include_blank => "请选择..."
 
               .form-group
                 = f.label :标题, class: "control-label"
-                = f.text_field :title, class: "form-control"
+                = f.text_field :title, class: "form-control", title: "标题不能为空", "data-placement" => "bottom"
 
               .form-group
                 = f.label :内容, class: "control-label"
                 %br
-                %p{class: "emoji-picker-container"}
+                %p{class: "emoji-picker-container", title: "内容不能为空", "data-placement" => "bottom"}
                   = f.text_area :content, class: "form-control", data: {emojiable: true}
                 &nbsp
                 = f.file_field :avatar
-
               = f.submit t('.publish'), class: "btn btn-primary"
+
+:javascript
+  $("#edit_article").validate({
+    rules: {
+      'article[title]': { 
+        required: true,
+        minlength: 4,
+      }
+    },
+    messages: {
+      'article[title]': { 
+        required: "标题不能为空",
+        minlength: "最短长度为11个字符",
+      },
+    }
+  });
+
+  $(document).ready(function(){
+    $(".emoji-picker-container").tooltip()
+    $("#article_title").tooltip()
+  });
+  

@@ -11,7 +11,5 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.integer :status, default: 0
       t.timestamps
     end
-    add_index :articles, :user_id, unique: true
-    add_index :articles, :category_id, unique: true
   end
 end

@@ -45,8 +45,7 @@
             = search_form_for @q do |f|
               = f.search_field :title_or_user_name_or_comments_content_cont, placeholder: t('.search_body')
               = f.submit t('.search'), class: "btn btn-primary"
-          .panel-body
-
+          
           #tbody
             = render @articles
           #paginator
@@ -61,9 +60,30 @@
           .panel.panel-wikis
           .panel.panel-default
             .panel-heading.clearfix
+              %span积分排行榜
+              .pull-right
+                = image_tag "jf.jpg", class: 'img-rounded', width: 60, height: 60, class: "jf"
+            .panel-body
+              %table.table.table-inverse
+                %thead
+                  %tr
+                    %th 排名
+                    %th 积分
+                    %th 用户
+                %tbody
+                  - @users&.each do |user|
+                    %tr
+                      %td= user.ranks.revrank("#{user.id}")
+                      %td= user.ranks.score("#{user.id}").to_i
+                      %td= link_to user.name, user_path(user)
+                
+          .panel.panel-wikis
+          .panel.panel-default
+            .panel-heading.clearfix
               %span源码地址
             .panel-body
               %a{:href => "https://www.github.com/qqgwq/wiki"}请点击这里
+
 
       .col-md-2
         - if login?

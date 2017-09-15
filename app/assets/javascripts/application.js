@@ -18,9 +18,17 @@
 //= require rails_emoji_picker
 //= require Chart.bundle
 //= require chartkick
+// 性能检测
 //= require nprogress
 //= require nprogress-turbolinks
+// 表单验证
 //= require jquery.validate
 //= require jquery.validate.localization/messages_es
 //= require jquery.validate.localization/messages_de
+
 //= require bootstrap-filestyle
+// 表单/按钮提示工具
+//= require bootstrap/bootstrap-tooltip
+// 模态框
+//= require bootstrap-modal
+//= require bootstrap-modalmanager

@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   include Likeable
   include Redis::Objects
+  set :limit_read
   # extend FriendlyId
   # friendly_id :title
   counter :click_count

@@ -21,6 +21,12 @@
                 <%= @profile.name %>
               </div>
               &nbsp
+              <div class="user_score">
+              当前积分:
+              <%= current_user.ranks.score("#{current_user.id}").to_i %>
+              分
+              </div>
+              &nbsp
               <div class="user_id">
               帐号ID:
                 <%= @profile.phone %>

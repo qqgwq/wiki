@@ -1,14 +1,14 @@
 class ArticlesController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login, except: [:index, :show, :release]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :destroy]
   before_action :set_search
 
   def index
-    # binding.pry
     if params[:category].blank?
       @q = Article.ransack(params[:q])
       @articles = @q.result.includes(:user, :comments).order(created_at: :desc).page(params[:page]).per(3)
+      @users = User.order("field(id, #{User.ranks.members.reverse.join(',')})")
     else
       @category_name = params[:category]
       @category_id = Category.where(name: params[:category]).first&.id
@@ -29,10 +29,16 @@ class ArticlesController < ApplicationController
       cookies["view-article-#{@article.id}"] = "true"
       @article.view!
     end
+    if current_user
+      unless @article.limit_read.member?("#{current_user.id}")   # 判断当前用户是否在该集合中
+        current_user.ranks.incr("#{current_user.id}", 3)     # 当前用户的积分数
+        @article.limit_read << current_user.id  # 把当前用户写入集合中
+      end
+      @article.click_count.incr() # 添加用户的阅读量
+    end
   end
 
   def create
-    #binding.pry
     @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to @article
@@ -60,9 +66,10 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
-  
-
-
+  def release
+    @releases = Article.all
+    @user = User.friendly.find(params[:user_id])
+  end
 
 
   private

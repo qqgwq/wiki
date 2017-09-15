@@ -6,11 +6,29 @@
     .panel.panel-default
       .panel-heading
         .panel-title
-        %span资料
+        %span用户
 
       .panel-body
-        %h2= @user.name
-        %h2= @user.phone
-      - if right_user
-        = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
-          %i.fa.fa-trash
+        %ul.list-group
+          .list-group-item-wiki
+            .media-left
+              = image_tag(@user.image.url, width: 64, height: 64, class: 'img-rounded')
+            .media-body
+              .media-heading
+                当前积分:
+                = @user.ranks.score("#{@user.id}").to_i
+                分
+              .media-heading
+                = @user.name
+        - if right_user
+          = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
+            %i.fa.fa-trash
+
+  .col-md-4
+    .panel.panel-default
+      .panel-body
+        查看
+        = link_to @user.name, release_user_articles_path(@user)
+        文章
+
+  

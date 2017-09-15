@@ -1,5 +1,7 @@
 class User < ApplicationRecord 
   #before_destroy :no_referenced_comments
+  include Redis::Objects
+  sorted_set :ranks, :global => true
   attr_accessor :verification_code
   include Concerns::AuthToken
   extend FriendlyId
@@ -42,6 +44,8 @@ class User < ApplicationRecord
       end
     end
   end
+
+
   
 
 

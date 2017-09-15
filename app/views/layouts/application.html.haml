@@ -36,6 +36,7 @@
                 = image_tag current_user.image.url
                 = current_user.name
                 %b.caret
+                
               %ul.dropdown-menu
                 %li.divider
                 %li= link_to "我的", profile_user_path(current_user)

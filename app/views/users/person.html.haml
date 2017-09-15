@@ -1,11 +1,19 @@
-.main
-  .container
-    .row
-      .col-md-6
-        .panel
-          .panel-body
-            %h2= @user.name
-          - @user.articles.each do |article|
-            #person
-              %h2= link_to article.title, article
-              %h2= article.content
+.row
+  .col-md-9
+    .panel.panel-wikis
+    .panel.panel-default
+      .panel-heading.clearfix
+        = @user.name
+        的文章
+
+      .panel-body
+        %ul.article_list.list-group
+          .list-group-item-wiki
+            - @user.articles.each do |article|
+              .media-left
+                = image_tag(article.user.image.url, width: 64, height: 64, class: 'img-rounded') if article.user.image.url.present?
+              .media-body
+                .media-heading
+                  = link_to article.title, article
+                .media-heading
+                  = article.created_at.to_date
