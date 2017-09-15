@@ -22,6 +22,7 @@ class User < ApplicationRecord
   validates_attachment_size :image, less_than: 5.megabytes
   before_create { generate_token(:auth_token) } 
 
+
   def admin?
     is_admin
   end
@@ -47,17 +48,15 @@ class User < ApplicationRecord
 
   #postgres 排序
   def self.order_by_ids(ids)
-    order_by = ["CASE"]
-    ids.each_with_index do |id, index|
+    order_by = ["case"]
+    ids.each_with_index.map do |id, index|
       order_by << "WHEN id='#{id}' THEN #{index}"
     end
-    order_by << "END"
+    order_by << "end"
     order(order_by.join(" "))
   end
 
-  def order_by_ids(ids)
-    order("idx(ARRAY#{ids}, id")
-  end
+
 
   
 
