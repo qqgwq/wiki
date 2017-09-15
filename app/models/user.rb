@@ -55,6 +55,10 @@ class User < ApplicationRecord
     order(order_by.join(" "))
   end
 
+  def order_by_ids(ids)
+    order("idx(ARRAY#{ids}, id")
+  end
+
   
 
 
