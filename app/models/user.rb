@@ -45,6 +45,15 @@ class User < ApplicationRecord
     end
   end
 
+  #postgres 排序
+  def self.order_by_ids(ids)
+    order_by = ["CASE"]
+    ids.each_with_index do |id, index|
+      order_by << "WHEN id='#{id}' THEN #{index}"
+    end
+    order_by << "END"
+    order(order_by.join(" "))
+  end
 
   
 
