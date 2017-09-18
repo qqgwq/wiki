@@ -34,6 +34,10 @@
             %span 头像
             = file_field_tag :image, accept: 'image/png, image/jpg, image/jpeg', class: "filestyle", 
             "data-input" =>"false", "date-classButton" => "btn btn-primary", classIcon: "icon-plus"
+            
+            %div{:id => "target"}
+
+            = link_to "删除文件", '', class: "btn btn-danger btn-xs delete_file"
 
           %br
             = submit_tag t('.signup'), class: 'btn btn-primary', data: { disable_with: "注册中..." }, tabindex: 7

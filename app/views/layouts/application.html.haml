@@ -21,7 +21,7 @@
           .navbar-brand
             = link_to root_path do
               %i.fa.fa-home
-        %ul.nav.navbar-nav.navbar-right
+        %ul.nav.user-bar.navbar-nav.navbar-right
           - if login?
             %li
               = link_to notifications_path, class: "notifications" do
@@ -33,7 +33,8 @@
 
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                = image_tag current_user.image.url
+                = image_tag current_user.image.url, id: "ps_info", title: "个人资料与帐号", 
+                "data-placement" => "bottom", class: 'img-rounded'
                 = current_user.name
                 %b.caret
                 

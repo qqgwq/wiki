@@ -8,9 +8,8 @@
         = form_for @user, html: { multiple: true, class: 'form-horizontal center', id: "edit" } do |f|
           .form-group
             .col-sm-6
-              = image_tag current_user.image.url, :width => '80%', id: "avatar"
-              = f.file_field :image, class: "filestyle", "data-input" => false, 
-              "date-classButton" => "btn btn-primary", classIcon: "icon-plus"
+              = image_tag current_user.image.url, width: 78, height: 78, class: 'img-rounded', id: "avatar", title: "上传新头像"
+              = f.file_field :image
           .form-group
             = f.label :name, class: "control-label col-sm-3", require: true
             .col-sm-6
@@ -74,6 +73,8 @@
     }
   });
 
-  $(":file").filestyle({
-    input: false
-  })
+  $(document).ready(function(){
+    $("#avatar").click(function(){
+      $("#user_image").toggle()
+    });
+  });

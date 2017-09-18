@@ -32,3 +32,26 @@
 // 模态框
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
+
+javascript:
+  $(function(){
+    $("#ps_info").tooltip()
+  });
+
+  $(document).ready(function(){
+    $("#image").on('change', function(event){
+      var files = event.target.files;
+      var image = files[0]
+      var reader = new FileReader();
+      reader.onload = function(file) {
+        var img = new Image();
+        console.log(file);
+        img.src = file.target.result;
+        img.width = "120";
+        $('#target').html(img);
+        $('.delete_file').show();
+      }
+      reader.readAsDataURL(image);
+      console.log(files);
+    });
+  });

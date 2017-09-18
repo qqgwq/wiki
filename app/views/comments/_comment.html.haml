@@ -1,15 +1,16 @@
 %div{:id => "comment_#{comment.id}"}
-  %ul.list-group
-    %li.list-group-item-wiki
-      #img2= image_tag comment.user.image.url
-      .metadate
-        | #@
-        %span.author
+  %ul.comment_list.list-group
+    %li.list-group-item-wiki.media{style: "border-bottom: 1px solid #ddd; padding: 10 15"}
+      .media-left
+        = image_tag comment.user.image.url, width: 48, height: 48, class: 'img-rounded'
+      .media-body
+        .media-heading
+          @
           = comment&.user&.name
-        %span.date
           = comment.created_at.to_date
+        .media-heading
         %h4#comment="#{content_with_emoji(comment.content)}".html_safe
-       
+        
     - if comment.user == current_user
       #destroy_comment
         = link_to edit_article_comment_path(comment.article, comment) do
