@@ -64,7 +64,7 @@
               .pull-right
                 = image_tag "jf.jpg", class: 'img-rounded', width: 60, height: 60, class: "jf"
             .panel-body
-              %table.table.table-inverse
+              %table.table.table-striped
                 %thead
                   %tr
                     %th 排名
@@ -73,7 +73,7 @@
                 %tbody
                   - @users&.each do |user|
                     %tr
-                      %td= user.ranks.revrank("#{user.id}")
+                      %td= user.ranks.revrank("#{user.id}")+ 1
                       %td= user.ranks.score("#{user.id}").to_i
                       %td= link_to user.name, user_path(user)
                 

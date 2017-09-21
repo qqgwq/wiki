@@ -68,6 +68,10 @@ gem 'kaminari'
 gem 'rucaptcha'
 gem 'dalli'
 
+#微信
+gem 'wechat'
+gem 'weixin_authorize'
+
 #搜索
 gem 'ransack'
 
