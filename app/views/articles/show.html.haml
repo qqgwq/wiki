@@ -1,93 +1,102 @@
 - content_for(:title, @article.title)
-.row
-  .col-md-15
-    .panel.panel-wiki2
-      = render 'shareds/flash'
-      .panel.panel-default
-        - if @article.complete?
-          .panel-heading
-            .panel-title
-            = @article.title
-
-            #article-img
-              = link_to(image_tag @article.user.image.url, title: @article.user.name)
-
-          .info
-            = @article.user.name
-            &nbsp
-            发布于
-            = @article.created_at
-            &nbsp
-            = @article.views_count
-            次阅读
-            &nbsp
-            点击量
-            = @article.click_count.value()
-            次
-          %p
-            = @article.content
-            = image_tag @article.avatar.url
-          
-          .action.clearfix
-            .pull-right
-              = render partial: 'articles/like'
-
-          #div
-            = render partial: 'comments/comment', collection: @article.comments, :as => :comment
-          
-          .panel.panel-wiki#comment-text
-            .panel.panel-default
+.main
+  .container
+    .row
+      .col-md-9
+        .panel.panel-wiki2
+          = render 'shareds/flash'
+          .panel.panel-default
+            - if @article.complete?
               .panel-heading
                 .panel-title
-                #counts 
-                  共
-                  = @article.comments.count
-                  条评论
-              .panel
-                .panel-body
-                  = render "comment_text"
-          
-          
-        - elsif @article.deny?
-          .col-md-15
-            .panel.panel-wiki#comment-text
-              .panel.panel-default
-                .panel-heading
-                  .panel-title
-                  = @article.title  
-                .info
-                  = @article.user.name
-                  &nbsp
-                  = @article.created_at.to_date
-                  &nbsp
-                  = @article.views_count
-                  次阅读
-                  &nbsp
-                  点击量
-                  = @article.click_count.incr()
-                  次
-                  %span 发表的
-                  %strong"#{@article.content}"
-                  没有通过审核,请修改
-              = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
-        - else
-          .col-md-15
-            .panel.panel-wiki#comment-text
-              .panel.panel-default
-                .panel-heading
-                  .panel-title
-                  = @article.title  
-                .info
-                  = @article.user.name
-                  &nbsp
-                  = @article.created_at.to_date
-                  &nbsp
-                  = @article.views_count
-                  次阅读
-                  &nbsp
-                  点击量
-                  = @article.click_count.incr()
-                  次
-                  %span 发表的
-                  %strong"#{@article.content}"
-                正在审核中...
+                = @article.title
+
+                #article-img
+                  = link_to(image_tag @article.user.image.url, title: @article.user.name)
+              .info
+                = @article.user.name
+                &nbsp
+                发布于
+                = @article.created_at
+                &nbsp
+                = @article.views_count
+                次阅读
+                &nbsp
+                点击量
+                = @article.click_count.value()
+                次
+              %p
+                = @article.content
+                = image_tag @article.avatar.url
+              
+              .action.clearfix
+                .pull-right
+                  = render partial: 'articles/like'
+              #div
+                = render partial: 'comments/comment', collection: @article.comments, :as => :comment
+              
+              .panel.panel-wiki#comment-text
+                .panel.panel-default
+                  .panel-heading
+                    .panel-title
+                    #counts 
+                      共
+                      = @article.comments.count
+                      条评论
+                  .panel
+                    .panel-body
+                      = render "comment_text"
+                  
+                
+            - elsif @article.deny?
+              .col-md-15
+                .panel.panel-wiki2
+                  .panel.panel-default
+                    .panel-heading
+                      .panel-title
+                      = @article.title  
+                    .info
+                      = @article.user.name
+                      &nbsp
+                      = @article.created_at.to_date
+                      &nbsp
+                      = @article.views_count
+                      次阅读
+                      &nbsp
+                      点击量
+                      = @article.click_count.incr()
+                      次
+                      %span 发表的
+                      %strong"#{@article.content}"
+                      没有通过审核,请修改
+                  = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
+            - else
+              .col-md-15
+                .panel.panel-wiki2
+                  .panel.panel-default
+                    .panel-heading
+                      .panel-title
+                      = @article.title  
+                    .info
+                      = @article.user.name
+                      &nbsp
+                      = @article.created_at.to_date
+                      &nbsp
+                      = @article.views_count
+                      次阅读
+                      &nbsp
+                      点击量
+                      = @article.click_count.incr()
+                      次
+                      %span 发表的
+                      %strong"#{@article.content}"
+                    正在审核中...
+
+      .col-md-3
+        .panel.panel-wiki2
+          .panel.panel-default
+            .panel-heading
+              %span 分享到
+            .panel-body
+              = social_share_button_tag(@article.title)
+

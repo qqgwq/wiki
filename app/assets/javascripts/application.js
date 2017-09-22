@@ -32,6 +32,9 @@
 // 模态框
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
+//社交分享按钮
+//= require social-share-button
+//= require social-share-button/wechat
 
 javascript:
   $(function(){

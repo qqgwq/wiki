@@ -69,8 +69,9 @@ gem 'rucaptcha'
 gem 'dalli'
 
 #微信
-gem 'wechat'
 gem 'weixin_authorize'
+#社交分享按钮
+gem 'social-share-button'
 
 #搜索
 gem 'ransack'
