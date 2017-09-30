@@ -1,5 +1,4 @@
-$("#div").html('<%=j render(partial: "comment", collection: @article.comments, :as => :comment) %>');
+$("#comments").html('<%=escape_javascript (render(partial: "comment", collection: @article.comments, :as => :comment)) %>')
 $(".container1").html('<%=j render 'shareds/flash' %>');
 $("#counts").html('<%= @article.comments.count %>评论');
-<%#$("#comment_content").val('');%>
-$(".emoji-wysiwyg-editor").empty();
+$("#comment_content").val('');

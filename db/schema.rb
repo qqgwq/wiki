@@ -42,9 +42,10 @@ ActiveRecord::Schema.define(version: 20170807035812) do
     t.text     "content"
     t.integer  "article_id"
     t.integer  "user_id"
+    t.integer  "notification_id"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["article_id"], name: "index_comments_on_article_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
@@ -83,12 +84,12 @@ ActiveRecord::Schema.define(version: 20170807035812) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "article_id"
-    t.boolean  "read",       default: false
-    t.integer  "comment_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["article_id"], name: "index_notifications_on_article_id", using: :btree
+    t.string   "subject_type"
+    t.integer  "subject_id"
+    t.boolean  "read",         default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["subject_type", "subject_id"], name: "index_notifications_on_subject_type_and_subject_id", using: :btree
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 

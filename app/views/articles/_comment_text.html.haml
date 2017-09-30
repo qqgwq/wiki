@@ -1,10 +1,12 @@
 - if login?
   = simple_form_for([@article, @article.comments.build], remote: true) do |f|
     .form-group
+      = f.hidden_field :comment_user_id, value: nil
+    .form-group
       %i.glyphicon.glyphicon-comment
       = f.label :评论
       %br
-        = f.text_area :content, placeholder: "评论内容...", class: "form-control", data: {emojiable: true}, id: "comment"
+        = f.text_area :content, placeholder: "评论内容...", class: "form-control"
     = f.submit t('.create comment'), class: "btn btn-primary"
     = link_to t('.B'), root_path, class: "btn btn-danger"
 - else

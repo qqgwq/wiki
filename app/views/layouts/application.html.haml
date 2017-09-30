@@ -23,8 +23,8 @@
               %i.fa.fa-home
         %ul.nav.user-bar.navbar-nav.navbar-right
           - if login?
-            %li
-              = link_to notifications_path, class: "notifications" do
+            %li{class: "notification"}
+              = link_to notifications_path, id: "notifications", title: "通知" do
                 - if unread_notifications_count > 0
                   %i.fa.fa-bell{style: "color: red" }
                   .badge= unread_notifications_count > 99 ? '99+' : unread_notifications_count

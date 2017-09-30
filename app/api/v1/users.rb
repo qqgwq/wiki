@@ -11,8 +11,9 @@ module V1
         requires :phone, type: String, desc: "手机号"
       end
       post 'get_sms_code' do
-        @phone = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
-        @phone.value = sms_code
+        #初始化Redis::Value的实例(不为nil)，设定phone作为key并设定过期时间，value为nil
+        @phone = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes) 
+        @phone.value = sms_code #把sms_code写入redis里面，value不为nil
         SmsCodeJob.perform_later(params[:phone], @phone.value)
       end
 

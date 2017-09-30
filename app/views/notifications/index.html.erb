@@ -1,23 +1,43 @@
 <div class="row">
-  <div class="panel panel-default notifications">
-    <div class="panel-heading hide-ios clearfix">
-      <h3 class="panel-title">
-        所有通知
-      </h3>
-      <div class="notification_clear">
-        <%= link_to "清空所有", clear_notifications_path, method: :delete, class: "btn btn-danger btn-sm", remote: true %>
+  <div class="container">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading hide-ios clearfix">
+          <h3 class="panel-title">
+            所有通知
+          </h3>
+          <div class="notification_clear">
+            <%= link_to "清空所有", clear_notifications_path, method: :delete, class: "btn btn-danger btn-sm", remote: true %>
+          </div>
+        </div>
+      <div class="panel-body">
+        <div class="body">
+          <%= render partial: 'notifications/notification', locals: { notifications: @notifications } %>
+        </div>
+        <div id="notification_paginate">
+          <%= paginate @notifications, :remote => true %>
+        </div>
       </div>
     </div>
-    <div class="panel-body">
-      <div class="body">
-        <%= render partial: 'notifications/notification', locals: { notifications: @notifications } %>
-      </div>
-    </div>
-
-    <div id="notification_paginate">
-      <%= paginate @notifications, :remote => true %>
-    </div>
-
   </div>
-  <% current_user.notifications.unread.where(id: @notifications.pluck(:id)).update_all(read: true) %>
+    <% current_user.notifications.unread.where(id: @notifications.pluck(:id)).update_all(read: true) %>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            点赞总数
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="heart_count">
+            <i class="fa fa-heart">
+              <h4 class="like_count">
+                <%= Like.count %>个赞
+              </h4>
+            </i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

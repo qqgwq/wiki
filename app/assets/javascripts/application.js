@@ -39,6 +39,7 @@
 javascript:
   $(function(){
     $("#ps_info").tooltip()
+    $(".notification").tooltip()
   });
 
   $(document).ready(function(){

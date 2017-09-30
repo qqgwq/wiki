@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def create
     phone, verification_code = user_params.dig("phone"), user_params.dig("verification_code")
-    phone_value = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
+    phone_value = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes) #初始化Redis::Value实例且value不为nil, 获取的手机验证码
     if User.exists?(phone: phone)
       flash[:danger] = "用户已注册"
       redirect_to new_user_path

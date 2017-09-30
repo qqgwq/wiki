@@ -17,7 +17,7 @@
                 = @article.user.name
                 &nbsp
                 发布于
-                = @article.created_at
+                = @article.created_at.to_date
                 &nbsp
                 = @article.views_count
                 次阅读
@@ -25,14 +25,17 @@
                 点击量
                 = @article.click_count.value()
                 次
-              %p
-                = @article.content
-                = image_tag @article.avatar.url
-              
+              %ul.list-group
+                %li.list-group-item-wiki.media{style: "padding: 8"}
+                  .media-left 
+                    = image_tag @article.avatar.url, width: 164, height: 164, class: 'img-rounded'
+                  .media-body
+                    .media-heading
+                      = @article.content
               .action.clearfix
                 .pull-right
                   = render partial: 'articles/like'
-              #div
+              #comments
                 = render partial: 'comments/comment', collection: @article.comments, :as => :comment
               
               .panel.panel-wiki#comment-text

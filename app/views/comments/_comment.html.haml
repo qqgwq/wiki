@@ -1,19 +1,31 @@
-%div{:id => "comment_#{comment.id}"}
+%div.comment_data{"data-toggle" => "#{comment.id}", :id => "comment_#{comment.id}"}
   %ul.comment_list.list-group
     %li.list-group-item-wiki.media{style: "border-bottom: 1px solid #ddd; padding: 10 15"}
       .media-left
         = image_tag comment.user.image.url, width: 48, height: 48, class: 'img-rounded'
       .media-body
         .media-heading
-          @
           = comment&.user&.name
-          = comment.created_at.to_date
+          = '.'
+          = time_ago_in_words(comment.created_at) + "之前" 
         .media-heading
-        %h4#comment="#{content_with_emoji(comment.content)}".html_safe
-        
+          = comment.content
+        .pull-right
+          %a.btn{"data-toggle" => "@#{comment.user.name}##{comment.id}", title: "回复"}
+            %i.fa.fa-reply#reply{style: "position: relative; top: 0; left: -30"}
     - if comment.user == current_user
       #destroy_comment
         = link_to edit_article_comment_path(comment.article, comment) do
           %i.fa.fa-edit
         = link_to [comment.article, comment], method: :delete, remote: true, data: { confirm: "确定删除?" } do
           %i.fa.fa-trash
+          
+:javascript
+  $(".btn").click(function(){
+    textarea = $("#new_comment textarea")
+    textarea.focus()
+    textarea.val(textarea.val() + $(this).data('toggle'))
+    comment_data = $(".btn").parents(".comment_data").data("toggle") /通过reply-button获取评论用户的id
+    $("#comment_comment_value").val(comment_data) /把评论用户的id赋值给hidden_field
+    console.log('data-toggle')
+  });

@@ -4,10 +4,30 @@ class CommentsController < ApplicationController
 
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments&.create params.require(:comment).permit(:content).merge(user: current_user)
+    @comment = @article.comments.create params.require(:comment).permit(:content).merge(user: current_user)
     respond_to do |format|
       if @comment.save
-         @comment.create_article_notification
+        #创建发布评论用户通知
+        if current_user != @article.user
+          Notification.create!(
+            user: @article.user,
+            subject_id: @comment.id, #发布评论的id
+            subject_type: 'Comment',
+            read: false
+          )
+        else
+          #回复评论通知
+          @comment_user = Comment.find_by(params[:comment][:comment_user_id]) #查询评论的用户
+          if current_user.id == params[:comment][:comment_user_id] #取hiddle_field中的值
+            return
+          else 
+            Notification.create!(
+              user: @comment_user.user,
+              subject_id: @comment_user.id,
+              subject_type: 'Reply',
+              read: false)
+          end
+        end
         format.html {redirect_to article_path(@article)}
         format.js { flash[:success] = "添加评论成功" }
       else
