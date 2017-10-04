@@ -17,7 +17,7 @@
           </div>
         </li>
       </ul>
-    <% elsif %>
+    <% else %>
       <%# 判断点赞的类型 %>
       <% notification.subject_type == "Like" %>
         <% article ||= notification.subject.likeable %> <%# 获取点赞的文章 %>
@@ -36,25 +36,6 @@
             </div>
           </li>
         </ul>
-    <% else %>
-      <%# 判断回复评论的用户的类型 %>
-      <% notification.subject_type == "Reply" %>
-        <% article ||= notification.subject.article %>
-          <ul class="list-group">
-            <li class="list-group-item-wiki">
-              <div class="media-left">
-                <%= image_tag notification.subject.user.image.url, class: 'img-rounded', width: 48, height: 48 %>
-              </div>
-              <div class="media-body">
-                <div class="media-heading">
-                  <%= notification.subject.user.name %>回复了你<%= link_to article.title, article_path(article) %>
-                </div>
-                <div class="media-heading">
-                  <%= notification.subject.created_at.to_date %>
-                </div>
-              </div>
-            </li>
-          </ul>
     <% end %>
   <% end %>
 <% end %>

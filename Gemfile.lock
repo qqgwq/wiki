@@ -54,6 +54,7 @@ GEM
       execjs
     awesome_nested_set (3.1.3)
       activerecord (>= 4.0.0, < 5.2)
+    awesome_print (1.8.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -371,6 +372,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   acts_as_commentable_with_threading
+  awesome_print
   bcrypt
   better_errors
   bootstrap-filestyle-rails

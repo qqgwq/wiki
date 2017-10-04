@@ -25,7 +25,7 @@
     textarea = $("#new_comment textarea")
     textarea.focus()
     textarea.val(textarea.val() + $(this).data('toggle'))
-    comment_data = $(".btn").parents(".comment_data").data("toggle") /通过reply-button获取评论用户的id
-    $("#comment_comment_value").val(comment_data) /把评论用户的id赋值给hidden_field
+    comment_data = $(".btn").parents(".comment_data").data("toggle")
+    $("#comment_comment_value").val(comment_data)
     console.log('data-toggle')
   });

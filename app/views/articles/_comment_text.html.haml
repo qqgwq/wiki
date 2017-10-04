@@ -1,7 +1,7 @@
 - if login?
   = simple_form_for([@article, @article.comments.build], remote: true) do |f|
     .form-group
-      = f.hidden_field :comment_user_id, value: nil
+      = f.hidden_field :comment_id, value: nil
     .form-group
       %i.glyphicon.glyphicon-comment
       = f.label :评论
