@@ -4,5 +4,6 @@ module V1
     has_many :likes
     has_many :articles
     has_many :comments
+    has_many :notifications
   end
 end

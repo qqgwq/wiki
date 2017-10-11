@@ -10,6 +10,7 @@ module V1
     mount V1::Likes
     mount V1::Categories
     mount V1::Comments
+    mount V1::Notifications
 
     add_swagger_documentation(
         api_version: "v1",

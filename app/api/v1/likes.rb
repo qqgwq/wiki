@@ -11,7 +11,17 @@ module V1
       post "like" do
         authenticate!
         @likeable = Article.find(params[:article_id])
-        @likeable.likes.where(user_id: current_user).first_or_create
+        @like = @likeable.likes.where(user_id: current_user).first_or_create
+        if current_user != @likeable.user
+          Notification.create!(
+              user: @likeable.user,
+              subject_id: @like.id,
+              subject_type: "Like",
+              read: false
+          )
+        else
+          return
+        end
       end
 
       desc "用户取消文章点赞, 需要验证"

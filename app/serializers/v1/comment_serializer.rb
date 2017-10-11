@@ -3,6 +3,7 @@ module V1
   attributes :id, :content
   belongs_to :article
   belongs_to :user
+  has_many :notifications, as: "subject", dependent: :delete_all
   end
 end
 

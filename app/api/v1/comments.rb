@@ -15,9 +15,20 @@ module V1
       end
       post "create_comment", each_serializer: V1::CommentSerializer, root: 'comment' do
         authenticate!
-        @article = current_user.articles.find(params[:article_id])
+        #binding.pry
+        @article = Article.find(params[:article_id])
         @comment = @article.comments.create(params)
         if @comment.save
+          if current_user != @article.user
+            Notification.create!(
+                  user: @article.user,
+                  subject_id: @comment.id,
+                  subject_type: "Comment",
+                  read: false
+            )
+          else
+            return
+          end
           render current_user
         else
           error!({"error" => current_user.errors.full_messages.first}, 400)
