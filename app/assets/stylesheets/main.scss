@@ -16,6 +16,10 @@ body{
   z-index: 3000;
 }
 
+#main{
+  margin-top: 50px;
+}
+
 .modal-backdrop { z-index: 0 !important;}
 
 .panel{
@@ -50,6 +54,10 @@ body{
     font-size: 14px;
     font-weight: bold;
   }
+}
+
+#item{
+  font-size: 2px;
 }
 
 #index{
@@ -373,7 +381,6 @@ li1{
 #bg-img{
   margin-left: -14em;
   position: fixed;
-  margin-top: -12px;
   img{
     height: 100%;
     margin-top: -12px;

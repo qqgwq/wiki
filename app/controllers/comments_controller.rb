@@ -7,6 +7,9 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create params.require(:comment).permit(:content).merge(user: current_user)
     respond_to do |format|
       if @comment.save
+        @comment.article.last_username = @comment.user.name #赋值给article.last_name
+        @comment.article.created_at = @comment.created_at
+        @comment.article.save
         #创建发布评论用户通知
         if current_user != @article.user
           Notification.create!(

@@ -9,9 +9,14 @@
             = article.title
             by
             = article.user&.name
-          .media-heading
             = link_to "查看更多...", article, class: "btn btn-primary btn-xs", id: "score", 
             "data-original-title" => "读取文章积分+3"
+          .media-heading#item
+            最后由
+            = article.last_username
+            回复于
+            = time_ago_in_words(article.created_at)
+            前
         #index1
           %span.badge.badge-info= article.category.name
           %span.badge.badge-success= I18n.t("articles.status.#{article.status}")

@@ -79,11 +79,27 @@
                 
           .panel.panel-wikis
           .panel.panel-default
-            .panel-heading.clearfix
+            .panel-heading.clearfix{style: "height: 35px"}
               %span源码地址
             .panel-body
               %a{:href => "https://www.github.com/qqgwq/wiki"}请点击这里
 
+          .panel.panel-default
+            .panel-heading{style: "height: 35px"}
+              统计信息
+            %ul.list-group
+              %li.list-group-item
+                论坛人数:
+                = User.count
+                人
+              %li.list-group-item
+                帖子数:
+                = Article.count
+                个
+              %li.list-group-item
+                回帖数:
+                = Comment.count
+                条
 
       .col-md-2
         - if login?

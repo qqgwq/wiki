@@ -15,7 +15,7 @@
     ga('send', 'pageview');
     </script>
   %body
-    %nav.navbar.navbar-wiki.navbar-static-top
+    %nav.navbar.navbar-wiki.navbar-fixed-top
       .container
         .navbar-header
           .navbar-brand
@@ -57,7 +57,7 @@
               -#%li= link_to "关于我", homes_about_path
               = render 'layouts/sidebar'
        
-    .container
+    .container#main
       .row
         .col-md-9
           = yield
