@@ -19,14 +19,16 @@
 
               .form-group
                 = f.label :内容, class: "control-label"
-                %br
-                %p{class: "emoji-picker-container", title: "内容不能为空", "data-placement" => "bottom"}
-                  = f.text_area :content, class: "form-control", data: {emojiable: true}
+                = f.text_area :content, id: 'editor', class: "form-control", placeholder: "新建内容..."
                 &nbsp
                 = f.file_field :avatar
               = f.submit t('.publish'), class: "btn btn-primary"
 
 :javascript
+  editor = new Simditor({
+    textarea: $('#editor')
+  });
+
   $("#edit_article").validate({
     rules: {
       'article[title]': { 
@@ -41,9 +43,3 @@
       },
     }
   });
-
-  $(document).ready(function(){
-    $(".emoji-picker-container").tooltip()
-    $("#article_title").tooltip()
-  });
-  

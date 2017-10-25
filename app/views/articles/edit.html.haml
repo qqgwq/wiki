@@ -12,10 +12,14 @@
 
           .form-group
             = f.label :内容, class: "control-label"
-            = f.text_area :content, class: "form-control"
+            = f.text_area :content, id: "editor", class: "form-control"
 
           .form-group
             = f.file_field :avatar
 
           = f.submit t('.publish'), class: "btn btn-primary btn-sm"
           = link_to "取消", article_path, class: "btn btn-info btn-sm"
+:javascript
+  editor = new Simditor({
+    textarea: $("#editor")
+  });

@@ -9,7 +9,7 @@
           = '.'
           = time_ago_in_words(comment.created_at) + "之前" 
         .media-heading
-          = comment.content
+          = raw comment.content
         .pull-right
           %a.btn{"data-toggle" => "@#{comment.user.name}##{comment.id}", title: "回复"}
             %i.fa.fa-reply#reply{style: "position: relative; top: 0; left: -30"}

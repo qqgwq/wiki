@@ -78,7 +78,7 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
     @phone = Redis::Value.new("#{params[:phone]}", expiration: 2.minutes)
-    if @phone.value.present?
+    if @phone.value.present? #验证短信是否已发送
       flash[:danger] = "短信发送中, 请稍等"
       redirect_to new_user_path
     else

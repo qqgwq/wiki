@@ -71,10 +71,10 @@
                     %th 积分
                     %th 用户
                 %tbody
-                  - @users&.each do |user|
+                  - @users.each do |user|
                     %tr
-                      %td= user.ranks.revrank("#{user.id}")+ 1
-                      %td= user.ranks.score("#{user.id}").to_i
+                      %td= user.rank
+                      %td= user.score
                       %td= link_to user.name, user_path(user)
                 
           .panel.panel-wikis

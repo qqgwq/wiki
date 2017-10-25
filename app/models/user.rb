@@ -20,7 +20,8 @@ class User < ApplicationRecord
   has_attached_file :image, styles: { :original => '250x250>', :small => "200x200#" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/png", "image/jpeg"]
   validates_attachment_size :image, less_than: 5.megabytes
-  before_create { generate_token(:auth_token) } 
+  before_create { generate_token(:auth_token) }
+  after_create :init_score
 
 
   def admin?
@@ -54,5 +55,21 @@ class User < ApplicationRecord
     end
     order_by << "end"
     order(order_by.join(" "))
+  end
+
+  #用户排名
+  def rank
+    ranks.revrank(self.id)&.next
+  end
+
+  #用户积分
+  def score
+    ranks.score(self.id).to_i
+  end
+
+  #创建一个用户初始redis值为0
+  private
+  def init_score
+    ranks.incr(self.id, 0)
   end
 end
