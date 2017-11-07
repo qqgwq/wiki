@@ -54,8 +54,12 @@
           Copyright @2017 wiki
           &nbsp
           Design by gwq
-
+      
       .col-md-3
+        .panel.panel-wikis
+        .panel.panel-default
+          .panel-body
+            = link_to "发布新文章", new_article_path, class: 'btn btn-primary btn-block'
         - unless login?
           .panel.panel-wikis
           .panel.panel-default
