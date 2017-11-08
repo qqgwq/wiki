@@ -5,3 +5,9 @@ set :output, {:error => 'log/cron_error.log', :standard => 'log/cron.log'}
 every 1.day, at: '8:30 am' do
   runner "PersonJob.perform_later"
 end
+
+#每天凌晨清理缓存
+set :output, {:error => 'log/cron_error.log', :standard => 'log/cron.log'}
+every 1.day, at: '0:00 am' do
+  runner "Rails.cache.clear", environment: 'development'
+end
