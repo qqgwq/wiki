@@ -60,3 +60,13 @@ javascript:
       console.log(files);
     });
   });
+
+//ajax搜索匹配，不用点击搜索按钮
+$(function(){
+  $(".article_search input").keyup(function(){
+    // $.get作为ajax require, form’s action as the URL for the AJAX request 
+    //the form’s data by using $(this).serialize, null as we don’t want a callback function and then 'script'
+    $.get($(".article_search").attr('action'), $(".article_search").serialize(), null, "script");
+  });
+});
+  
