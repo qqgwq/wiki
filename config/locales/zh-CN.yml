@@ -35,8 +35,8 @@ zh-CN:
 
   users:
     form:
-      sign up: "注册"
-      Back: "返回"
+      sign up: "新用戶注册"
+      Cancel: "取消"
       signup: "注册"
       errors:
     messages:

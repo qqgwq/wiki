@@ -1,30 +1,39 @@
 - content_for(:title, "注册")
 .row
+  #bg-img
+    = image_tag("background.jpg", style: "width: 1440px")
   .col-md-6.col-md-offset-3
     .panel.panel-wikis
-      .panel-heading
+      .panel-heading{style: "height: 40px;"}
         %h2= t('.sign up')
       .panel-body
         = form_tag(users_path, multipart: true, method: :post, id: "errors_message") do 
           .form-group
-            %i.glyphicon.glyphicon-user
-            = text_field_tag :name, nil, placeholder: "用户名...", class: "form-control", tabindex: 1
+            %div{class: "input-group"}
+              %div{class: "input-group-addon"}
+                %i.glyphicon.glyphicon-user
+              = text_field_tag :name, nil, placeholder: "用户名...", class: "form-control", tabindex: 1
 
           .form-group
-            %i.glyphicon.glyphicon-envelope
-            = text_field_tag :email, nil, placeholder: "邮箱...", class: "form-control", tabindex: 2
+            %div{class: "input-group"}
+              %div{class: "input-group-addon"}
+                %i.glyphicon.glyphicon-envelope
+              = text_field_tag :email, nil, placeholder: "邮箱...", class: "form-control", tabindex: 2
 
           .form-group
-            %i.glyphicon.glyphicon-phone
-            = text_field_tag :phone, nil, placeholder: "手机号码...", class: "form-control", tabindex: 3
-
+            %div{class: "input-group"}
+              %div{class: "input-group-addon"}
+                %i.glyphicon.glyphicon-phone
+              = text_field_tag :phone, nil, placeholder: "手机号码...", class: "form-control", tabindex: 3
           .form-group
             = text_field_tag :verification_code, nil, size: 6, placeholder: "验证码"
             = button_tag "获取验证码", class: "btn btn-info", id: "get_sms_code"
 
           .form-group
-            %i.glyphicon.glyphicon-lock
-            = password_field_tag :password, nil, placeholder: "密码...", class: 'form-control', tabindex: 4
+            %div{class: "input-group"}
+              %div{class: "input-group-addon"}
+                %i.glyphicon.glyphicon-lock
+              = password_field_tag :password, nil, placeholder: "密码...", class: 'form-control', tabindex: 4
             
           -#.form-group#ru
             = rucaptcha_input_tag placeholder: "请输入验证码", class: "form-control", tabindex: 5
@@ -42,7 +51,7 @@
           %br
             = submit_tag t('.signup'), class: 'btn btn-primary', data: { disable_with: "注册中..." }, tabindex: 7
             |
-            = link_to t('.Back'), new_article_path
+            = link_to t('.Cancel'), articles_path
 
 :javascript
   $("#get_sms_code").click(function(){

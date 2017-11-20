@@ -6,9 +6,16 @@
         %h4.modal-title 用户登录
       .modal-body.modal-login
         = form_tag(sessions_path, method: :post) do
-          = text_field_tag :login, params[:login], placeholder: '手机号码/邮箱...'
           .form-group
-            = password_field_tag :password, nil, placeholder: '密码'
+            %div{class: "input-group"}
+              %div{class: "input-group-addon"}
+                %i.glyphicon.glyphicon-phone
+              = text_field_tag :login, params[:login], class: "form-control", placeholder: '手机号码/邮箱...'
+          .form-group
+            %div{class: "input-group"}
+              %div{class: "input-group-addon"}
+                %i.glyphicon.glyphicon-lock
+              = password_field_tag :password, nil, class: "form-control", placeholder: '密码'
           = link_to "忘记密码?", new_password_resets_path
           .form-group
             = label_tag :记住我

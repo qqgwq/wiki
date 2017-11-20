@@ -67,6 +67,7 @@ $(function(){
     // $.get作为ajax require, form’s action as the URL for the AJAX request 
     //the form’s data by using $(this).serialize, null as we don’t want a callback function and then 'script'
     $.get($(".article_search").attr('action'), $(".article_search").serialize(), null, "script");
+    return false
   });
 });
   
