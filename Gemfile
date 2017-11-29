@@ -95,6 +95,7 @@ gem 'concurrent-ruby'
 gem 'whenever', require: false
 
 #接口
+gem 'yajl-ruby', require: 'yajl'
 gem 'grape'
 gem 'hashie-forbidden_attributes'
 gem 'jwt'
