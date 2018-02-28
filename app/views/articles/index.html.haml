@@ -67,6 +67,13 @@
         .panel.panel-default
           .panel-body
             = link_to "发布新文章", new_article_path, class: 'btn btn-primary btn-block'
+
+        .panel.panel-wikis
+        .panel.panel-default
+          .panel-heading.clearfix{style: "height: 35px"}
+            %span 一切从这里开始
+          .panel-body
+            = Article.random_saying
         - unless login?
           .panel.panel-wikis
           .panel.panel-default

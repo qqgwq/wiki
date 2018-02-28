@@ -24,5 +24,10 @@ class Article < ApplicationRecord
   def view!
     self.increment!(:views_count)
   end
+
+  def self.random_saying
+    %w(知之者不如好之者，好之者不如乐之者。——孔子 一次失败，只是证明我们成功的决心还够坚强。——博维 
+        成功的唯一秘诀——坚持最后一分钟。——柏拉图).sample
+  end
 end
 
