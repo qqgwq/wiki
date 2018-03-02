@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # get 'password_resets/edit'
 
   require 'sidekiq/web'
-  mount Sidekiq::Web => 'sidekiq'
+  if Rails.env.development?
+    mount Sidekiq::Web => 'sidekiq'
+  end
   mount ApiRoot => '/api'
   mount GrapeSwaggerRails::Engine, at: "/doc"
   post '/get_sms_code', to: "users#get_sms_code"
