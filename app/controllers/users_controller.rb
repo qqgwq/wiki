@@ -32,17 +32,17 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     else
       if phone_value.value.to_s == verification_code.to_s
-      @user = User.new(user_params)
-    if @user.save
-      SmsJob.set(wait: 1.minute).perform_later(@user.phone, @user.name)
-      login_as @user
-      redirect_to @user
-    else
-      redirect_to new_user_path
-    end
-    else
-      flash.now[:danger] = "验证码错误"
-      render :new       
+        @user = User.new(user_params)
+        if @user.save
+          SmsJob.set(wait: 1.minute).perform_later(@user.phone, @user.name)
+          login_as @user
+          redirect_to @user
+        else
+          redirect_to new_user_path
+        end
+      else
+        flash.now[:danger] = "验证码错误"
+        render :new       
       end              
     end
   end

@@ -11,8 +11,8 @@ RSpec.describe User, type: :model do
   end
 
   describe User do
-    it { should have_many(:articles) }
-    it { should have_many(:comments) }
+    it { should have_many(:articles).dependent(:delete_all) }
+    it { should have_many(:comments).dependent(:delete_all) }
     it { should have_many(:notifications) }
     it { should have_many(:likes) }
   end

@@ -128,6 +128,8 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1.1'
+  gem 'factory_girl_rails', '~> 4.3.0'
+  gem 'rails-controller-testing'
 end
 
 group :production do
