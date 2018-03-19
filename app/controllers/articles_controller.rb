@@ -16,12 +16,12 @@ class ArticlesController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.js
+      # format.js
     end
   end
 
   def new
-    @article = current_user.articles.build
+    @article = Article.new
   end
 
   def show

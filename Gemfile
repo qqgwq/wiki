@@ -43,6 +43,9 @@ gem 'awesome_print', :require => 'ap'
 #性能监控
 gem 'newrelic_rpm'
 
+#阳历转农历
+gem 'lunar_blessing', github: 'mycolorway/lunar_blessing'
+
 #图标
 gem 'font-awesome-sass'
 gem "chartkick"

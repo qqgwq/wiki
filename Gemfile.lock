@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/mycolorway/lunar_blessing.git
+  revision: ba328ce5718eb7443dab80561e96d8e6dac2f782
+  specs:
+    lunar_blessing (0.1.1)
+
 GEM
   remote: https://gems.ruby-china.org/
   specs:
@@ -430,6 +436,7 @@ DEPENDENCIES
   jwt
   kaminari
   listen (~> 3.0.5)
+  lunar_blessing!
   mini_magick
   net-ssh (~> 4.1.0)
   newrelic_rpm

@@ -21,7 +21,7 @@ class NotificationsController < ApplicationController
   def clear
     current_user.notifications.delete_all
     respond_to do |format|
-    format.js { redirect_to notifications_path }
+      format.js { redirect_to notifications_path }
     end
   end
 end
