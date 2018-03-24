@@ -36,7 +36,7 @@ RSpec.describe NotificationsController, type: :controller do
       user = create(:user)
       login_as user
       notifications = create(:notification, user: user)
-      expect(response.status).to eq(200s)
+      expect(response.status).to eq(200)
     end
   end
 end

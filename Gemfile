@@ -135,6 +135,10 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'pg', '~> 0.18.2'
 end

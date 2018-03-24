@@ -1,8 +1,10 @@
-module V1
-  module Helpers
-    def current_user
-      @current_user
-    end
+module APIV1Support
+  extend ActiveSupport::Concern
+
+  included do
+    let!(:current_user) { create(:user) }
+    let(:headers) { { "ACCEPT" => "application/json" } }
+    let(:authenticate_token) { { 'HTTP_AUTHORIZATION' => current_user.create_jwt } }
 
     def authenticate!
       error!({"error" => "登录已过期, 重新登录"}, 401) unless verification_token
@@ -12,8 +14,8 @@ module V1
        error!({"error" => "验证失败"}, 404)
     end
 
-    def user_token
-      token = (request.env['HTTP_AUTHORIZATION'] || '').strip
+    def user_token  
+      token = (env['HTTP_AUTHORIZATION'] || '').strip
       error!({"error" => "登录已过期, 请重新登录"}, 401) if token.blank?
       token
     end
