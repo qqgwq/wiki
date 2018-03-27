@@ -95,10 +95,10 @@ body{
   float: right;
   margin-top: 3px;
 }
-#like_heart{
-  position: relative;
-  top: 5px;
-  right: 53px;
+.like_comment, .like_article{
+  position: relative !important;
+  top: 5px !important;
+  right: 53px !important;
   color: #999999;
   
 }

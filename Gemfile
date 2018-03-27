@@ -63,6 +63,7 @@ gem 'paperclip-i18n'
 gem 'bootstrap-filestyle-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'aws-sdk', '>= 2.0.0' 
 
 #分页
 gem 'kaminari'

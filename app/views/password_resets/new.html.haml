@@ -34,3 +34,16 @@
     }
     event.preventDefault();
   });
+
+  $(document).ready(function(){
+    $("#get_password_resets_code").attr("disabled", true);
+
+    $(".form-group").on("keyup", function(){
+      var password_resets_code = $("#phone").val();
+      if(password_resets_code != ""){
+        $("#get_password_resets_code").attr("disabled", false);
+      }else{
+        $("#get_password_resets_code").attr("disabled", true);
+      }
+    });
+  });

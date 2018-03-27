@@ -30,12 +30,11 @@
                   .media-left 
                     = image_tag @article.avatar.url, width: 164, height: 164, class: 'img-rounded'
                   .media-body
+                    .pull-right
+                      = render partial: 'articles/like'
                     .media-heading
                       = raw @article.content
-              .action.clearfix
-                .pull-right
-                  = render partial: 'articles/like'
-              #comments
+                #comments
                 = render partial: 'comments/comment', collection: @article.comments, :as => :comment
               
               .panel.panel-wiki#comment-text

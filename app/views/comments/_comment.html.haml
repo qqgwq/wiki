@@ -4,6 +4,18 @@
       .media-left
         = image_tag comment.user.image.url, width: 48, height: 48, class: 'img-rounded'
       .media-body
+        .pull-right
+          - if comment.is_like_comment?(current_user)
+            .span-count
+              = link_to comment_like_path(comment), method: :delete, "class" => "like", "id" => "like_comment_btn_#{comment.id}", remote: true do
+                %i.fa.fa-heart.like_comment{ id: "like_comment_#{comment.id}", style: "color:red;" }
+            .span-count
+              %p{id: "like_comment_#{comment.id}_count"}= comment.likes.count
+          - else
+            = link_to comment_like_path(comment), method: :post, "class" => "like", "id" => "like_comment_btn_#{comment.id}", remote: true do
+              %i.like_comment.fa.fa-heart{ id: "like_comment_#{comment.id}" }
+            .span-count
+              %p{id: "like_comment_#{comment.id}_count"}= comment.likes.count
         .media-heading
           = comment&.user&.name
           = '.'
@@ -13,6 +25,7 @@
         .pull-right
           %a.btn{"data-toggle" => "@#{comment.user.name}##{comment.id}", title: "回复"}
             %i.fa.fa-reply#reply{style: "position: relative; top: 0; left: -30"}
+              
     - if comment.user == current_user
       #destroy_comment
         = link_to edit_article_comment_path(comment.article, comment) do

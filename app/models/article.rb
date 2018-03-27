@@ -8,7 +8,7 @@ class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :comments, dependent: :destroy
-  has_many :likes, as: 'likeable'
+  has_many :likes, as: 'likeable', dependent: :destroy
   validates :title, presence: true, length: { in: 3..11 }
   validates :content, presence: true
   validates :avatar, attachment_presence: true

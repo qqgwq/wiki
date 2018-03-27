@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :articles, concerns: [:likeable, :commentable]
-
+  resources :comments, concerns: [:likeable]
   resources :users do
     resources :articles do
     collection do

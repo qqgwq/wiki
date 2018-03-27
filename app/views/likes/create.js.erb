@@ -1,5 +1,10 @@
-$(".span-count p").text(<%= @likeable.likes.count %>);
-$(".user-avatar").append("<img width=20 id=user_<%= current_user.id %> src=<%= current_user.image.url %>>");
-$(".like").data("method", "delete");
-$("#like_heart").css("color", "red");
-
+<% if @likeable.is_a?(Article) %>
+  $(".user-avatar").append("<img width=20 id=user_<%= current_user.id %> src=<%= current_user.image.url %>>");
+  $("#like_article_btn_<%= @likeable.id %>").data("method", "delete");
+  $("#like_article_<%= @likeable.id %>_count").text(<%= @likeable.likes.count %>);
+  $("#like_article_<%= @likeable.id %>").css("color", "red");
+<% else %>
+  $("#like_comment_btn_<%= @likeable.id %>").data("method", "delete");
+  $("#like_comment_<%= @likeable.id %>_count").text(<%= @likeable.likes.count %>);
+  $("#like_comment_<%= @likeable.id %>").css("color", "red");
+<% end %>
