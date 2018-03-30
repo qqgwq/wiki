@@ -7,7 +7,7 @@ source 'https://gems.ruby-china.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.1'
+gem 'rails', '5.1.5'
 
 # Use sqlite3 as the database for Active Record
 
@@ -27,7 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'listen', '~> 3.0.5'
 #常用
-gem 'haml', '4.0.5'
+gem 'haml', '5.0.4'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'bcrypt'

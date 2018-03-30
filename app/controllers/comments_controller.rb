@@ -20,13 +20,11 @@ class CommentsController < ApplicationController
           )
         else
           #回复评论通知
-          @comment_user = Comment.find_by(params[:comment][:comment_id]) #查询提交表单的comment.id
-          if current_user.id == params[:comment][:comment_id] #取hiddle_field中的值
-            return
-          else 
+          @comment = Comment.find_by(params[:comment][:comment_id]) #查询提交表单的comment.id
+          if current_user.id != @comment.user #取hiddle_field中的值
             Notification.create!(
-              user: @comment_user.user,
-              subject_id: @comment_user.id,
+              user: @comment.user,
+              subject_id: @comment.id,
               subject_type: 'Comment',
               read: false)
           end
