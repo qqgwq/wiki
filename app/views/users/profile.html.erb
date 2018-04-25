@@ -10,7 +10,11 @@
           </div>
           <div class="panel-body">
             <div class="user_image">
-              <%= image_tag current_user.image.url %>
+              <% if current_user.image.present? %>
+                <%= image_tag current_user.image.url %>
+              <% else %>
+                <%= image_tag("avatar.png") %>
+              <% end %>
               <div class="user_edit">
                 <%= link_to "修改资料", edit_user_path(current_user), class: "btn btn-info btn-sm" %>
               </div>

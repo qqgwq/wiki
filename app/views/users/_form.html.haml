@@ -39,7 +39,7 @@
             = rucaptcha_input_tag placeholder: "请输入验证码", class: "form-control", tabindex: 5
             = link_to rucaptcha_image_tag, "#", alt: 'Captcha', id: "rucaptcha", remote: true
 
-          .form-group
+          -#.form-group
             %span 头像
             = file_field_tag :image, accept: 'image/png, image/jpg, image/jpeg', class: "filestyle", 
             "data-input" =>"false", "date-classButton" => "btn btn-primary", classIcon: "icon-plus"

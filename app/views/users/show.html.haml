@@ -12,7 +12,10 @@
         %ul.list-group
           .list-group-item-wiki
             .media-left
-              = image_tag(@user.image.url, width: 64, height: 64, class: 'img-rounded')
+              - if current_user.image.present?
+                = image_tag(@user.image.url, width: 64, height: 64, class: 'img-rounded')
+              - else
+                = image_tag("avatar.png", width: 64, height: 64, class: 'img-rounded')
             .media-body
               .media-heading
                 当前积分:

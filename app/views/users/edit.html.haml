@@ -8,7 +8,10 @@
         = form_for @user, html: { multiple: true, class: 'form-horizontal center', id: "edit" } do |f|
           .form-group
             .col-sm-6
-              = image_tag current_user.image.url, width: 78, height: 78, class: 'img-rounded', id: "avatar", title: "上传新头像"
+              - if current_user.image.present?
+                = image_tag current_user.image.url, width: 78, height: 78, class: 'img-rounded', id: "avatar", title: "上传新头像"
+              - else
+                = image_tag "avatar.png", width: 78, height: 78, class: 'img-rounded', id: "avatar", title: "上传新头像"
               = f.file_field :image
           .form-group
             = f.label :name, class: "control-label col-sm-3", require: true
@@ -50,7 +53,7 @@
         maxlength: 11
       },
       'user[password]': {
-        required: true,
+        required: false,
         maxlength: 11,
       }
     },

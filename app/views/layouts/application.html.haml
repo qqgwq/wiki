@@ -34,15 +34,18 @@
 
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                = image_tag current_user.image.url, id: "ps_info", title: "个人资料与帐号", 
-                "data-placement" => "bottom", class: 'img-rounded'
+                - if current_user.image.present?
+                  = image_tag current_user.image.url, id: "ps_info", title: "个人资料与帐号", 
+                    "data-placement" => "bottom", class: 'img-rounded'
+                - else
+                  = image_tag("avatar.png")
                 = current_user.name
                 %b.caret
                 
               %ul.dropdown-menu
                 %li.divider
                 %li= link_to "我的", profile_user_path(current_user)
-                %i.fa.fa-user-circle
+                %i.fa.fa-angle-right
                 %li.divider
                 %li= link_to t('.All Article'), articles_path
                 %li= link_to t('.my article'), person_user_path(current_user)
