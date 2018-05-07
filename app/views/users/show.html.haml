@@ -12,7 +12,7 @@
         %ul.list-group
           .list-group-item-wiki
             .media-left
-              - if current_user.image.present?
+              - if @user.image.present?
                 = image_tag(@user.image.url, width: 64, height: 64, class: 'img-rounded')
               - else
                 = image_tag("avatar.png", width: 64, height: 64, class: 'img-rounded')
@@ -34,4 +34,3 @@
         = link_to @user.name, release_user_articles_path(@user)
         文章
 
-  
