@@ -61,6 +61,19 @@ javascript:
     });
   });
 
+  //password visible
+  $(document).ready(function(){
+    $(".blink").click(function(){
+      if($("#password").attr("type") == "password"){
+        $("#password").attr("type", "text");
+        $(this).toggleClass("fa-eye-slash");
+      } else{
+        $("#password").attr("type", "password");
+        $(this).toggleClass("fa-eye-slash");
+      }
+    });
+  });
+
 //ajax搜索匹配，不用点击搜索按钮
 $(function(){
   $(".article_search input").keyup(function(){
@@ -70,4 +83,5 @@ $(function(){
     return false
   });
 });
+
   

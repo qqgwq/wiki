@@ -30,10 +30,11 @@
             = button_tag "获取验证码", class: "btn btn-info", id: "get_sms_code"
 
           .form-group
-            %div{class: "input-group"}
+            %div{class: "input-group password"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-lock
               = password_field_tag :password, nil, placeholder: "密码...", class: 'form-control', tabindex: 4
+            %i.fa-lg.fa.fa-eye.blink
             
           -#.form-group#ru
             = rucaptcha_input_tag placeholder: "请输入验证码", class: "form-control", tabindex: 5
