@@ -49,6 +49,9 @@
                 %li.divider
                 %li= link_to t('.All Article'), articles_path
                 %li= link_to t('.my article'), person_user_path(current_user)
+                %li
+                  %a{"id" => "mode"} 夜间模式
+                %i.fa.fa-sun.night-icon
                 %li.divider
                 %li= link_to t('.Log Out'), logout_path, method: :delete
                 %i.fa.fa-sign-out

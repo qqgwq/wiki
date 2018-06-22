@@ -70,6 +70,15 @@ javascript:
     });
   });
 
+  //mode
+  $(document).ready(function(){
+    $('#mode').click(function(){
+      $('body').toggleClass('night')
+      $('.navbar-wiki').toggleClass('night')
+      $('.night-icon').toggleClass('fa-moon-o fa-moon')
+    });
+  });
+
 //ajax搜索匹配，不用点击搜索按钮
 $(function(){
   $(".article_search input").keyup(function(){
@@ -79,5 +88,6 @@ $(function(){
     return false
   });
 });
+
 
   
