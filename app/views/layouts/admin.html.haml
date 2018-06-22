@@ -18,31 +18,37 @@
   %body
     .container-fluid
       .row
-        .col-md-2.col-sm-3.sidebar1
-          .logo
-            = image_tag("gwq.jpg")
-          .left-navigation
-            .list
-              %h3
-                %i.fa.fa-lock
-                %li= link_to "管理后台", admin_welcomes_path
+        .col-md-2.col-sm-3
+          %div{"id" => "wrapper", "class" => "toggled"}
+            %div{"id" => "sidebar-wrapper" }
+              .logo
+                = image_tag("gwq.jpg")
+              .left-navigation
+                .list
+                  %h3
+                    %i.fa.fa-lock
+                    %li= link_to "管理后台", admin_welcomes_path
 
-              %i.fa.fa-hand-pointer-o
-              %li= link_to "首页", root_path
+                  %i.fa.fa-hand-pointer-o
+                  %li= link_to "首页", root_path
 
-              %i.fa.fa-user
-              %li
-                = link_to "所有用户", admin_users_path
-                %span.badge.badge-info= User.count
+                  %i.fa.fa-user
+                  %li
+                    = link_to "所有用户", admin_users_path
+                    %span.badge.badge-info= User.count
 
-              %i.fa.fa-newspaper-o
-              %li
-                = link_to "所有文章", admin_articles_path
-                %span.badge.badge-info= Article.count
-              
-              %i.fa.fa-commenting
-              %li= link_to "所有评论", admin_comments_path
+                  %i.fa.fa-newspaper-o
+                  %li
+                    = link_to "所有文章", admin_articles_path
+                    %span.badge.badge-info= Article.count
+                  
+                  %i.fa.fa-commenting
+                  %li= link_to "所有评论", admin_comments_path
 
-              %i.fa.fa-user-md
-              %li= link_to "最近创建用户", rencent_new_user_admin_user_path(:admin, @users)
+                  %i.fa.fa-user-md
+                  %li= link_to "最近创建用户", rencent_new_user_admin_user_path(:admin, @users)
+        .col-md-6.col-sm-6
+          %p
+            %a{"href" => '#menu-toggle', "id" => 'menu-toggle', "class" => 'btn btn-info'}
+              %span 隐藏测边栏
         = yield

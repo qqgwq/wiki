@@ -8,9 +8,6 @@ body{
   background-repeat: no-repeat;
   background-size:cover;
 }
-.sidebar1{
-       background-color: #1a1f27;
-       min-height: 100%;
   //   background: #F17153;
   //   /* For browsers that do not support gradients */
   //   background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
@@ -26,7 +23,7 @@ body{
   // //   top: 320px;
   // //   left: 80%;
   // // }
-}
+
 .logo{
   img{
     border-radius: 80%;
@@ -69,4 +66,28 @@ body{
     border-radius: 100%;
     border: 3px solid white;
   }
+}
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
 }
