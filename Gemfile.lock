@@ -5,7 +5,7 @@ GIT
     lunar_blessing (0.1.1)
 
 GEM
-  remote: https://gems.ruby-china.org/
+  remote: https://gems.ruby-china.com/
   specs:
     actioncable (5.1.5)
       actionpack (= 5.1.5)
@@ -1017,4 +1017,4 @@ DEPENDENCIES
   yajl-ruby
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
