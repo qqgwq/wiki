@@ -24,6 +24,13 @@
               = f.text_field :phone, class: "form-control"
 
           .form-group
+            .col-sm-6{style: "margin-left: 25%"}
+              = f.radio_button(:gender, 'male')
+              = f.label(:gender_male, '男')
+              = f.radio_button(:gender, 'female')
+              = f.label(:gender_female, '女')
+
+          .form-group
             = f.label :email, class: "control-label col-sm-3"
             .col-sm-6
               = f.text_field :email, class: "form-control"

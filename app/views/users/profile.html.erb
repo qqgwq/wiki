@@ -25,6 +25,15 @@
                 <%= @profile.name %>
               </div>
               &nbsp
+              <div class="user_gender">
+              性别:
+                <% if current_user.male? %>
+                  <div class="male"><i class="fa fa-male"></i></div>
+                <% else %>
+                  <div class="female"><i class="fa fa-female"></i></div>
+                <% end %>
+              </div>
+              &nbsp
               <div class="user_score">
               当前积分:
               <%= current_user.ranks.score("#{current_user.id}").to_i %>

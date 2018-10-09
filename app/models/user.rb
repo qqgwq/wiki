@@ -23,6 +23,8 @@ class User < ApplicationRecord
   before_create { generate_token(:auth_token) }
   after_create :init_score
 
+  enum gender: ["male", "female"]
+
 
   def admin?
     is_admin
