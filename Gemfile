@@ -47,7 +47,7 @@ gem 'newrelic_rpm'
 gem "sentry-raven"
 
 #阳历转农历
-gem 'lunar_blessing', github: 'mycolorway/lunar_blessing'
+#gem 'lunar_blessing', github: 'mycolorway/lunar_blessing'
 
 #图标
 gem 'font-awesome-sass'
