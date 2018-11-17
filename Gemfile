@@ -43,6 +43,9 @@ gem 'awesome_print', :require => 'ap'
 #性能监控
 gem 'newrelic_rpm'
 
+#error tracking sofware
+gem "sentry-raven"
+
 #阳历转农历
 gem 'lunar_blessing', github: 'mycolorway/lunar_blessing'
 
@@ -55,7 +58,7 @@ gem "groupdate"
 gem 'rails_emoji_picker'
 
 gem 'rails-i18n'
-gem 'better_errors'
+#gem 'better_errors'
 
 #上传图片
 gem 'paperclip'
@@ -124,8 +127,8 @@ group :development do
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', '~> 1.2.1'
   gem 'rack-mini-profiler', require: false
-  gem 'pry-nav'
-  gem 'pg', '~> 0.18.2'
+  gem 'pry-rails'
+  gem 'pg', '~> 0.18.4'
   gem 'net-ssh', '~>4.1.0'
 end
 
@@ -141,6 +144,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.18.2'
+  gem 'pg', '~> 0.18.4'
 end
 
