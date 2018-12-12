@@ -4,7 +4,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     <meta name="baidu-site-verification" content="7K9R1RLuUh" />
-    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    %meta{:name => "viewport", :content => "width=device-width; initial-scale=1; maximum-scale=1, user-scalable=no"}
     = favicon_link_tag 'favicon.ico', skip_pipeline: true
     = csrf_meta_tags
     <script>
@@ -17,53 +17,58 @@
     ga('send', 'pageview');
     </script>
   %body
-    %nav.navbar.navbar-wiki.navbar-fixed-top
+    %nav.navbar-default.navbar-wiki.navbar-fixed-top
       .container
         .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
           .navbar-brand
             = link_to root_path do
               %i.fa.fa-home
-        %ul.nav.user-bar.navbar-nav.navbar-right
-          - if login?
-            %li{class: "notification"}
-              = link_to notifications_path, id: "notifications", title: "通知" do
-                - if unread_notifications_count > 0
-                  %i.fa.fa-bell{style: "color: red" }
-                  .badge= unread_notifications_count > 99 ? '99+' : unread_notifications_count
-                - else
-                  %i.fa.fa-bell{style: "color: black" }
+        .collapse.navbar-collapse.navbar-collapse
+          %ul.nav.user-bar.navbar-nav.navbar-right
+            - if login?
+              %li{class: "notification"}
+                = link_to notifications_path, id: "notifications", title: "通知" do
+                  - if unread_notifications_count > 0
+                    %i.fa.fa-bell{style: "color: red" }
+                    .badge= unread_notifications_count > 99 ? '99+' : unread_notifications_count
+                  - else
+                    %i.fa.fa-bell{style: "color: black" }
 
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                - if current_user.image.present?
-                  = image_tag current_user.image.url, id: "ps_info", title: "个人资料与帐号", 
-                    "data-placement" => "bottom", class: 'img-rounded'
-                - else
-                  = image_tag("avatar.png")
-                = current_user.name
-                %b.caret
-                
-              %ul.dropdown-menu
-                %li.divider
-                %li= link_to "我的", profile_user_path(current_user)
-                %i.fa.fa-angle-right
-                %li.divider
-                %li= link_to t('.All Article'), articles_path
-                %li= link_to t('.my article'), person_user_path(current_user)
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  - if current_user.image.present?
+                    = image_tag current_user.image.url, id: "ps_info", title: "个人资料与帐号", 
+                      "data-placement" => "bottom", class: 'img-rounded'
+                  - else
+                    = image_tag("avatar.png")
+                  = current_user.name
+                  %b.caret
+                  
+                %ul.dropdown-menu
+                  %li.divider
+                  %li= link_to "我的", profile_user_path(current_user)
+                  %i.fa.fa-angle-right
+                  %li.divider
+                  %li= link_to t('.All Article'), articles_path
+                  %li= link_to t('.my article'), person_user_path(current_user)
+                  %li
+                    %a{"id" => "mode"} 夜间模式
+                  %i.fa.fa-sun.night-icon
+                  %li.divider
+                  %li= link_to t('.Log Out'), logout_path, method: :delete
+                  %i.fa.fa-sign-out
+            - else
+              %ul.nav.navbar-nav
+                %li= link_to t('.Sign Up'), signup_path
                 %li
-                  %a{"id" => "mode"} 夜间模式
-                %i.fa.fa-sun.night-icon
-                %li.divider
-                %li= link_to t('.Log Out'), logout_path, method: :delete
-                %i.fa.fa-sign-out
-          - else
-            %ul.nav.navbar-nav
-              -#%li= link_to t('.Sign Up'), signup_path
-              -#%li
-                -#%a{:href => '#', 'data-toggle' => "modal", 'data-target' => "#signin"}> 登录
-              -#%li= link_to "关于我", homes_about_path
-              = render 'layouts/sidebar'
-     
+                  %a{:href => '#', 'data-toggle' => "modal", 'data-target' => "#signin"}> 登录
+                %li= link_to "关于我", homes_about_path
+      
        
     .container#main
       .row
