@@ -3,10 +3,10 @@
     %ul.list-group
       .list-group-item
         .media-left
-          - if current_user.image.present?
-            = image_tag(article.user.image, class: "img-rounded", width: 64, height: 64) if article.user
+          - if article.user.image.blank?
+            = image_tag('avatar.png', class: "img-rounded", width: 64, height: 64)
           - else
-            = image_tag("avatar.png", class: 'img-rounded', width: 64, height: 64)
+            = image_tag(article.user.image, class: "img-rounded", width: 64, height: 64) if article.user
         .media-body
           .media-heading
             = article.title
