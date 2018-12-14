@@ -50,7 +50,7 @@ javascript:
   });
 
   //password visible
-  $(document).ready(function(){
+  $(document).on("turbolinks:load",function(){
     $(".blink").click(function(){
       if($("#password").attr("type") == "password"){
         $("#password").attr("type", "text");
@@ -71,7 +71,7 @@ javascript:
   });
 
   //mode
-  $(document).ready(function(){
+  $(document).on("turbolinks:load", function(){
     $('#mode').click(function(){
       $('body').toggleClass('night')
       $('.navbar-wiki').toggleClass('night')
