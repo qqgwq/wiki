@@ -12,6 +12,10 @@ body{
   margin-bottom: 2px;
   height: 0px;
 }
+.navbar-default {
+  background-color: #fff !important;
+  height: 49px;
+}
 #signin {
   z-index: 3000;
 }
@@ -474,4 +478,9 @@ input.error{
 .user_gender{
   width: 60px;
   line-height: 26px;
+}
+
+.commentText{
+  text-decoration: line-through;
+  color: #e0e0e0;
 }

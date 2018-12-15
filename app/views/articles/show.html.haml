@@ -35,7 +35,7 @@
                     .media-heading
                       = raw @article.content
                 #comments
-                = render partial: 'comments/comment', collection: @article.comments, :as => :comment
+                  = render partial: 'comments/comment', collection: @article.comments, :as => :comment
               
               .panel.panel-wiki#comment-text
                 .panel.panel-default

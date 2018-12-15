@@ -2,7 +2,3 @@ $("#comments").html('<%=escape_javascript (render(partial: "comment", collection
 $(".container1").html('<%=j render 'shareds/flash' %>');
 $("#counts").html('<%= @article.comments.count %>评论');
 $("#comment_content").val('');
-
-
-
-

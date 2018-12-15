@@ -1,3 +1,4 @@
 $("#comment_<%= @comment.id %>").remove();
+$("#comment-<%= @comment.id %>").html("<%=j render :partial => 'comments/delete', :locals => { :comment => @comment } %>");
 $("#counts").html('<%= @article.comments.count %>评论');
 $(".container1").html('<%=j render 'shareds/flash' %>');

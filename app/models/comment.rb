@@ -9,4 +9,8 @@ class Comment < ApplicationRecord
   def is_like_comment?(user)
     likes.where(user: user_id).first
   end
+
+  def comment_deleted?
+    is_deleted
+  end
 end

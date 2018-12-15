@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :require_login, only: [:create, :destroy, :new]
 
   def create
+    #binding.pry
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create params.require(:comment).permit(:content).merge(user: current_user)
     respond_to do |format|
@@ -53,7 +54,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
+    @comment.update(is_deleted: true)
+    @comment.is_deleted
     respond_to do |format|
       format.html {redirect_to article_path(@article)}
       format.js { flash[:success] = "删除成功" }
