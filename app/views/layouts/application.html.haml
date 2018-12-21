@@ -1,6 +1,8 @@
 %html
   %head
-    %title= content_for?(:title) ? content_for(:title) : '高万强的个人网站'
+    %title= content_for?(:title) ? content_for(:title) : '高万强个人网站'
+    %meta{ name: "keywords", content: "高万强,王小波,黄帝内经,阅读经典"}
+    %meta{ name: "description", content: "读王小波有感,中医启蒙,我依然爱你如夕"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     <meta name="baidu-site-verification" content="7K9R1RLuUh" />
