@@ -12,12 +12,15 @@
           %li.list-group-item-wiki.media{style: "border-bottom: 1px solid #ddd; padding: 10 15"}
             .media-left
               .media-heading
-                = image_tag @user.image.url, class: 'img-rounded', width: 48, height: 48
+                - if release.user.image.present?
+                  = image_tag release.user.image.url, class: 'img-rounded', width: 48, height: 48
+                - else
+                  = image_tag("avatar.png", class: 'img-rounded', width: 48, height: 48)
             .media-body
               %h4.media-heading
                 = link_to release.title, article_path(release)
               .media-heading.small
-                = @user.name
+                = release.user.name
                 的文章于
                 = release.created_at.to_date
                 更新

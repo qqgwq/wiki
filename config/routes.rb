@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resources :articles do
     collection do
       get :release
-      end
+    end
     end
     member do
       get :person

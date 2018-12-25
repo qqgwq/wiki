@@ -67,8 +67,8 @@ class ArticlesController < ApplicationController
   end
 
   def release
-    @releases = Article.all
     @user = User.friendly.find(params[:user_id])
+    @releases = @user.articles
   end
 
 
