@@ -5,6 +5,8 @@
         .panel-heading
           .panel-title
           %span所有用户
+          .pull-right
+            = link_to "Export", users_path(format: "csv")
 
         .panel-body
           %table.table.table-inverse
@@ -17,8 +19,10 @@
               - @users.each do |user|
 
                 %tr
-
-                  %td#image= image_tag user.image.url
+                  - if user.image.present?
+                    %td= image_tag user.image.url, class: 'img-rounded', width: 48, height: 48
+                  - else
+                    %td= image_tag("avatar.png", class: 'img-rounded', width: 48, height: 48)
 
                   %td= link_to user.name, admin_user_path(user)
 
