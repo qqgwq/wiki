@@ -88,3 +88,14 @@ $(function(){
     return false
   });
 });
+
+$(document).ready(function(){
+  $(window).scroll(function(){
+    var top = $(window).scrollTop();
+    if (top >= 30){
+      $('.header').addClass('navbar-fixed-active');
+    } else{
+      $('.header').removeClass('navbar-fixed-active');
+    }
+  });
+});

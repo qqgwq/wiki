@@ -19,7 +19,7 @@
     ga('send', 'pageview');
     </script>
   %body
-    %nav.navbar-default.navbar-wiki.navbar-fixed-top
+    %nav.header.navbar-default.navbar-wiki.navbar-fixed-top
       .container
         .navbar-header
           %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
@@ -30,6 +30,8 @@
           .navbar-brand
             = link_to root_path do
               %i.fa.fa-home
+        %div.navbar-topic-title
+          = @article.try(:title)
         .collapse.navbar-collapse.navbar-collapse
           %ul.nav.user-bar.navbar-nav.navbar-right
             - if login?
@@ -74,7 +76,7 @@
        
     .container#main
       .row
-        .col-md-9
+        .col-md-9.col-xs-12
           = yield
     -#不需要刷新
     = javascript_include_tag 'rails_emoji_picker'

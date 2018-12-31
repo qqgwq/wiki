@@ -20,11 +20,13 @@ body{
   z-index: 3000;
 }
 
+.container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 #main{
-  margin-left: 147px;
   margin-top: 50px;
 }
-
 .modal-backdrop { z-index: 0 !important;}
 
 .panel{
@@ -314,7 +316,7 @@ li1{
 }
 .info{
   position: relative;
-  top: -20px;
+  top: -29px;
   left: 15px;
 }
 #media{
@@ -375,7 +377,7 @@ li1{
   margin: -10px;
 }
 #bg-img{
-  margin-left: -14em;
+  margin-left: -9.5em;
   position: fixed;
   img{
     height: 100%;
@@ -482,3 +484,11 @@ input.error{
   color: red;
 }
 
+.navbar-topic-title{
+  float: left;
+  margin: 17px;
+  display: none;
+}
+.navbar-fixed-active{
+  .navbar-topic-title{display: block;}
+}
