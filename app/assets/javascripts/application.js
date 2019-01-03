@@ -99,3 +99,19 @@ $(document).ready(function(){
     }
   });
 });
+
+
+//Return to Top Arrow
+$(document).on('turbolinks:load', function(){
+  $(window).scroll(function(){
+    if ($(this).scrollTop() >= 10){
+      $('#back-to-top').fadeIn(1000);
+    } else{
+      $('#back-to-top').fadeOut(1000);
+    }
+  });
+  $('#back-to-top').click(function() {      // When arrow is clicked
+    $('html, body').animate({scrollTop : 0},500);
+    return false;
+  });
+});
