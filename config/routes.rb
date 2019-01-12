@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   mount GrapeSwaggerRails::Engine, at: "/doc"
   post '/get_sms_code', to: "users#get_sms_code"
   post '/password_resets_code', to: "password_resets#password_resets_code"
+  get '/check_name', to: 'users#check_name'
+  get '/check_email', to: 'users#check_email'
+  get '/check_phone', to: 'users#check_phone'
 
   concern :likeable do
     resource :like, only: [:create, :destroy]
