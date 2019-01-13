@@ -7,6 +7,7 @@
 //= require rails_emoji_picker
 //= require Chart.bundle
 //= require chartkick
+//= require select2-full
 // 性能检测
 //= require nprogress
 //= require nprogress-turbolinks

@@ -40,6 +40,9 @@ gem 'bootstrap-modal-rails' #模态框
 gem 'jquery-validation-rails' #表单验证
 gem 'bootstrap-tooltip-rails' #链接/表单/
 gem 'awesome_print', :require => 'ap'
+
+#select tag
+gem "select2-rails"
 #性能监控
 gem 'newrelic_rpm'
 
