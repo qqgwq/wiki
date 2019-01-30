@@ -33,7 +33,7 @@ module Wiki
     config.filter_parameters << :password
     Raven.configure do |config|
       config.dsn = 'https://58387b6d97544bfe9dd1229971000def:737f4f4d0c7d49e28b9596bc6cffb5bb@sentry.io/1324971'
-      config.environments = ['development', 'staging', 'production']
+      config.environments = ['development', 'staging', 'production', 'test']
     end
   end
 end

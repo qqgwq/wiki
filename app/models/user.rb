@@ -49,6 +49,16 @@ class User < ApplicationRecord
     end
   end
 
+  def name=(value)
+    write_attribute :name, value
+    write_attribute :name_lower, value.downcase
+  end
+
+  def email=(value)
+    write_attribute :email, value
+    write_attribute :email_lower, value.downcase
+  end
+
   #postgres 排序
   def self.order_by_ids(ids)
     order_by = ["case"]

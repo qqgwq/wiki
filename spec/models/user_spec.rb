@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   user = User.create(name: "gwq", is_admin: true, email: "gwq@qq.com")
   context "validation" do
-    it { is_expected.to validate_presence_of(:name) }
+    # it { should validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:password) }
     it { is_expected.to validate_presence_of(:phone) }
-    it { is_expected.to validate_presence_of(:image) }
+    # it { should validate_presence_of(:image) }
     it { is_expected.to validate_presence_of(:verification_code) }
   end
 
@@ -34,5 +34,15 @@ RSpec.describe User, type: :model do
 
   it "generate User csv file" do
     expect(User.to_csv).not_to be_nil
+  end
+
+  it "user name converted to lowercase" do
+    lower = create(:user, name: 'Gwq')
+    expect(lower.name_lower).to eq('gwq')
+  end
+
+  it "user email converted to lowercase" do
+    lower = create(:user, email: 'Gwq@qq.com')
+    expect(lower.email_lower).to eq('gwq@qq.com')
   end
 end
