@@ -13,7 +13,7 @@ RSpec.describe UsersController, type: :controller do
   describe "GET index" do
     subject(:@users) { User.all }
     it "all users" do
-      get :index
+      get :index, format: :csv
       expect(@users).to eq(@users)
     end
   end
@@ -97,6 +97,49 @@ RSpec.describe UsersController, type: :controller do
   describe "Random sms code" do
     it "random 6 sms code" do
       expect(controller.sms_code.to_s).to match(/^\d{6}$/)
+    end
+  end
+
+  describe "Check if the email exists" do
+    it "email not exists" do
+      get :check_email, params: {user: { email: 'gby@gmail.com'}}, format: 'json'
+      expect(JSON.parse(response.body)).to eq({})
+    end
+
+    it "email exists" do
+      user = create(:user, email: 'test@gmail.com')
+      get :check_email, params: { email: user.email}, format: 'json'
+      email_error = JSON.parse(response.body)
+      expect(email_error["errors"]).to eq(email_error["errors"])
+    end
+  end
+
+
+  describe "Check if the name exists" do
+    it "name not exists" do
+      get :check_name, params: { user: {name: 'gby'}}, format: 'json'
+      expect(JSON.parse(response.body)).to eq({})
+    end
+
+    it "name exists" do
+      user = create(:user, name: 'jenkin')
+      get :check_name, params: { name: user.name}, format: 'json'
+      name_error = JSON.parse(response.body)
+      expect(name_error["errors"]).to eq(name_error["errors"])
+    end
+  end
+
+  describe "Check if the phone exists" do
+    it "phone not exists" do
+      get :check_phone, params: { user: {phone: '15281454186'}}, format: 'json'
+      expect(JSON.parse(response.body)).to eq({})
+    end
+
+    it "phone exists" do
+      user = create(:user, phone: '18382012700')
+      get :check_phone, params: { phone: user.phone}, format: 'json'
+      phone_error = JSON.parse(response.body)
+      expect(phone_error["errors"]).to eq(phone_error["errors"])
     end
   end
 end

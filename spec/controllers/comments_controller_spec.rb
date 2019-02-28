@@ -44,9 +44,9 @@ RSpec.describe CommentsController, type: :controller do
     it "should delete comment" do
       article = create(:article)
       login_as article.user
-      comment = article.comments.create(content: "content")
+      comment = article.comments.create(content: "content", user_id: article.user.id)
       delete :destroy, params: { article_id: article.id, id: comment.id }
-      expect(Comment.count).to eq(0)
+      expect(comment.is_deleted).to eq(false)
     end
   end
 end

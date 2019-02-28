@@ -14,6 +14,4 @@ Clone this repo:
 Configuration:
   database.yml;
   use rake secret generate secret add to secrets.yml;
-  
-  
 

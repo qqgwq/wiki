@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :right_user, only: [:edit, :destroy]
   #before_action :require_is_admin, only: [:index, :show]
   #before_action :authenticate!, except: [:index, :show]
-  include CheckController
 
   def new
     @user = User.new
@@ -90,6 +89,30 @@ class UsersController < ApplicationController
 
   def sms_code
     rand(000000..999999)
+  end
+
+  def check_email
+    if User.exists?(email: params[:email])
+      render json: {errors: '邮箱已被占用'}, status: 200
+    else
+      render json: {}, status: 404
+    end
+  end
+
+  def check_phone
+    if User.exists?(phone: params[:phone])
+      render json: {errors: '手机号已被占用'}, status: 200
+    else
+      render json: {}, status: 404
+    end
+  end
+
+  def check_name
+    if User.exists?(name: params[:name])
+      render json: {errors: "用户名已被占用"}, status: 200
+    else
+      render json: {}, status: 404
+    end
   end
 
   private
