@@ -7,7 +7,6 @@
       .panel-heading
         .panel-title
         %span用户
-
       .panel-body
         %ul.list-group
           .list-group-item-wiki
@@ -26,6 +25,8 @@
         - if right_user
           = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
             %i.fa.fa-trash
+  .col-md-3
+    .greetings
 
   .col-md-4
     .panel.panel-default
@@ -33,4 +34,4 @@
         查看
         = link_to @user.name, release_user_articles_path(@user)
         文章
-
+  
