@@ -23,7 +23,6 @@
             
           = submit_tag '登录', class: "btn btn-primary", data: {disable_with: "登录中..."}
 
-
 .main
   .container
     = render 'shareds/flash'
@@ -52,11 +51,16 @@
           #paginator
             = paginate @articles, remote: true
         %h3{ style: "text-align: center; color: white; font-size: 2em;" }
-          Copyright @2017 wiki
+          Copyright @2018 wiki
           &nbsp
           Design by gwq
       
       .col-md-3
+        - unless login?
+          .panel.panel-wikis
+          .panel.panel-default
+            .panel-body
+              .greetings
         .panel.panel-wikis
         .panel.panel-default
           .panel-body
@@ -113,10 +117,11 @@
                 = Comment.count
                 条
 
-      .col-md-3
-        - if login?
-          %ul.list-group#categories
-            %li= link_to "所有文章", root_path, class: "list-group-item"
-            - Category.all.each do |category|
-              %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
+      .row
+        .col-md-3
+          - if login?
+            %ul.list-group#categories
+              %li= link_to "所有文章", root_path, class: "list-group-item"
+              - Category.all.each do |category|
+                %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
 
