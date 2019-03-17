@@ -117,11 +117,9 @@
                 = Comment.count
                 条
 
-      .row
-        .col-md-3
-          - if login?
-            %ul.list-group#categories
-              %li= link_to "所有文章", root_path, class: "list-group-item"
-              - Category.all.each do |category|
-                %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
+        - if login?
+          %ul.list-group#categories
+            %li= link_to "所有文章", root_path, class: "list-group-item"
+            - Category.all.each do |category|
+              %li= link_to category.name, articles_path(category: category.name), remote: true, class: "list-group-item"
 
