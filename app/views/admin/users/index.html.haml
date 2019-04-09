@@ -26,7 +26,7 @@
 
                   %td= link_to user.name, admin_user_path(user)
 
-                  %td= user.phone
+                  %td#hidden_four= user.phone
 
                   %td
                     = link_to user_path(user), method: :delete, data: { confirm: "Are you sure" } do
