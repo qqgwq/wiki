@@ -124,7 +124,7 @@ gem 'rack-cors'
 
 group :development do
   gem 'capistrano', '~> 3.9.0'
-  gem 'capistrano-rbenv'
+  gem 'capistrano-rvm'
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails'
   gem 'capistrano-sidekiq'
