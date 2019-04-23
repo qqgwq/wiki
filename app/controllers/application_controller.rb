@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token
   before_action :set_raven_context
   helper_method :login?, :current_user, :right_user, :correct_user, :require_is_admin
   include ExceptionHandler
