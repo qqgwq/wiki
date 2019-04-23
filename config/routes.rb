@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get 'password_resets/edit'
 
   require 'sidekiq/web'
-  if Rails.env.development?
+  if Rails.env.production?
     mount Sidekiq::Web => 'sidekiq'
   end
   mount ApiRoot => '/api'
