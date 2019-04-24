@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_toke, only: [:get_sms_code]
+  skip_before_action :verify_authenticity_token, only: [:get_sms_code]
   before_action :find_user, only: [:show, :edit, :update, :destroy, :person]
   before_action :right_user, only: [:edit, :destroy]
   #before_action :require_is_admin, only: [:index, :show]
