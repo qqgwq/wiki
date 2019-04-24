@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   now = new Date()
   hour = now.getHours()
   if(hour < 6){

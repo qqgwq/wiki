@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  skip_before_action :verify_authenticity_toke, only: [:create]
   def new
   end
 

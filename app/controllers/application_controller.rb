@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :exception
   before_action :set_raven_context
   helper_method :login?, :current_user, :right_user, :correct_user, :require_is_admin
   include ExceptionHandler

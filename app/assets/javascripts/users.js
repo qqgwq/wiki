@@ -64,7 +64,7 @@ $(document).on('turbolinks:load', function(){
   });
 })
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   var str = $('#hidden_four').html();
   var hidden = str.substr(0,3)+"****"+str.substr(7);
   $('#hidden_four').html(hidden);
