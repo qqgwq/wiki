@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery prepend: true
+  protect_from_forgery with: :null_session
   before_action :set_raven_context
   helper_method :login?, :current_user, :right_user, :correct_user, :require_is_admin
   include ExceptionHandler
@@ -71,10 +71,6 @@ class ApplicationController < ActionController::Base
 
   def current_user?(user)
     user == current_user
-  end
-
-  def set_search
-    @q = Article.search(params[:q])
   end
   
   def require_is_admin

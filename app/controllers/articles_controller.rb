@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
   before_action :require_login, except: [:index, :show, :release]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :destroy]
-  before_action :set_search
 
   def index
     if params[:category].blank?
