@@ -16,6 +16,9 @@ set :user, 'gwq'
 set :pty, false
 set :use_sudo, false
 
+set :keep_releases, 1
+after "deploy:update", "deploy:cleanup" 
+
 #set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
