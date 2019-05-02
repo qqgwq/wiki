@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     member do
       get :person
       get :profile
+      post :checkin
     end
   end
 

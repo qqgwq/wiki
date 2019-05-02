@@ -1,0 +1,4 @@
+- if @user.is_sign?
+  = button_tag '今日已签到', class: 'btn btn-danger btn-sm signed', disabled: true
+- else
+  = link_to "签到", checkin_user_path(@user.id), method: :post, class: 'btn btn-success btn-sm', remote: true

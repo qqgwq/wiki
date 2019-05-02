@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:get_sms_code]
-  before_action :find_user, only: [:show, :edit, :update, :destroy, :person]
+  before_action :find_user, only: [:show, :edit, :update, :destroy, :person, :checkin]
   before_action :right_user, only: [:edit, :destroy]
   #before_action :require_is_admin, only: [:index, :show]
   #before_action :authenticate!, except: [:index, :show]
@@ -113,6 +113,17 @@ class UsersController < ApplicationController
       render json: {errors: "用户名已被占用"}, status: 200
     else
       render json: {}, status: 404
+    end
+  end
+
+  def checkin
+    if @user.is_sign?
+      return
+    else
+      @user.sign!
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

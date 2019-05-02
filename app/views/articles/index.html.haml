@@ -90,7 +90,7 @@
                   - @users.each do |user|
                     %tr
                       %td= user.rank
-                      %td= user.score
+                      %td= (user.score)+(user.checkin_score.score(user.id).to_i)
                       %td= link_to user.name, user_path(user)
                 
           .panel.panel-wikis

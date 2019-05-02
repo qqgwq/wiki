@@ -2,6 +2,7 @@ class User < ApplicationRecord
   #before_destroy :no_referenced_comments
   include Redis::Objects
   sorted_set :ranks, :global => true
+  sorted_set :checkin_score, :global => true
   attr_accessor :verification_code
   include Concerns::AuthToken
   extend FriendlyId
@@ -77,6 +78,21 @@ class User < ApplicationRecord
   #用户积分
   def score
     ranks.score(self.id).to_i
+  end
+
+  #用户签到
+  def self.daily_score
+    sign_key = "daily_#{Date.current.to_s}"
+    Redis::Set.new(sign_key)
+  end
+
+  def is_sign?
+    self.class.daily_score.member?(id)
+  end
+
+  def sign!
+    self.class.daily_score << id
+    self.checkin_score.incr(id)
   end
 
   #创建一个用户初始redis值为0

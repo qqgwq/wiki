@@ -1,0 +1,6 @@
+$('#checkin').html('<%= escape_javascript(render 'score') %>');
+var user_score = $('#score_name').html();
+var user_name = "<%= current_user.name %>"
+if (user_score == user_name){
+  $('#checkin_score').html('<span>当前积分<%= current_user.ranks.score(current_user.id).to_i + current_user.checkin_score.score(current_user.id).to_i %> 分</span>');
+}

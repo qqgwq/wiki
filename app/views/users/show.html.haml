@@ -16,16 +16,12 @@
               - else
                 = image_tag("avatar.png", width: 64, height: 64, class: 'img-rounded')
             .media-body
-              .media-heading
-                当前积分:
-                = @user.ranks.score("#{@user.id}").to_i
+              .media-heading#checkin_score
+                当前积分
+                = current_user.ranks.score(current_user.id).to_i + current_user.checkin_score.score(current_user.id).to_i
                 分
               .media-heading
-                = @user.name
-        - if right_user
-          = link_to user_path(current_user), method: :delete, data: { confirm: "确定删除?" } do
-            %i.fa.fa-trash
-
+                #score_name= @user.name
   .col-md-4
     .panel.panel-default
       .panel-body
