@@ -18,7 +18,7 @@
             .media-body
               .media-heading#checkin_score
                 当前积分
-                = current_user.ranks.score(current_user.id).to_i + current_user.checkin_score.score(current_user.id).to_i
+                = @user.ranks.score(@user.id).to_i + @user.checkin_score.score(@user.id).to_i
                 分
               .media-heading
                 #score_name= @user.name
