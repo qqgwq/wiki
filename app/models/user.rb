@@ -82,7 +82,7 @@ class User < ApplicationRecord
 
   #用户签到
   def self.daily_score
-    sign_key = "daily_#{Date.current.to_s}"
+    sign_key = "daily_#{Date.today.to_s}"
     Redis::Set.new(sign_key)
   end
 
