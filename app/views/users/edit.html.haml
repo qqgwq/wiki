@@ -39,48 +39,64 @@
             = f.label :password, class: "control-label col-sm-3"
             .col-sm-6
               = f.password_field :password, class: "form-control"
+          .form-group
+            = f.label :signature, class: 'control-label col-md-3'
+            .col-sm-6
+              = f.text_field :signature, class: 'form-control'
+          .form-group
+            = f.label :state, class: 'control-label col-md-3'
+            .col-md-6
+              = f.select :state, options_for_select(state_name), class: 'form-control'
             
           .form-group
             .col-sm-6.col-sm-push-3
               = f.submit t('.Edit'), class: 'btn btn-primary'
-              = link_to t('.Back'), users_path
+              = link_to t('.Back'), root_path
 
 :javascript
-  $("#edit").validate({
-    rules: {
-      'user[name]': {
-        required: true,
+  $(document).ready(function(){
+    $("#edit").validate({
+      rules: {
+        'user[name]': {
+          required: true,
+        },
+        'user[email]': {
+          required: true,
+          email: true
+        },
+        'user[phone]': {
+          required: true,
+          maxlength: 11
+        },
+        'user[password]': {
+          required: false,
+          maxlength: 11,
+        },
+        'user[signature]': {
+          required: false
+        }
       },
-      'user[email]': {
-        required: true,
-        email: true
-      },
-      'user[phone]': {
-        required: true,
-        maxlength: 11
-      },
-      'user[password]': {
-        required: false,
-        maxlength: 11,
+      messages: {
+        'user[name]': {
+          required: "用户名不能为空",
+        },
+        'user[email]': {
+          required: "邮箱不能为空",
+        },
+        'user[phone]': {
+          required: "手机号不能为空",
+        },
+        'user[password]': {
+          required: "密码不能为空",
+        },
+        'user[image]': {
+          required: "头像不能为空",
+        },
+        'user[signature]': {
+          required: "签名不能为空",
+        }
       }
-    },
-    messages: {
-      'user[name]': {
-        required: "用户名不能为空",
-      },
-      'user[email]': {
-        required: "邮箱不能为空",
-      },
-      'user[phone]': {
-        required: "手机号不能为空",
-      },
-      'user[password]': {
-        required: "密码不能为空",
-      },
-      'user[image]': {
-        required: "头像不能为空",
-      }
-    }
+    });
   });
 
   $(document).ready(function(){

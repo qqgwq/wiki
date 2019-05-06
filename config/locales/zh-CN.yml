@@ -10,6 +10,8 @@ zh-CN:
         image: "图片"
         email: "邮箱"
         verification: "验证码"
+        signature: '个人签名'
+        state: '地区'
 
       article:
         title: "标题"
@@ -43,7 +45,7 @@ zh-CN:
       in_between: "文件大小必须介于 %{min} 到 %{max} 之间"
       spoofed_media_type: "扩展名与内容类型不符"
     edit:
-      Edit: "编辑"
+      Edit: "更新"
       Back: "返回"
     index:
       signup_count: "注册量:"

@@ -50,6 +50,16 @@
                 <%= @profile.email %>
               </div>
               &nbsp
+              <div class="signature">
+              个人签名:
+                <%= current_user.signature %>
+              </div>
+              &nbsp
+              <div class="country">
+              地区:
+                <%= current_user.state %>
+              </div>
+              &nbsp
               <div class="user_created">
               创建时间:
                 <%= @profile.created_at.to_date %>
