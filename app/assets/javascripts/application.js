@@ -26,6 +26,9 @@
 //= require social-share-button
 //= require social-share-button/wechat
 
+//= require jquery.provincesCity
+//= require provincesData
+
 javascript:
   $(function(){
     $("#ps_info").tooltip()

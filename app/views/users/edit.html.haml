@@ -5,7 +5,7 @@
         编辑
 
       .panel-body
-        = form_for @user, html: { multiple: true, class: 'form-horizontal center', id: "edit" } do |f|
+        = form_for @user, html: { multiple: true, class: 'form-horizontal center', id: "edit", remote: true} do |f|
           .form-group
             .col-sm-6
               - if current_user.image.present?
@@ -46,7 +46,8 @@
           .form-group
             = f.label :state, class: 'control-label col-md-3'
             .col-md-6
-              = f.select :state, options_for_select(state_name), class: 'form-control'
+              #province
+                = f.hidden_field :state
             
           .form-group
             .col-sm-6.col-sm-push-3
@@ -103,4 +104,27 @@
     $("#avatar").click(function(){
       $("#user_image").toggle()
     });
+  });
+
+  $(function(){
+  $("#province").ProvinceCity()});
+
+  $(document).ready(function(){
+    $('#province').on('change', function(){
+      var provinceCity = $('#province :selected').text();
+      $('input[type=hidden]#user_state').val(provinceCity);
+    })
+  });
+
+  $('#edit').on('submit', function(e){
+    $.ajax({
+      type: 'PUT',
+      url: $(this).attr('action'),
+      data: $(this).serialize(),
+      dataType: 'json',
+      success: function(data){
+       data.user.state;
+      }
+    });
+    e.preventDefault();
   });

@@ -60,9 +60,15 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes params.require(:user).permit(:name, :phone, :email, :password, :image, :gender, :signature, :state)
-      redirect_to @user
+      respond_to do |format|
+        format.html{ redirect_to @user }
+        format.json{ render json: {user: @user} }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html{render :edit}
+        format.json{render json: edit}
+      end
     end
   end
 
