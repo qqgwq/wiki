@@ -62,12 +62,12 @@ class UsersController < ApplicationController
     if @user.update_attributes params.require(:user).permit(:name, :phone, :email, :password, :image, :gender, :signature, :state)
       respond_to do |format|
         format.html{ redirect_to @user }
-        format.json{ render json: {user: @user} }
+        format.json{ render json: {user: @user, success: "更新成功"}, status: 200 }
       end
     else
       respond_to do |format|
         format.html{render :edit}
-        format.json{render json: edit}
+        format.json{render json: { errors: @user.errors.full_message }, status: 400}
       end
     end
   end
