@@ -29,6 +29,9 @@
 //= require jquery.provincesCity
 //= require provincesData
 
+//阳历转农历
+//= require chinese-lunar
+
 javascript:
   $(function(){
     $("#ps_info").tooltip()
