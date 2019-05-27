@@ -11,3 +11,9 @@ set :output, {:error => 'log/cron_error.log', :standard => 'log/cron.log'}
 every 1.day, at: '0:00 am' do
   runner "Rails.cache.clear", environment: 'development'
 end
+
+#检查节日
+set :output, {:error => 'log/cron_error.log', :standard => 'log/cron.log'}
+every 1.day, at: '10:35 pm' do
+  rake "lunar_rake:all_lunar"
+end

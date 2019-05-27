@@ -29,8 +29,8 @@ $(document).on('turbolinks:load', function(){
 
 $(document).on('turbolinks:load', function(){
   var lunar = chineseLunar.solarToLunar(new Date());
-  var lunar_day = "农历: " + chineseLunar.traditionalYearName(lunar.year) + lunar.year + "年" + lunar.month + "月" + lunar.day
-  $('.lunar_date').html(lunar_day);
+  var lunar_days = "农历: " + chineseLunar.traditionalYearName(lunar.year) + lunar.year + "年" + lunar.month + "月" + (lunar.day-1)
+  $('.lunar_date').html(lunar_days);
   $('.lunar_date').css({'color': 'red', 'font-size': '20px'});
 })
 

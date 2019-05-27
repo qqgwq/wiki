@@ -9,6 +9,7 @@
   - [person, 2]
   - [SmsCode, 2]
   - [PasswordReset, 2]
+  - [LunarDate, 2]
 development:
   :concurrency: 5
 staging:
