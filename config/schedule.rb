@@ -14,6 +14,6 @@ end
 
 #检查节日
 set :output, {:error => 'log/cron_error.log', :standard => 'log/cron.log'}
-every 1.day, at: '10:35 pm' do
+every 1.day, at: '10:40 pm' do
   rake "lunar_rake:all_lunar"
 end
