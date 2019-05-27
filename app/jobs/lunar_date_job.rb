@@ -15,7 +15,7 @@ class LunarDateJob < ApplicationJob
 
     ChinaSMS.use :yunpian, password: 'eb2483f50cf7ad8eb8197c1a4bd16b9b'
     tpl_text = "【高万强】今天是#{traditional_day},祝你及你家人节日快乐,心想事成!"
-    mobile = "18382012700", "17743257467", "13308082454", "18203093194"
+    mobile = "18382012700, 17743257467, 13308082454, 18203093194"
     ChinaSMS.to mobile, tpl_text
   end
 
