@@ -4,7 +4,7 @@ Holidays = {
   "chongyang" => "0909",
   "zhongqiu" => "0815",
   "chun" => "1230",
-  "today" => "0423"
+  "today" => "0424"
 }.freeze
 
 namespace :lunar_date do
