@@ -6,7 +6,7 @@ class LunarDateJob < ApplicationJob
     "chongyang" => "重阳节",
     "zhongqiu" => "中秋节",
     "chun" => "春节",
-    "today" => "今天"
+    "today" => "情人节"
   }.freeze
 
   def perform(*args)
