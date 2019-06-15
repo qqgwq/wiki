@@ -10,7 +10,7 @@
             %div{class: "input-group"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-phone
-              = text_field_tag :login, params[:login], class: "form-control", placeholder: '手机号码/邮箱...'
+              = text_field_tag :login, params[:login], class: "form-control", value: cookies.permanent[:phone], placeholder: '手机号码/邮箱...'
           .form-group
             %div{class: "input-group"}
               %div{class: "input-group-addon"}

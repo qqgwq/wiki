@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
                 User.find_by(phone: login)
               end
       if @user && @user.authenticate(params[:password])
+        cookies.permanent[:phone] = @user.phone
         if params[:remember_me]
           cookies.permanent[:auth_token] = @user.auth_token
         else
