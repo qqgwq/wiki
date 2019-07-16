@@ -22,7 +22,7 @@
                 %tr
                   %td= article.id
                   %td= article.title
-                  %td= article.category.name
+                  %td= article.category&.name
                   %td= article.click_count
                   %td= I18n.t("admin.articles.status.#{article.status}")
                   %td= link_to "进入审查", admin_article_path(article), class: "btn btn-primary btn-xs"

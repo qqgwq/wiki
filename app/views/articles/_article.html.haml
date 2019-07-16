@@ -21,7 +21,7 @@
             = time_ago_in_words(article.created_at)
             前
         #index1
-          %span.badge.badge-info= article.category.name
+          %span.badge.badge-info= article.category&.name
           %span.badge.badge-success= I18n.t("articles.status.#{article.status}")
           %span
             = article.comments.count

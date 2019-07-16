@@ -10,6 +10,7 @@
               .panel-heading
                 .panel-title
                 = @article.title
+                = link_to(@article.url, @article.url, target: :_blank)
 
                 #article-img
                   - if @article.user.image.present?

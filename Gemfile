@@ -105,6 +105,9 @@ gem 'concurrent-ruby'
 #定时任务
 gem 'whenever', require: false
 
+#爬取文章
+gem 'http'
+
 #接口
 gem 'yajl-ruby', require: 'yajl'
 gem 'grape'
