@@ -63,3 +63,15 @@ $(document).on('turbolinks:load', function(){
     },1000);
   });
 })
+
+$(document).on('turbolinks:load', function(){
+  $("input[name='phone']").keyup(function() {
+    $(this).val($(this).val().replace(/(\d{3})(\d{4})(\d{4})/, '$1 $2 $3'));
+  });
+})
+
+$(document).on('turbolinks:load', function(){
+  $("input[name='login']").keyup(function(){
+    $(this).val($(this).val().replace(/(\d{3})(\d{4})(\d{4})/, '$1 $2 $3'))
+  });
+})
