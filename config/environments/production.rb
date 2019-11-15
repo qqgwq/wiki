@@ -29,7 +29,7 @@ Rails.application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
   #rack-cors
-  #config.serve_static_assets = true
+  config.serve_static_assets = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
