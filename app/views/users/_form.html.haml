@@ -12,21 +12,21 @@
             %div{class: "input-group"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-user
-              = text_field_tag :name, nil, placeholder: "用户名...", class: "form-control", tabindex: 1
+              = search_field_tag :name, nil, placeholder: "用户名...", class: "form-control", tabindex: 1
             %div{id: "name_taken"}
 
           .form-group
             %div{class: "input-group"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-envelope
-              = text_field_tag :email, nil, placeholder: "邮箱...", class: "form-control", tabindex: 2
+              = search_field_tag :email, nil, placeholder: "邮箱...", class: "form-control", tabindex: 2
             %div{id: "email_taken"}
 
           .form-group
             %div{class: "input-group"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-phone
-              = text_field_tag :phone, nil, placeholder: "手机号码...", class: "form-control", tabindex: 3
+              = search_field_tag :phone, nil, placeholder: "手机号码...", class: "form-control", tabindex: 3
             %div{id: "phone_taken"}
 
           .form-group
@@ -43,7 +43,7 @@
             %div{class: "input-group password"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-lock
-              = password_field_tag :password, nil, placeholder: "密码...", class: 'form-control', autocomplete: :off, tabindex: 4
+              = search_field_tag :password, nil, placeholder: "密码...", class: 'form-control', autocomplete: :off, tabindex: 4
             %i.fa-lg.fa.fa-eye.blink
             
           -#.form-group#ru

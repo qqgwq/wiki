@@ -10,13 +10,13 @@
             %div{class: "input-group"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-phone
-              = text_field_tag :login, params[:login], class: "form-control", placeholder: "电话号码/邮箱..."
+              = search_field_tag :login, params[:login], class: "form-control", placeholder: "电话号码/邮箱..."
 
           .form-group
             %div{class: "input-group"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-lock
-              = password_field_tag :password, nil, class: "form-control", placeholder: "密码..."
+              = search_field_tag :password, nil, class: "form-control", placeholder: "密码..."
           = link_to "忘记密码?", new_password_resets_path
               
           .form-group

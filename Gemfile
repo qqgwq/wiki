@@ -8,6 +8,7 @@ source 'https://gems.ruby-china.com'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.5'
+gem 'pg'
 
 # Use sqlite3 as the database for Active Record
 
@@ -28,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'listen', '~> 3.0.5'
 #常用
 gem 'haml', '5.0.4'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'simple_form'
 gem 'bcrypt'
 gem 'execjs' 
@@ -70,7 +71,6 @@ gem 'paperclip-i18n'
 gem 'bootstrap-filestyle-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'aws-sdk', '>= 2.0.0' 
 
 #分页
 gem 'kaminari'
@@ -135,7 +135,6 @@ group :development do
   gem 'capistrano3-puma', '~> 1.2.1'
   gem 'rack-mini-profiler', require: false
   gem 'pry-rails'
-  gem 'pg', '~> 0.18.4'
   gem 'net-ssh', '~>4.1.0'
 end
 
@@ -150,7 +149,7 @@ group :test do
   gem 'database_cleaner'
 end
 
-group :production do
-  gem 'pg', '~> 0.18.4'
-end
+# group :production do
+#   gem 'pg', '~> 0.18.4'
+# end
 
