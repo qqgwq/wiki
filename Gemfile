@@ -97,7 +97,7 @@ gem 'friendly_id'
 gem 'china_sms'
 
 #队列
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.1'
 gem 'redis'
 gem 'redis-namespace'
 gem 'concurrent-ruby'
