@@ -16,7 +16,7 @@
             %div{class: "input-group"}
               %div{class: "input-group-addon"}
                 %i.glyphicon.glyphicon-lock
-              = search_field_tag :password, nil, class: "form-control", placeholder: "密码..."
+              = password_field_tag :password, nil, class: "form-control", placeholder: "密码..."
           = link_to "忘记密码?", new_password_resets_path
               
           .form-group
