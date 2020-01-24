@@ -16,7 +16,7 @@ end
 set :environment, "development"
 set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-every 1.day, at: '13:33 am' do
+every 1.day, at: '13:36 pm' do
   rake "lunar_date:all_lunar"
 end
 
