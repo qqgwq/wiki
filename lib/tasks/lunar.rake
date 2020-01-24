@@ -16,6 +16,6 @@ def traditional_festival
   current_lunar_day = ("#{(LunarDate.from_solar(Time.now.year, Time.now.month, Time.now.day))}")
   if Holidays.value?(current_lunar_day.to_date.strftime("%m%d"))
     holiday = Holidays.key(current_lunar_day.to_date.strftime("%m%d"))
-    LunarDateJob.perform_later(holiday)
+    LunarDateJob.perform_now(holiday)
   end
 end
