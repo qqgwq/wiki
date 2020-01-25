@@ -13,7 +13,7 @@ class LunarDateJob < ApplicationJob
     return unless traditional_day
 
     ChinaSMS.use :yunpian, password: 'eb2483f50cf7ad8eb8197c1a4bd16b9b'
-    tpl_text = "【高万强】今天是#{traditional_day},祝你及你家人节日快乐, 心想事成，年年有余"
+    tpl_text = "【高万强】今天是#{traditional_day},祝你及你家人节日快乐,心想事成!"
     mobile = family_number
     ChinaSMS.to mobile, tpl_text
   end
