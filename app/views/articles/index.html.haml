@@ -64,7 +64,7 @@
             .panel.body
             #marquee
               #announcement
-                祝您春节快乐
+                共同抗击疫情
           .panel.panel-wikis
           .panel.panel-default
             .panel-body
@@ -97,7 +97,7 @@
                     %th 积分
                     %th 用户
                 %tbody
-                  - @users.each do |user|
+                  - User.all.each do |user|
                     %tr
                       %td= user.rank
                       %td= (user.score)+(user.checkin_score.score(user.id).to_i)
