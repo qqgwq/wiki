@@ -6,38 +6,37 @@
         .panel.panel-wiki2
           = render 'shareds/flash'
           .panel.panel-default
-            - if @article.complete?
-              .panel-heading
-                .panel-title
-                = @article.title
-                = link_to(@article.url, @article.url, target: :_blank)
+            .panel-heading
+              .panel-title
+              = @article.title
+              = link_to(@article.url, @article.url, target: :_blank)
 
-                #article-img
-                  - if @article.user.image.present?
-                    = link_to(image_tag @article.user.image.url, title: @article.user.name)
-                  - else
-                    = image_tag("avatar.png", class: 'img-rounded', width: 48, height: 48)
-              .info
-                = @article.user.name
-                &nbsp
-                发布于
-                = @article.created_at.to_date
-                &nbsp
-                = @article.views_count
-                次阅读
-                &nbsp
-                点击量
-                = @article.click_count.value()
-                次
-              %ul.list-group
-                %li.list-group-item-wiki.media{style: "padding: 8"}
-                  .media-left 
-                    = image_tag @article.avatar.url, width: 164, height: 164, class: 'img-rounded'
-                  .media-body
-                    .pull-right
-                      = render partial: 'articles/like'
-                    .media-heading
-                      = raw @article.content
+              #article-img
+                - if @article.user.image.present?
+                  = link_to(image_tag @article.user.image.url, title: @article.user.name)
+                - else
+                  = image_tag("avatar.png", class: 'img-rounded', width: 48, height: 48)
+            .info
+              = @article.user.name
+              &nbsp
+              发布于
+              = @article.created_at.to_date
+              &nbsp
+              = @article.views_count
+              次阅读
+              &nbsp
+              点击量
+              = @article.click_count.value()
+              次
+            %ul.list-group
+              %li.list-group-item-wiki.media{style: "padding: 8"}
+                .media-left 
+                  = image_tag @article.avatar.url, width: 164, height: 164, class: 'img-rounded'
+                .media-body
+                  .pull-right
+                    = render partial: 'articles/like'
+                  .media-heading
+                    = raw @article.content
                 #comments
                   = render partial: 'comments/comment', collection: @article.comments, :as => :comment
               
@@ -53,50 +52,13 @@
                     .panel-body
                       = render "comment_text"
                   
-                
-            - elsif @article.deny?
               .col-md-15
                 .panel.panel-wiki2
                   .panel.panel-default
                     .panel-heading
                       .panel-title
                       = @article.title  
-                    .info
-                      = @article.user.name
-                      &nbsp
-                      = @article.created_at.to_date
-                      &nbsp
-                      = @article.views_count
-                      次阅读
-                      &nbsp
-                      点击量
-                      = @article.click_count.incr()
-                      次
-                      %span 发表的
-                      %strong"#{@article.content}"
-                      没有通过审核,请修改
                   = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
-            - else
-              .col-md-15
-                .panel.panel-wiki2
-                  .panel.panel-default
-                    .panel-heading
-                      .panel-title
-                      = @article.title  
-                    .info
-                      = @article.user.name
-                      &nbsp
-                      = @article.created_at.to_date
-                      &nbsp
-                      = @article.views_count
-                      次阅读
-                      &nbsp
-                      点击量
-                      = @article.click_count.incr()
-                      次
-                      %span 发表的
-                      %strong"#{@article.content}"
-                    正在审核中...
 
       .col-md-3
         .panel.panel-wiki2
