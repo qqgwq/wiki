@@ -43,6 +43,9 @@ gem 'bootstrap-tooltip-rails' #链接/表单/
 gem 'awesome_print', :require => 'ap'
 gem 'country_select', '~> 4.0'
 
+#根据用户浏览喜爱推荐
+gem 'simple_recommender'
+
 #select tag
 gem "select2-rails"
 #性能监控
@@ -55,7 +58,7 @@ gem "sentry-raven"
 #gem 'lunar_blessing', github: 'mycolorway/lunar_blessing'
 
 #图标
-gem 'font-awesome-sass'
+gem "font-awesome-rails"
 gem "chartkick"
 gem "groupdate"
 

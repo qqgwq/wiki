@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
   include Likeable
   include Redis::Objects
+  include SimpleRecommender::Recommendable
+  similar_by :users
   set :limit_read
   # extend FriendlyId
   # friendly_id :title
@@ -9,6 +11,7 @@ class Article < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :likes, as: 'likeable', dependent: :destroy
+  has_many :users, through: :likes
   validates :title, presence: true, length: { in: 3..11 }
   validates :content, presence: true
   validates :avatar, attachment_presence: true

@@ -48,17 +48,21 @@
                       共
                       = @article.comments.count
                       条评论
-                  .panel
-                    .panel-body
-                      = render "comment_text"
-                  
-              .col-md-15
-                .panel.panel-wiki2
-                  .panel.panel-default
-                    .panel-heading
-                      .panel-title
-                      = @article.title  
-                  = link_to "编辑", edit_article_path, class: "btn btn-primary btn-sm"
+
+        .need-login
+          .panel
+            .panel-body
+              = render "comment_text"
+        .card
+          .panel
+            .panel-heading
+              %span 相关文章
+            .panel-body
+              %ul.list-group.list-group-flush
+                - @article.similar_items(n_results: 5).each do |article|
+                  %li.list-group-item
+                    = link_to article.title, article.url
+                 
 
       .col-md-3
         .panel.panel-wiki2
