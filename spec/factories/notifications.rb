@@ -1,7 +1,11 @@
 FactoryGirl.define do
   factory :notification do
     user
-    association :subject, factory: 'comment'
-    association :subject, factory: 'like'
+    trait :for_comment do
+      association(:subject, factory: 'comment')
+    end
+    trait :for_like do
+      association(:subject, factory: 'like')
+    end
   end
 end

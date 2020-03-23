@@ -89,8 +89,8 @@ RSpec.describe UsersController, type: :controller do
 
   describe "Post get sms code" do
     it "Get sms code" do
-      post :get_sms_code
-      expect(response.content_type).to eq("text/html")
+      post :get_sms_code, format: :json
+      expect(response.content_type).to eq("application/json")
     end
   end
 

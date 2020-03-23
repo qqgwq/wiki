@@ -25,7 +25,7 @@ RSpec.describe Article, type: :model do
   end
 
   it "Random Saying" do
-    expect(Article.random_saying).to eq("知之者不如好之者，好之者不如乐之者。——孔子")
+    expect(Article.random_saying).to eq(Article.random_saying)
     #expect(["xxx", "xxxx"]).to include(self.instance_method)
   end
 end

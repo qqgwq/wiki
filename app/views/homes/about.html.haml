@@ -1,27 +1,10 @@
 - content_for(:title, "关于我")
-.container-fluid
+.container
   .row
-    .panel#width
-      %div#header= image_tag("build.jpg")
-      %div#avatar
-        = image_tag("gwq.jpg", title: @home.name)
-        %span#count_down
-        %li#count_down1 Time is life
-        %div#title
-          %ul
-            %li 年龄: 1995年
-            %li 姓名: 高万强
-            %li Ruby工程师,从事ruby后端开发.
-            %li Wechat: g1305851004
-            %li QQ: 1305851004
-          %div#footer
-            = link_to "https://github.com/qqgwq" do
-              %i.fa.fa-github#icon
-            = link_to "https://twitter.com/gwq1020" do
-              %i.fa.fa-twitter#icon
-            = link_to "http://weibo.com/5563887016/profile?topnav=1&wvr=6" do
-              %i.fa.fa-weibo#icon
-      %div#exprience{style: "margin-top: -11%;"}
+    .col-md-12
+      %span#count_down
+    .col-md-9
+      .panel.panel-default
         %ul
           %h1 经历:
           %li 成都市JWBC科技有限公司实习,后端的开发和维护.
@@ -38,11 +21,35 @@
           %li  熟悉RESTFUL
           %li  熟悉html/css/bootstrap/jquery/js/ajax
           %li  熟悉redis
-        = render 'modals/modal'
-      %div#info
+          = render 'modals/modal'
+    .col-md-3
+      .panel.panel-default
+        %div#avatar
+          = image_tag("gwq.jpg", title: @home.name)
+        .panel-body
+          %div#title
+            %ul
+              %li 
+              年龄: 
+              = current_age
+              %li 姓名: 高万强
+              %li Ruby工程师,从事ruby后端开发.
+              %li Wechat: g1305851004
+              %li QQ: 1305851004
+          %div#footer
+            = link_to "https://github.com/qqgwq" do
+              %i.fa.fa-github#icon
+            = link_to "https://twitter.com/gwq1020" do
+              %i.fa.fa-twitter#icon
+            = link_to "http://weibo.com/5563887016/profile?topnav=1&wvr=6" do
+              %i.fa.fa-weibo#icon
+        %div#info
         %p 打赏:
         %p= image_tag("wechat.jpg")
-  :javascript
+
+
+
+:javascript
     var interval = 1000; 
     function ShowCountDown(year,month,day,hour,minute,divname) 
     { 
@@ -59,3 +66,4 @@
     cc.innerHTML = "距离"+year+"年"+month+"月"+day+"日还有："+day1+"天"+hour+"小时"+minute+"分"+second+"秒";
     } 
     window.setInterval(function(){ShowCountDown(2021,01,01,0,0,'count_down');}, interval); 
+  

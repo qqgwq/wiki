@@ -218,18 +218,8 @@ li1{
     width: 80px;
     border-radius: 50%;
     border: 5px solid rgb(23, 255, 255);
-    position: relative;
-    margin-top: -100px;
-    left: 90%;
+    float: right;
   }
-}
-#width{
-  width: 1349px;
-  padding:0px;
-  height: 140%;
-  margin-top: 0px;
-  background: rgb(247, 249, 249);
-  margin-left: -160px;
 }
 #info{
   text-align: center;
@@ -237,7 +227,7 @@ li1{
   color: #428bca;
   float: right;
   position: relative;
-  top: -20%;
+  top: -15%;
   
 
   img{
@@ -251,12 +241,12 @@ li1{
  font-size: 1em;
  color: red;
  float: right;
- margin-top: -100px; 
+ margin-bottom: 15px;
 }
 
 #footer{
   width: 53%;
-  margin: 28px 56px;
+  float: right;
 #icon{
   width: 40px;
   height: 30px;
@@ -399,18 +389,9 @@ li1{
 }
 
 #count_down{
-  position: relative;
   top: -168px;
   font-size: 4em;
   color: red;
-}
-#count_down1{
-  position: relative;
-  top: -6em;
-  font-size: 4em;
-  color:#f0ffff;
-  right: -9em;
-  list-style-type: none;
 }
 //表单验证
 label.error{
