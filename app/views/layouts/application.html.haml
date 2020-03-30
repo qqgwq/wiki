@@ -79,6 +79,10 @@
       .row
         .col-md-9.col-xs-12
           = yield
+
+    .container
+      = render 'layouts/footer'
+      
     -#不需要刷新
     = javascript_include_tag 'rails_emoji_picker'
     %a{href: "#top", id: "back-to-top", title: "Back to top"}

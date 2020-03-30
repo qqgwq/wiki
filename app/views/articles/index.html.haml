@@ -54,10 +54,6 @@
             = render @articles
           #paginator
             = paginate @articles, remote: true
-        %h3{ style: "text-align: center; color: white; font-size: 2em;" }
-          Copyright © 
-          = current_copyright_year 
-          g-wq.com.All Rights Reserved
       .col-md-3
         - unless login?
           .panel.panel-wikis
