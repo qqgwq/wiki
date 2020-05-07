@@ -56,13 +56,14 @@
             = paginate @articles, remote: true
       .col-md-3
         - unless login?
-          .panel.panel-wikis
           .panel.panel-default
             .panel.body
             #marquee
               #announcement
                 众志成城 共克时艰
-          .panel.panel-wikis
+          .panel.panel-default
+            .panel-body
+              .JQ
           .panel.panel-default
             .panel-body
               .greetings

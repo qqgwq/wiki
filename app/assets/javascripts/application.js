@@ -29,6 +29,8 @@
 //= require jquery.provincesCity
 //= require provincesData
 
+//= require seasons
+
 //阳历转农历
 //= require chinese-lunar
 
