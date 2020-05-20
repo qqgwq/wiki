@@ -8,11 +8,11 @@
           - else
             = image_tag(article.user.image, class: "img-rounded", width: 64, height: 64) if article.user
         .media-body
-          .media-heading
+          .media-heading.find-more
             = article.title
             by
             = article.user&.name
-            = link_to "查看更多...", article, class: "btn btn-primary btn-xs", id: "score",
+            = link_to "查看更多...", article, class: "btn btn-primary btn-xs much-more", id: "score",
             "data-original-title" => "读取文章积分+3"
           .media-heading#item
             最后由
