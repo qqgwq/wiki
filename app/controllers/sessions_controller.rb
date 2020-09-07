@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
         if params[:remember_me]
           cookies.permanent[:auth_token] = @user.auth_token
         else
-          cookies[:auth_token] = @user.auth_token
+          cookies[:auth_token] = {value: @user.auth_token, expires: 1.minutes.from_now }
         end
         flash[:success] = "欢迎您! #{@user.name}!"
         $redis.del(@access) #清除失败计数地址
